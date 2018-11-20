@@ -2,7 +2,7 @@
 {
     background-image:radial-gradient(white, #c5dbe0);
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: 100vw 100%;
     overflow-x: hidden;
 }
 
