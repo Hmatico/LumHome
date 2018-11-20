@@ -17,5 +17,5 @@ else {
 	//echo ('controle : ' . $controle . ' et <br/> action : ' . $action);	
 	require ('./controle/' . $controle . '.php');
 	$action ();
-} 
+}
 ?>
