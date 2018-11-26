@@ -5,13 +5,27 @@ $(document).ready(function(){
         console.log("pwd: "+ $("#pwd").val());
         
         if($("#email").val() != "" && $("#pwd").val() != ""){
+            var controler = "controle=gestionSession&action=ident";
+            var email_content = "login="+$("#email").val();
+            var pwd_content = "pwd="+$("#pwd").val();
             $.ajax({
                 type: "POST",
                 url: "../index.php",
-                data: "controle=gestionSession&action=ident&login="+$("#email").val()+"&pwd="+$("#pwd").val(),
+                data: controler+"&"+email_content+"&"+pwd_content,
                 success: function(result){
+                    if(result == "OK"){
+                        controler = "controle=utilisateur&action=dashboard";
+                        $(location).attr("href", "../index.php"+"?"+controler);
+                    }
+                    if(result == "inconnu"){
+                        controler = "controle=gestionSession&action=nouvelUtilisateur";
+                        $(location).attr("href", "../index.php"+"?"+controler+"&"+email_content+"&"+pwd_content);
+                    }
+                    alert(result);
+                },
+                error: function(result){
                     if(result){
-                        alert(result);
+                        console.log(result);
                     }
                 }
             });
