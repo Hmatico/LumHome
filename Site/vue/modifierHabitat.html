@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>modifier habitat</title>
+  <link rel="stylesheet" href="style_modifierHabitat.css">
+</head>
+<body>
+<div class="Entete">
+		<div class="menu"> Entete </div>
+</div>
+<div class="titre">
+    <h1>MODIFIER HABITAT</h1>
+</div>
+<form>
+    <div class="contain">
+        <div class="zone">
+            <div class="texte">
+                <label for="num" class="label">Numéro de rue :</label>
+                <input type="text" id="num" name="num" class="input">
+            </div>
+            <div class="texte">
+                <label for="rue" class="label">Rue :</label>
+                <input type="text" id="rue" name="street" class="input">
+            </div>
+            <div class="texte">
+                <label for="compl" class="label">Complément d'adresse:</label>
+                <input id="compl" name="compl" class="input"> 
+            </div>
+        </div>
+        <div class="zone">
+            <div class="texte">
+                <label for="ville" class="label">Ville :</label>
+                <input type="text" id="ville" name="city" class="input">
+            </div>
+            <div class="texte">
+                <label for="region" class="label">Région :</label>
+                <input type="text" id="region" name="country" class="input">
+            </div>
+            <div class="texte">
+                <label for="post" class="label">Code Postal :</label>
+                <input type="number" id="post" name="post" class="input">
+            </div>
+        </div>
+        <div class="zone">
+            <div class="texte">
+                <label for="appel_habitat" class="label">Comment voulez-vous appeler votre habitat ? :</label>
+                <input id="appel_habitat" name="appel_habitat" class="input">
+            </div>
+        </div>
+    </div>
+    <div class="contain">
+        <button type="submit" class="bouton">
+            <p>VALIDER</p>
+        </button>
+    </div>
+</form>
+</body>
