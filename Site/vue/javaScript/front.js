@@ -13,9 +13,15 @@ $(document).ready(function(){
                 url: "../index.php",
                 data: controler+"&"+email_content+"&"+pwd_content,
                 success: function(result){
-                    if(result){
-                        alert(result);
+                    if(result == "OK"){
+                        controler = "controle=utilisateur&action=dashboard";
+                        $(location).attr("href", "../index.php"+"?"+controler);
                     }
+                    if(result == "inconnu"){
+                        controler = "controle=gestionSession&action=nouvelUtilisateur";
+                        $(location).attr("href", "../index.php"+"?"+controler+"&"+email_content+"&"+pwd_content);
+                    }
+                    alert(result);
                 },
                 error: function(result){
                     if(result){
