@@ -1,7 +1,7 @@
 <?php
 
     function accueil(){
-        header("Location: vue/accueil.html");
+        require("vue/accueil.html");
     }
 
     function ident(){
@@ -10,6 +10,12 @@
 
         require("modele/utilisateurBD.php");
         echo verifIdent($login,$pwd);
+    }
+
+    function nouvelUtilisateur(){
+        $email = $_GET['login'];
+        $pwd = $_GET['pwd'];
+        require("vue/inscription.php");
     }
 
     function verifData($mail,$pwd){

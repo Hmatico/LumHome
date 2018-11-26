@@ -2,28 +2,28 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./css/styleG.css" />
-        <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./css/styleM.css" />
-        <link rel="stylesheet" media="screen and (max-width: 650px)" href="./css/styleP.css" />
-        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./vue/css/styleG.css" />
+        <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./vue/css/styleM.css" />
+        <link rel="stylesheet" media="screen and (max-width: 650px)" href="./vue/css/styleP.css" />
+        <link rel="stylesheet" href="./vue/css/style.css" />
         <title>LumHome - Inscription</title>
     </head>
     <body>
         <nav class="banner">
             <div class="vert-align">
                 <a href=#>
-                    <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
+                    <img src="./vue/resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <a class="go_back" href=#>
+            <a class="go_back" href="./vue/accueil.html">
                 <div class="submenu_i">Retourner à la page d'accueil / Annuler l'inscription</div>
             </a>
         </nav>
         <div class="navigation">
-            <img src="./resources/maj.png" alt="">
-            <a class="histo_site" href=#>Accueil</a>
+            <img src="./vue/resources/maj.png" alt="">
+            <a class="histo_site" href="./vue/accueil.html">Accueil</a>
             >
-            <a class="histo_site" href=#>Page d'inscription</a>
+            <a class="histo_site" href="">Page d'inscription</a>
         </div>
         <div class="body_container">
             <form action="#" method="get">
@@ -34,9 +34,9 @@
                     <div class="input_pdata">
                         <input class="pdata_colg"  type="text" name="nom" placeholder="Nom">
                         <input class="pdata_cold" type="text" name="prenom" placeholder="Prénom">
-                        <input class="pdata_colg" type="text" name="email" placeholder="Adresse email">
+                        <input class="pdata_colg" type="text" name="email" value="<?php echo $email; ?>" placeholder="Adresse email">
                         <input class="pdata_cold" type="text" name="emailc" placeholder="Confirmer votre adresse email">
-                        <input class="pdata_colg" type="password" name="pwd" placeholder="Mot de passe">
+                        <input class="pdata_colg" type="password" name="pwd" value="<?php echo $pwd; ?>" placeholder="Mot de passe">
                         <input class="pdata_cold" type="password" name="pwdc" placeholder="Confirmer votre mot de passe">
                     </div>
                     <div>

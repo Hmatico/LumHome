@@ -15,13 +15,16 @@ $(document).ready(function(){
                 success: function(result){
                     if(result == "OK"){
                         controler = "controle=utilisateur&action=dashboard";
-                        $(location).attr("href", "../index.php"+"?"+controler);
-                    }
-                    if(result == "inconnu"){
-                        controler = "controle=gestionSession&action=nouvelUtilisateur";
                         $(location).attr("href", "../index.php"+"?"+controler+"&"+email_content+"&"+pwd_content);
                     }
-                    alert(result);
+                    if(result == "inconnu"){
+                        if(confirm("Voulez-vous créer un compte ?")){
+                            controler = "controle=gestionSession&action=nouvelUtilisateur";
+                            $(location).attr("href", "../index.php"+"?"+controler+"&"+email_content+"&"+pwd_content);
+                        } else {
+                            $(location).attr("href", "./accueil.html");
+                        }
+                    }
                 },
                 error: function(result){
                     if(result){
