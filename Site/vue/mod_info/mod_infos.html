@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="style_2.css" />
+        <title>LumHome</title>
+    </head>
+    <body>
+        <nav class="banner">
+            <div class="vert-align">
+                <a href=#>
+                    <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
+                </a>
+            </div>
+
+            <div class="container">            
+                <div class="buttonLog">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_user.png" class="logoa" alt="User_Account">
+                        <span class="button_desc">Mon Compte</span>
+                    </a>
+                </div>
+
+                <div class="buttonLog">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
+                        <span class="button_desc">Déconnexion</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="menuu">
+            <div class="vert-align">
+                <div class="menuButton">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
+                        <div class="button_desc_fromMenu">Accueil</div>
+                    </a>
+                </div>    
+            </div>
+            <div class="vert-align">
+                <div class="menuButton">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
+                        <span class="button_desc_fromMenu">Scénario</span>
+                    </a>
+                </div>    
+            </div>
+            <div class="vert-align">
+                <div class="menuButton">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
+                        <span class="button_desc_fromMenu">Gérer</span>
+                    </a>
+                </div>    
+            </div>
+            <div class="vert-align">
+                <div class="menuButton">
+                    <a href=# class="vert-align">
+                        <img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
+                        <span class="button_desc_fromMenu">Statistiques</span>
+                    </a> 
+                </div>    
+            </div>
+
+        </nav>
+                    <div class="vert-align notif">
+                <div class="notification">
+                    <a href="">
+                        <img src="./resources/notification.png" class="logo_notif" alt="Alertes">
+                        <img src="./resources/nb_notif.png" class="logo_notif" alt="Nb Alertes">
+                    </a>
+                </div>    
+            </div>
+    </body>
+    <body2>
+        <div class="forms">
+            <div class="forms_col">
+                <form class="form_info">
+                    <div>
+                        <img src="./resources/notification.png">
+                        <span class="uline">
+                            Informations personnelles
+                        </span>
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Nom :</span>
+                        <input type="text" name="lname" placeholder="Nom">
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Prénom :</span>
+                        <input type="text" name="fname" placeholder="Prénom">
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Adresse mail :</span>
+                        <input type="email" name="mail" placeholder="example@domaine.ext">
+                    </div>
+                </form>  <!-- /form_info -->
+                <form class="form_bank">
+                    <div>
+                        <img src="./resources/notification.png">
+                        <span class="uline">
+                            Informations bancaires
+                        </span>
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Numéro de carte :</span>
+                        <input type="text" name="num_card" placeholder="XXXXYYYYXXXXYYYY">
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Date d'expiration :</span>
+                        <input type="date" name="date_exp" placeholder="31/12/2000">
+                    </div>
+                    <div>
+                        <span class="tabbed_sp">Cryptogramme visuel :</span>
+                        <input type="password" name="crypt" placeholder="123">
+                    </div>
+                </form> <!-- /form_info -->
+            </div> <!-- /form_col -->
+            <div class="forms_col">
+                <form class="form_address">
+                    <div>
+                        <img src="./resources/notification.png">
+                        <span class="uline">
+                            Adresse de facturation
+                        </span>
+                    </div>
+                    <div>
+                        <input type="number" name="adress_num" class="ipt_ad_num" placeholder="12">
+                        <input type="text" name="adress_road" placeholder="rue...">
+                    </div>
+                    <div>
+                        <input type="number" name="adress_postal" placeholder="00000">
+                        <input type="text" name="adress_city" placeholder="City...">
+                    </div>
+                    <div>
+                        <input type="text" name="adress_comp" placeholder="Complément...">
+                    </div>
+                </form> <!-- /form_address -->
+                <form class="trigg_parental">
+                        <div>
+                            <div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <span>Contrôle parental : permet de sécuriser l'accès aux paramètres et aux capteurs.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span>Etat : PlaceHolder</span>
+                        </div>
+                        <div>
+                            <button class="mod_PIN">Modifier le PIN</button>
+                        </div>
+                    </div>
+                </form> <!-- /trigg_parental -->
+            </div> <!-- /form_col -->
+        </div>
+
+        <div class="buttons">
+            <button class="cancel">Annuler les modifications</button>
+            <button class="validate">Valider les modifications</button>
+        </div> <!-- /button -->
+    </body2>
+
+</html>
