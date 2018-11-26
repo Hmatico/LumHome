@@ -33,7 +33,7 @@ $(document).ready(function(){
                 }
             });
         } else {
-            alert("haaalo");
+            alert("Au moins un des champs est vide !");
         }
     });
     
