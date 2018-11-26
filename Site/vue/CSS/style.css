@@ -75,6 +75,11 @@
     width: 25%;
 }
 
+.logo_content {
+    color : rgba(54,136,158,1);
+    font-size: 1em;
+}
+
 .accueil_form .btn {
     background-color : rgba(66,66,66,1);
     padding :0.7em;
@@ -88,4 +93,32 @@
     text-decoration: underline;
     color: black;
     cursor: pointer;
+}
+
+.caroussel{
+    margin-left: 10%;
+    width: 80%;
+    height: 30%;
+    background-color: antiquewhite;
+}
+
+.accueil_bas {
+    width: 100%;
+    position: absolute;
+    bottom : 0;
+}
+
+.logo_reseaux {
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    text-align: center;
+}
+
+.icon_bas img{
+    height: 8vh;
+}
+
+.icon_bas {
+    text-align: center;
 }
