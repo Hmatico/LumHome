@@ -2,25 +2,25 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./vue/css/styleG.css" />
-        <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./vue/css/styleM.css" />
-        <link rel="stylesheet" media="screen and (max-width: 650px)" href="./vue/css/styleP.css" />
-        <link rel="stylesheet" href="./vue/css/style.css" />
+        <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./css/styleG.css" />
+        <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./css/styleM.css" />
+        <link rel="stylesheet" media="screen and (max-width: 650px)" href="./css/styleP.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         <title>LumHome - Inscription</title>
     </head>
     <body>
         <nav class="banner">
             <div class="vert-align">
                 <a href=#>
-                    <img src="./vue/resources/logo.png" class="logo vert-align" alt="Logo LumHome">
+                    <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <a class="go_back" href="./vue/accueil.html">
+            <a class="go_back" href="./accueil.html">
                 <div class="submenu_i">Retourner à la page d'accueil / Annuler l'inscription</div>
             </a>
         </nav>
         <div class="navigation">
-            <img src="./vue/resources/maj.png" alt="">
+            <img src="./resources/maj.png" alt="">
             <a class="histo_site" href="./vue/accueil.html">Accueil</a>
             >
             <a class="histo_site" href="">Page d'inscription</a>
