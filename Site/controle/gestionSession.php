@@ -13,8 +13,8 @@
     }
 
     function nouvelUtilisateur(){
-        $email = $_GET['login'];
-        $pwd = $_GET['pwd'];
+        $email = $_POST['login'];
+        $pwd = $_POST['pwd'];
         require("vue/inscription.php");
     }
 
