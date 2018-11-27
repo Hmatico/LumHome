@@ -35,3 +35,90 @@
 .p_data {
     display: block;
 }
+
+.img_container {
+    margin-top: -4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+    align-content: space-between;
+}
+
+.logo_content {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.accueil_form {
+    text-align: left;
+    width: 80%;
+    padding-left: 35%;
+}
+
+.accueil_form input[type="text"], .accueil_form input[type="password"]{
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0.5em 0.7em;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.accueil_form input[type="text"]{
+    width: 40%;    
+}
+
+.accueil_form input[type="password"]{
+    width: 25%;
+}
+
+.logo_content {
+    color : rgba(54,136,158,1);
+    font-size: 1em;
+}
+
+.accueil_form .btn {
+    background-color : rgba(66,66,66,1);
+    padding :0.7em;
+    border-radius : 0.7em;
+    color : #c5dbe0;
+    border : none;
+    cursor: pointer;
+}
+
+.lien {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
+
+.caroussel{
+    margin-left: 10%;
+    width: 80%;
+    height: 30%;
+    background-color: antiquewhite;
+}
+
+.accueil_bas {
+    width: 100%;
+    position: absolute;
+    bottom : 0;
+}
+
+.logo_reseaux {
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    text-align: center;
+}
+
+.icon_bas img{
+    height: 8vh;
+}
+
+.icon_bas {
+    text-align: center;
+}

@@ -5,43 +5,67 @@
         <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./css/styleG.css" />
         <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./css/styleM.css" />
         <link rel="stylesheet" media="screen and (max-width: 650px)" href="./css/styleP.css" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script type="text/javascript" src="./javaScript/jquery-3.3.1.min.js"></script>
         <title>LumHome - Accueil</title>
     </head>
-    <body>
+    <body id="body">
         <nav class="banner">
             <div class="vert-align">
                 <a href=#>
                     <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <div>
-                <form action="#" method="get">
-                    <input class="" type="text" name="email" placeholder="Adresse email">
-                    <input class="" type="password" name="pwd" placeholder="Mot de passe">
-                    <input type="button" value="Valider" >
+            <div class="accueil_form">
+                <form >
+                    <input type="text" id="email" placeholder="Adresse email">
+                    <input type="password" id="pwd" placeholder="Mot de passe">
+                    <input class="btn" value="Se connecter"><br>
+                    Mot de passe/identifiant oublié ? <a href="" class="lien">Cliquez ici</a><br>
+                    Toujours pas inscrit ? Créez votre compte en <a href="" class="lien">cliquant ici.</a>
                 </form>
+                
             </div>
         </nav>
         <div class="accueil_body">
             <div class="img_container">
-                <div class="">
+                <div class="logo_content">
                     <img src="./resources/Logo_info.png" class="logo" alt="LumHome">
                     LumHome
                 </div>
-                <div class="">
+                <div class="logo_content">
                     <img src="./resources/Logo_nous.png" class="logo" alt="Qui sommes nous ?">
                     Qui sommes nous ?
                 </div>
-                <div class="">
+                <div class="logo_content">
                     <img src="./resources/Logo_contact.png" class="logo" alt="Nous contacter">
                     Nous contacter
                 </div>
-                <div class="">
+                <div class="logo_content">
                     <img src="./resources/Logo_forum.png" class="logo" alt="Forum">
                     Forum
                 </div>
             </div>
+            <div class="caroussel">
+                lknda
+            </div>
+            <div class="accueil_bas">
+                <div class="logo_reseaux">
+                    <div class="icon_bas">
+                        <img src="./resources/icone_fb.png" class="logo">
+                    </div>
+                    <div class="icon_bas">
+                        <img src="./resources/icone_linkedin.png" class="logo">
+                    </div>
+                    <div class="icon_bas">
+                        <img src="./resources/icone_twitter.png" class="logo">
+                    </div>
+                </div>
+                <div class="icon_bas">
+                    FAQ-CGU - Plan du site - Politique de confidentialité et Cookies
+                </div>
+            </div>
         </div>
     </body>
+    <script type="text/javascript" src="./javaScript/front.js"></script>
 </html>

@@ -15,15 +15,15 @@
                     <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <a class="go_back" href=#>
+            <a class="go_back" href="./accueil.html">
                 <div class="submenu_i">Retourner à la page d'accueil / Annuler l'inscription</div>
             </a>
         </nav>
         <div class="navigation">
             <img src="./resources/maj.png" alt="">
-            <a class="histo_site" href=#>Accueil</a>
+            <a class="histo_site" href="./vue/accueil.html">Accueil</a>
             >
-            <a class="histo_site" href=#>Page d'inscription</a>
+            <a class="histo_site" href="">Page d'inscription</a>
         </div>
         <div class="body_container">
             <form action="#" method="get">
@@ -34,9 +34,9 @@
                     <div class="input_pdata">
                         <input class="pdata_colg"  type="text" name="nom" placeholder="Nom">
                         <input class="pdata_cold" type="text" name="prenom" placeholder="Prénom">
-                        <input class="pdata_colg" type="text" name="email" placeholder="Adresse email">
+                        <input class="pdata_colg" type="text" name="email" value="<?php echo $email; ?>" placeholder="Adresse email">
                         <input class="pdata_cold" type="text" name="emailc" placeholder="Confirmer votre adresse email">
-                        <input class="pdata_colg" type="password" name="pwd" placeholder="Mot de passe">
+                        <input class="pdata_colg" type="password" name="pwd" value="<?php echo $pwd; ?>" placeholder="Mot de passe">
                         <input class="pdata_cold" type="password" name="pwdc" placeholder="Confirmer votre mot de passe">
                     </div>
                     <div>
