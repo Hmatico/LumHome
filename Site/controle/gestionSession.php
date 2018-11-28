@@ -1,7 +1,7 @@
 <?php
 
     function accueil(){
-        require("vue/accueil.html");
+        header("Location: vue/accueil.html");
     }
 
     function ident(){
