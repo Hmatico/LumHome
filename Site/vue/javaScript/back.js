@@ -1,8 +1,8 @@
 $(document).ready(function(){
     
     $(".accueil_form .btn").click(function(){
-        console.log("email : "+ $("#email").val());
-        console.log("pwd: "+ $("#pwd").val());
+        //console.log("email : "+ $("#email").val());
+        //console.log("pwd: "+ $("#pwd").val());
         
         if($("#email").val() != "" && $("#pwd").val() != ""){
             var mail = $("#email").val();
@@ -15,7 +15,7 @@ $(document).ready(function(){
                 url: "../index.php",
                 data: controler+"&"+email_content+"&"+pwd_content,
                 success: function(data){
-                    console.log(data);
+                    //console.log(data);
                     choixInscription(data, mail,pass); 
                 },
                 error: function(result){
@@ -52,4 +52,60 @@ $(document).ready(function(){
             }
         }
     }
+    
+     $(".body_container .button").click(function(){
+         champsRemplis();
+     });
+                                          
+     function champsRemplis() {
+         var empty = false;
+         $(".body_container input").each(function(){
+             if($(this).val()===""){
+                 empty = true;
+                console.log($(this).css('border-color', 'red')); 
+             } 
+         });
+         if(empty)
+             alert("Veuillez renseigner les champs obligatoires");
+         else {
+             //
+         }
+     }                                
 });
+
+/*
+            var params = new Array();
+            var mail = $("#email").val();
+            var pass = $("#pwd").val();
+            var email_content = "login="+ mail;
+            var pwd_content = "pwd="+pass;
+            params.push(email_content);
+            params.push(pwd_content);
+            var controls = new Array();
+            controls.push("gestionSession");
+            controls.push("ident");
+            ajax(params,controls,choixInscription(data, mail,pass));
+    
+    
+    function ajaxFactorized(paramètres, controlers, callback){
+        var controle = "control="+controlers.eq(0).val();
+        var action = "action="+controlers.eq(1).val();
+        var controler = controle+"&"+action;
+        
+        var dataPOST = controler+champs;
+        $.ajaxFactorized({
+                type: "POST",
+                url: "../index.php",
+                data: dataPOST,
+                success: function(data){
+                    //console.log(data);
+                    callback); 
+                },
+                error: function(result){
+                    if(result){
+                        console.log(result);
+                    }
+                }
+            });
+    }
+*/
