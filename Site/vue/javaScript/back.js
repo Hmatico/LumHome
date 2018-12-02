@@ -30,7 +30,6 @@ $(document).ready(function(){
         }
     });
     
-    
     function choixInscription(valeur, mail, pass){
         if(valeur == "inconnu"){
            if(confirm("Voulez-vous créer un compte ?")){
@@ -84,28 +83,30 @@ $(document).ready(function(){
             var controls = new Array();
             controls.push("gestionSession");
             controls.push("ident");
-            ajax(params,controls,choixInscription(data, mail,pass));
+            ajaxFactorized(params,controls,choixInscription(data, mail,pass));
     
     
-    function ajaxFactorized(paramètres, controlers, callback){
+    function ajaxFactorized(parameters, controlers, callback){
         var controle = "control="+controlers.eq(0).val();
         var action = "action="+controlers.eq(1).val();
         var controler = controle+"&"+action;
-        
-        var dataPOST = controler+champs;
+        var dataPOST = controler;
+        parameters.each(function(){
+            dataPOST += "&" + $(this).val(); 
+        });
         $.ajaxFactorized({
-                type: "POST",
-                url: "../index.php",
-                data: dataPOST,
-                success: function(data){
-                    //console.log(data);
-                    callback); 
-                },
-                error: function(result){
-                    if(result){
-                        console.log(result);
-                    }
+            type: "POST",
+            url: "../index.php",
+            data: dataPOST,
+            success: function(data){
+                //console.log(data);
+                callback(); 
+            },
+            error: function(result){
+                if(result){
+                    console.log(result);
                 }
-            });
+            }
+        });
     }
 */
