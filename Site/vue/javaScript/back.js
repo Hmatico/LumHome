@@ -60,14 +60,14 @@ $(document).ready(function(){
          var empty = false;
          $(".body_container input").each(function(){
              if($(this).val()===""){
-                 empty = true;
-                console.log($(this).css('border-color', 'red')); 
+                empty = true;
+                $(this).css('border-color', 'red'); 
              } 
          });
          if(empty)
              alert("Veuillez renseigner les champs obligatoires");
          else {
-             //
+             //TO DO
          }
      }                                
 });

@@ -1,13 +1,11 @@
 <?php
-
     function accueil(){
-        header("Location: vue/accueil.html");
+        header("Location: vue/accueil.html");   
     }
 
     function ident(){
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
-
         require("modele/utilisateurBD.php");
         echo verifIdent($login,$pwd);
     }
