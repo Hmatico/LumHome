@@ -1,7 +1,7 @@
 <?php
     function verifIdent(&$mail,&$pwd){
         require ("modele/connexionBD.php"); //connexion $link à MYSQL et sélection de la base
-
+        require("modele/class_crypto.php");
         $select= "select * from UTILISATEUR where adresseMail='%s' and mdpUser='%s'"; 
         $req = sprintf($select,$mail,$pwd);
 

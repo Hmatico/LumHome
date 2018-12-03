@@ -26,7 +26,7 @@
             <a class="histo_site" href="">Page d'inscription</a>
         </div>
         <div class="body_container">
-            <form action="#" method="get">
+            <form id="inscription_form">
                 <div class="p_data">
                     <div class="text_i">
                         Inscrivez-vous :
@@ -71,9 +71,11 @@
                     </div>
                 </div>
                 <div class="form_btn">
-                    <input type="button" class="button" value="Valider l'inscription">
+                    <input class="button" value="Valider l'inscription">
                 </div>
             </form>
         </div>
     </body>
+    <script type="text/javascript" src="./javaScript/front.js"></script>
+    <script type="text/javascript" src="./javaScript/back.js"></script>
 </html>
