@@ -97,9 +97,13 @@
 
 .caroussel{
     margin-left: 10%;
+    padding-left: 20%;
     width: 80%;
     height: 30%;
-    background-color: antiquewhite;
+}
+
+.carousel_img {
+	height: 350px;
 }
 
 .accueil_bas {

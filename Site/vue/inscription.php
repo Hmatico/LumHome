@@ -32,12 +32,12 @@
                         Inscrivez-vous :
                     </div>
                     <div class="input_pdata">
-                        <input class="pdata_colg"  type="text" name="nom" placeholder="Nom">
-                        <input class="pdata_cold" type="text" name="prenom" placeholder="Prénom">
-                        <input class="pdata_colg" type="text" name="email" value="<?php echo $email; ?>" placeholder="Adresse email">
-                        <input class="pdata_cold" type="text" name="emailc" placeholder="Confirmer votre adresse email">
-                        <input class="pdata_colg" type="password" name="pwd" value="<?php echo $pwd; ?>" placeholder="Mot de passe">
-                        <input class="pdata_cold" type="password" name="pwdc" placeholder="Confirmer votre mot de passe">
+                        <input class="pdata_colg"  type="text" id="nom" placeholder="Nom">
+                        <input class="pdata_cold" type="text" id="prenom" placeholder="Prénom">
+                        <input class="pdata_colg" type="text" id="email" value="<?php echo $email; ?>" placeholder="Adresse email">
+                        <input class="pdata_cold" type="text" id="emailc" placeholder="Confirmer votre adresse email">
+                        <input class="pdata_colg" type="password" id="pwd" value="<?php echo $pwd; ?>" placeholder="Mot de passe">
+                        <input class="pdata_cold" type="password" id="pwdc" placeholder="Confirmer votre mot de passe">
                     </div>
                     <div>
                         <div>
@@ -53,11 +53,11 @@
                         Entrez l'adresse à laquelle vous voulez être facturé :
                     </div>
                     <div class="input_adata">
-                        <input class="adata_colg" type="text" name="nrue" placeholder="Numéro de rue">
-                        <input class="adata_cold" type="text" name="nomrue" placeholder="Nom de la rue">
-                        <input class="adata_colg" type="text" name="cpostal" placeholder="Code postal">
-                        <input class="adata_cold" type="text" name="ville" placeholder="Ville"><br>
-                        <textarea class="adata_textaera" rows="4" cols="50" name="complement" placeholder="Complément d'adresse..."></textarea>
+                        <input class="adata_colg" type="text" id="nrue" placeholder="Numéro de rue">
+                        <input class="adata_cold" type="text" id="nomrue" placeholder="Nom de la rue">
+                        <input class="adata_colg" type="text" id="cpostal" placeholder="Code postal">
+                        <input class="adata_cold" type="text" id="ville" placeholder="Ville"><br>
+                        <textarea class="adata_textaera" rows="4" cols="50" id="complement" placeholder="Complément d'adresse..."></textarea>
                     </div>
                 </div>
                 <div class="c_data">
@@ -65,9 +65,9 @@
                         Entrez vos données bancaires :
                     </div>
                     <div class="input_cdata">
-                        <input type="text" name="ncarte" placeholder="Numéro de carte">
-                        <input type="text" name="expiration" placeholder="Date d'expiration">
-                        <input type="text" name="crypto" placeholder="Cryptogramme visuel">
+                        <input type="text" id="ncarte" placeholder="Numéro de carte">
+                        <input type="text" id="expiration" placeholder="Date d'expiration">
+                        <input type="text" id="crypto" placeholder="Cryptogramme visuel">
                     </div>
                 </div>
                 <div class="form_btn">

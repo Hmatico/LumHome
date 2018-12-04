@@ -1,5 +1,7 @@
 $(document).ready(function(){
     
+    
+    
     $(".accueil_form .btn").click(function(){
         //console.log("email : "+ $("#email").val());
         //console.log("pwd: "+ $("#pwd").val());
@@ -32,7 +34,7 @@ $(document).ready(function(){
     
     function choixInscription(valeur, mail, pass){
         if(valeur == "inconnu"){
-           if(confirm("Voulez-vous créer un compte ?")){
+           if(confirm("Utilisateur inconnu !"+'\n'+"Voulez-vous créer un compte ?")){
                 $("#body").load(
                     "../index.php",
                     {
@@ -43,7 +45,7 @@ $(document).ready(function(){
                     }
                 );
             } else {
-                $(location).attr("href", "./vue/accueil.html");
+                $(location).attr("href", "./accueil.html");
             }
         } else {
             if(valeur == "OK"){
@@ -53,7 +55,8 @@ $(document).ready(function(){
     }
     
      $(".body_container .button").click(function(){
-         champsRemplis();
+             if(verifChamps())
+                 return true;
      });
                                           
      function champsRemplis() {
@@ -64,12 +67,27 @@ $(document).ready(function(){
                 $(this).css('border-color', 'red'); 
              } 
          });
-         if(empty)
+         if(empty){
              alert("Veuillez renseigner les champs obligatoires");
-         else {
-             //TO DO
+             return false;
          }
-     }                                
+         else return true;
+     }
+    
+    function verifChamps(){
+        erreur = false;
+        if($("#nom").val().length > 15)
+            $("#nom").css('border-color', 'red');
+        if($("#prenom").val().length > 15)
+            $("#prenom").css('border-color', 'red');
+        if($("#email").val().length > 30)
+            $("#email").css('border-color', 'red');
+        if($("#pwd").val().length > 30)
+            $("#pwd").css('border-color', 'red');
+        if(erreur)
+            alert("les données en rouge sont trop grandes !");
+    }
+
 });
 
 /*
