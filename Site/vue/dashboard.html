@@ -4,17 +4,18 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1"/>
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="dashboard.css">
+	<link rel="stylesheet" href="ui.colorpicker.css"/>
+<script language="JavaScript" src="jQuery.js"></script>
+<script language="JavaScript" src="jQuery.colorpicker.js"></script>
   </head>
   <body>
 	<div class="Entete">
 		<div class="menu"> Entete </div>
 	</div>
-		<div class="dashboard">
-			<div class="fakeLeftContainer">
 				<div class="LeftContainer">
 					<div class="entete_leftcontainer"> Pièces allumées</div>
 				</div>
-			</div>
+		<div class="dashboard">
 			<div class="RightContainer">
 				<div class="habitation">
 					<form>
@@ -27,7 +28,15 @@
 				<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece"> Piece 1 </div>
-						<div class="Content_piece"> Bonjour </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="texte_couleur">Couleur</div>
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<input type="range"/>			
+							</div>
+							<div class="rightpiece"> 
+							</div>
+						</div>
 					</div>
 					<div class="Piece">
 						<div class="Entete_piece"> Piece 2 </div>

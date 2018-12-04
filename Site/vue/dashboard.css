@@ -5,6 +5,7 @@
 	justify-content: space-around;
 	padding: 15px;
 	width: 50%;
+	align-items: flex-end;
 }
 	
 .Piece{
@@ -13,7 +14,7 @@
 }
 }
 
-@media (max-width: 1300px) and (min-width:751px){
+@media (max-width: 1000px) and (min-width:751px){
 
 .RightContainer{	
 
@@ -28,7 +29,7 @@
 }
 }
 
-@media (min-width: 1301px){
+@media (min-width: 1000px){
 
 .RightContainer{	
 
@@ -82,7 +83,7 @@ body{
 .dashboard{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	height: 500px;
 }
 
@@ -121,7 +122,7 @@ body{
 	background-color: #FFFFFF;
 	margin: 15px;
 	margin-left: auto;
-    margin-right: auto;	
+   margin-right: auto;	
 }
 
 .Entete_piece{
@@ -130,6 +131,42 @@ body{
 	height: 20px;
 	text-align:  center;
 	border-radius: 15px 15px 0px 0px;
+}
+.contenu_piece{
+	display: flex;
+	flex-direction: row;
+}
+.rightpiece{
+	
+}
+
+.leftpiece{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	
+}
+.texte_couleur{
+text-align: center;
+}
+.colorpicker{
+	position: absolute;
+	right: -5px;
+	top:-5px;
+	border: none;
+	vertical-align: center;
+	height: 70px;
+	width: 70px;
+}
+
+.div_colorpicker{
+	margin: 40px;
+	position: relative;
+	border: 5px solid black;
+	border-radius: 100px;
+	height: 58px;
+	width: 58px;
+	overflow: hidden;
 }
 
 .Content_piece{
