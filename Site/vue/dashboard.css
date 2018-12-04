@@ -12,6 +12,16 @@
 	height: 300px;
 	width: 300px;
 }
+
+.div_colorpicker{
+	margin-left: 52px;
+}
+
+.soleil{
+	width: 100px;
+	height: 100px;
+	margin: 25px 0px 50px 0px;
+}
 }
 
 @media (max-width: 1000px) and (min-width:751px){
@@ -27,12 +37,21 @@
 	height: 200px;
 	width: 450px;
 }
+
+.div_colorpicker{
+	margin-left: 105px;
+}
+
+.soleil{
+	width: 100px;
+	height: 100px;
+	margin: 25px 0px 50px 0px;
+}
 }
 
 @media (min-width: 1000px){
 
 .RightContainer{	
-
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px 15px 15px 0px;
@@ -49,6 +68,17 @@
 .Piece{
 	height: 200px;
 	width: 450px;
+}
+
+.div_colorpicker{
+	margin-left: 105px;
+}
+
+.soleil{
+	width: 100px;
+	height: 100px;
+	margin: 25px 0px 0px 0px;
+	text-align: center;
 }
 }
 
@@ -96,6 +126,7 @@ body{
 }
 
 .LeftContainer{
+	z-index: 10;
 	transition-duration: 1s;
 	transform: translateX(-250px);
 	width:300px;
@@ -106,38 +137,39 @@ body{
 	border: 1px solid black;
 	box-shadow: 0px 0px 15px 0px;
 }
+
 .LeftContainer:hover{
    	transition-duration: 0.4s;
 	transform: translateX(0px); 
 }
 
 .fleche{
-margin-left: 140px;
-transition-duration: 1s;
-transform: rotate(0deg);
+	margin-left: 140px;
+	transition-duration: 1s;
+	transform: rotate(0deg);
 }
 
 .LeftContainer:hover .fleche{
-transition-duration: 0.4s;
-transform: rotate(90deg);
+	transition-duration: 0.4s;
+	transform: rotate(90deg);
 }
 
 .pieceallume{
-text-align: left;
-margin : 10px 10px 0px 0px;	
-vertical-align: middle;
+	text-align: left;
+	margin : 10px 10px 0px 0px;	
+	vertical-align: middle;	
 line-height: 40px;
 
 }
 
 .btn_pieceallume{
-float: right;
-margin-right: 20px;
-width: 20px;
-height: 20px;
-margin : 10px 10px 0px 0px;	
-vertical-align: middle;
-line-height: 40px;
+	float: right;
+	margin-right: 20px;
+	width: 20px;
+	height: 20px;
+	margin : 10px 10px 0px 0px;	
+	vertical-align: middle;
+	line-height: 40px;
 }
 
 .fakeLeftContainer{
@@ -151,7 +183,7 @@ line-height: 40px;
 	background-color: #FFFFFF;
 	margin: 15px;
 	margin-left: auto;
-   margin-right: auto;	
+    margin-right: auto;	
 }
 
 .Entete_piece{
@@ -161,6 +193,7 @@ line-height: 40px;
 	text-align:  center;
 	border-radius: 15px 15px 0px 0px;
 }
+
 .contenu_piece{
 	display: flex;
 	flex-direction: row;
@@ -168,13 +201,19 @@ line-height: 40px;
 
 .leftpiece{
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	
+	flex-direction: column;
+	height: 90%;
+	width: 60%;
 }
+
+.rightpiece{
+	width:40%;	
+}
+
 .texte_couleur{
-text-align: center;
+	text-align: center;
 }
+
 .colorpicker{
 	position: absolute;
 	right: -5px;
@@ -186,15 +225,24 @@ text-align: center;
 }
 
 .div_colorpicker{
-	margin: 40px;
+	margin-top: 10px;
 	position: relative;
 	border: 5px solid black;
 	border-radius: 100px;
-	height: 58px;
-	width: 58px;
-	overflow: hidden;
+	height: 50px;
+	width: 50px;
+	overflow: hidden;	
 }
 
-.Content_piece{
-	background-color: blue;
+.texte_couleur{
+	margin-bottom: 15px;
+	margin-top: 5px;
+}
+
+.texte_intensite{
+	text-align: center;
+}
+
+.piecerange{
+	margin: 10px 10px 10px 10px;
 }
