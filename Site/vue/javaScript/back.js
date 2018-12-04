@@ -8,6 +8,7 @@ $(document).ready(function(){
         
         if($("#email").val() != "" && $("#pwd").val() != ""){
             var mail = $("#email").val();
+            console.log($("#email").val());
             var pass = $("#pwd").val();
             var controler = "controle=gestionSession&action=ident";
             var email_content = "login="+ mail;
