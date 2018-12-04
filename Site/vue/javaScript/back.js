@@ -8,7 +8,6 @@ $(document).ready(function(){
         
         if($("#email").val() != "" && $("#pwd").val() != ""){
             var mail = $("#email").val();
-            console.log($("#email").val());
             var pass = $("#pwd").val();
             var controler = "controle=gestionSession&action=ident";
             var email_content = "login="+ mail;
@@ -56,11 +55,13 @@ $(document).ready(function(){
     }
     
      $(".body_container .button").click(function(){
+         if(champsRemplis())
              if(verifChamps())
-                 return true;
+                 inscription();
      });
                                           
      function champsRemplis() {
+         $(".body_container input").css('border-color', '#ccc');
          var empty = false;
          $(".body_container input").each(function(){
              if($(this).val()===""){
@@ -77,16 +78,57 @@ $(document).ready(function(){
     
     function verifChamps(){
         erreur = false;
-        if($("#nom").val().length > 15)
+        if($("#nom").val().length > 15){
             $("#nom").css('border-color', 'red');
-        if($("#prenom").val().length > 15)
+            erreur = true;
+        }
+        if($("#prenom").val().length > 15){
             $("#prenom").css('border-color', 'red');
-        if($("#email").val().length > 30)
+            erreur = true;
+        }
+        if($("#email").val().length > 30){
             $("#email").css('border-color', 'red');
-        if($("#pwd").val().length > 30)
+            erreur = true;
+        }
+        if($("#pwd").val().length > 30){
             $("#pwd").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#nrue").val().length > 10){
+            $("#nrue").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#nomrue").val().length > 30){
+            $("#nomrue").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#cpostal").val().length > 5){
+            $("#cpostal").css('border-color', 'red')
+            erreur = true;
+        }
+        if($("#ville").val().length > 30){
+            $("#ville").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#ncarte").val().length > 16){
+            $("#ncarte").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#expiration").val().length > 5){
+            $("#expiration").css('border-color', 'red');
+            erreur = true;
+        }
+        if($("#crypto").val().length > 3){
+            $("#crypto").css('border-color', 'red');
+            erreur = true;
+        }
         if(erreur)
-            alert("les données en rouge sont trop grandes !");
+            alert("Les données en rouge sont trop grandes !");
+        return !erreur;
+    }
+    
+    function inscription(){
+        
     }
 
 });

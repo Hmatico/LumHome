@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="form_btn">
-                    <input class="button" value="Valider l'inscription">
+                    <input type="button" class="button" value="Valider l'inscription">
                 </div>
             </form>
         </div>
