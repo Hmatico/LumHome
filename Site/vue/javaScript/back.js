@@ -128,7 +128,34 @@ $(document).ready(function(){
     }
     
     function inscription(){
-        
+        var controler = "controle=gestionSession&action=creationCompte";
+        var nom = "nom="+$("#nom").val();
+        var prenom = "prenom="+$("#prenom").val();
+        var email = "email="+$("#email").val();
+        var emailc = "emailc="+$("#emailc").val();
+        var pwd = "pwd="+$("#pwd").val();
+        var pwdc = "pwdc="+$("#pwdc").val();
+        var nomrue = "nomrue="+$("#nomrue").val();
+        var cpostal = "cpostal="+$("#cpostal").val();
+        var ville = "ville="+$("#ville").val();
+        var comp = "comp="+$("#complement").val();
+        var ncarte = "ncarte="+$("#ncarte").val();
+        var date = "date="+$("#expiration").val();
+        var crypto = "crypto="+$("#crypto").val();
+        var dataPOST = controler+"&"+nom+"&"+prenom+"&"+email+"&"+emailc+"&"+pwd+"&"+pwdc+"&"+nrue+"&"+nomrue+"&"+cpostal+"&"+ville+"&"+comp+"&"+ncarte+"&"+date+"&"+crypto;
+        $.ajax({
+            type: "POST",
+            url: "../index.php",
+            data: dataPOST,
+            success: function(data){
+                console.log(data);
+            },
+            error: function(result){
+                if(result){
+                    console.log(result);
+                }
+            }
+        });
     }
 
 });
