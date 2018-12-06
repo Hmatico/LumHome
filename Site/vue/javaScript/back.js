@@ -78,6 +78,7 @@ $(document).ready(function(){
     
     function verifChamps(){
         erreur = false;
+        erreur2 = false;
         if($("#nom").val().length > 15){
             $("#nom").css('border-color', 'red');
             erreur = true;
@@ -110,20 +111,22 @@ $(document).ready(function(){
             $("#ville").css('border-color', 'red');
             erreur = true;
         }
-        if($("#ncarte").val().length > 16){
+        if($("#ncarte").val().length != 19){
             $("#ncarte").css('border-color', 'red');
-            erreur = true;
+            erreur2 = true;
         }
-        if($("#expiration").val().length > 5){
+        if($("#expiration").val().length != 5){
             $("#expiration").css('border-color', 'red');
-            erreur = true;
+            erreur2 = true;
         }
-        if($("#crypto").val().length > 3){
+        if($("#crypto").val().length != 3){
             $("#crypto").css('border-color', 'red');
-            erreur = true;
+            erreur2 = true;
         }
         if(erreur)
             alert("Les données en rouge sont trop grandes !");
+        if(erreur2)
+            alert("Les données en rouge ne sont pas au bon format !");
         return !erreur;
     }
     

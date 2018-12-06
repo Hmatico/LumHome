@@ -51,7 +51,16 @@
     }
 
     function verifDataNum(){
-        
+        $date = $_POST['date'];
+        $ncarte = $_POST['ncarte'];
+        $crypto = $_POST['crypto'];
+        if(preg_match('/^(0[1-9]|1[0-2])\/(1[8-9]|2[0-9])$/',$date))
+            if(preg_match('/^\d{3}[1-9]-\d{3}[1-9]-\d{3}[1-9]-\d{3}[1-9]$/',$ncarte))
+                if(preg_match('/^[0-9]{2}[1-9]$/',$crypto))
+                    return "carte ok";
+                else return "cryptoFAUX";
+            else return "carteFAUX";
+        else return "dateFAUX";
     }
 
     function inscriptionUtilisateur(){
