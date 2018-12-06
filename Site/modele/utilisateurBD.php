@@ -19,4 +19,12 @@
         }
     }
 
+    function inscription(&$nom, &$prenom, &$email, &$pwd, &$nrue, &$numrue, &$cpostal, &$ville, &$comp, &$ncarte, &$date, &$crypto){
+        require ("modele/connexionBD.php");
+        require("modele/class_crypto.php");
+        $objet = new crypto($pwd);
+        $hash = $objet->get_encrypte();
+        $insert = "TO DO...";
+    }
+
 ?>

@@ -57,7 +57,7 @@
         if(preg_match('/^(0[1-9]|1[0-2])\/(1[8-9]|2[0-9])$/',$date))
             if(preg_match('/^\d{3}[1-9]-\d{3}[1-9]-\d{3}[1-9]-\d{3}[1-9]$/',$ncarte))
                 if(preg_match('/^[0-9]{2}[1-9]$/',$crypto))
-                    return "carte ok";
+                    return "OK";
                 else return "cryptoFAUX";
             else return "carteFAUX";
         else return "dateFAUX";
@@ -76,5 +76,7 @@
         $ncarte = $_POST['ncarte'];
         $date = $_POST['date'];
         $crypto = $_POST['crypto'];
+        require("modele/utilisateurBD.php");
+        echo inscription($nom, $prenom, $email, $pwd, $nrue, $numrue, $cpostal, $ville, $comp, $ncarte, $date, $crypto);
     }
 ?>
