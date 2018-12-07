@@ -5,8 +5,8 @@
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="dashboard.css">
 	<link rel="stylesheet" href="ui.colorpicker.css"/>
-<script language="JavaScript" src="jQuery.js"></script>
-<script language="JavaScript" src="jQuery.colorpicker.js"></script>
+	<script language="JavaScript" src="jQuery.js"></script>
+	<script language="JavaScript" src="jQuery.colorpicker.js"></script>
   </head>
   <body>
 	<div class="Entete">
@@ -14,10 +14,26 @@
 	</div>
 				<div class="LeftContainer">
 					<div class="entete_leftcontainer"> Pièces allumées <img src="./resources/fleche.png" class = "fleche"> </div>
-					<div class="pieceallume"> Tous (3) <input class="btn_pieceallume" type="radio"></div>
-					<div class="pieceallume"> Salle à manger <input class="btn_pieceallume" type="radio"></div>
-					<div class="pieceallume"> Cuisine <input class="btn_pieceallume" type="radio"></div>
-					<div class="pieceallume"> Chambre <input class="btn_pieceallume" type="radio"></div>
+					<div class="pieceallume"> Tous (3) 					
+					<label class="switch">
+  					<input type="checkbox">
+  					<span class="slider round"></span>
+					</label></div>
+					<div class="pieceallume"> Salle à manger 					
+					<label class="switch">
+  					<input type="checkbox">
+  					<span class="slider round"></span>
+					</label></div>
+					<div class="pieceallume"> Cuisine 					
+					<label class="switch">
+  					<input type="checkbox">
+  					<span class="slider round"></span>
+					</label></div>
+					<div class="pieceallume"> Chambre 					
+					<label class="switch">
+  					<input type="checkbox">
+  					<span class="slider round"></span>
+					</label></div>
 				</div>
 		<div class="dashboard">
 			<div class="RightContainer">
@@ -40,33 +56,99 @@
 								<div class="texte_intensite">Intensité</div>
 							</div>
 							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br>Luminosité
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
 							</div>
 						</div>
 					</div>
 					<div class="Piece">
 						<div class="Entete_piece"> Chambre de Julie </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece"> Chambre des parents </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 					<div class="Piece">
 						<div class="Entete_piece"> Couloir </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece">Cuisine </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 					<div class="Piece">
 						<div class="Entete_piece">Salle à manger </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece"> Salle de bain </div>
+						<div class="contenu_piece">
+							<div class="leftpiece"> 
+								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
+								<div class="texte_couleur">Couleur</div>
+								<input class="piecerange" type="range"/>
+								<div class="texte_intensite">Intensité</div>
+							</div>
+							<div class="rightpiece">
+							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
+							</div>
+						</div>
 					</div>
 				</div>
 					</div>

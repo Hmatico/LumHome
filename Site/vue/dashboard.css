@@ -12,16 +12,6 @@
 	height: 300px;
 	width: 300px;
 }
-
-.div_colorpicker{
-	margin-left: 52px;
-}
-
-.soleil{
-	width: 100px;
-	height: 100px;
-	margin: 25px 0px 50px 0px;
-}
 }
 
 @media (max-width: 1000px) and (min-width:751px){
@@ -37,21 +27,12 @@
 	height: 200px;
 	width: 450px;
 }
-
-.div_colorpicker{
-	margin-left: 105px;
-}
-
-.soleil{
-	width: 100px;
-	height: 100px;
-	margin: 25px 0px 50px 0px;
-}
 }
 
 @media (min-width: 1000px){
 
 .RightContainer{	
+
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px 15px 15px 0px;
@@ -68,17 +49,6 @@
 .Piece{
 	height: 200px;
 	width: 450px;
-}
-
-.div_colorpicker{
-	margin-left: 105px;
-}
-
-.soleil{
-	width: 100px;
-	height: 100px;
-	margin: 25px 0px 0px 0px;
-	text-align: center;
 }
 }
 
@@ -104,7 +74,7 @@ body{
 }
 
 .entete_leftcontainer{
-	padding: 10px;
+	padding: 15px;
 	background-color: #DFE0DF;
 	border-radius: 0px 15px 0px 0px;
 	text-align: center;
@@ -139,37 +109,20 @@ body{
 }
 
 .LeftContainer:hover{
-   	transition-duration: 0.4s;
+   transition-duration: 0.4s;
 	transform: translateX(0px); 
 }
 
+.LeftContainer:hover .fleche{
+	float: right;
+   transition-duration: 0.4s;
+	transform: rotate(90deg); 
+}
+
 .fleche{
-	margin-left: 140px;
+	float: right;
 	transition-duration: 1s;
 	transform: rotate(0deg);
-}
-
-.LeftContainer:hover .fleche{
-	transition-duration: 0.4s;
-	transform: rotate(90deg);
-}
-
-.pieceallume{
-	text-align: left;
-	margin : 10px 10px 0px 0px;	
-	vertical-align: middle;	
-line-height: 40px;
-
-}
-
-.btn_pieceallume{
-	float: right;
-	margin-right: 20px;
-	width: 20px;
-	height: 20px;
-	margin : 10px 10px 0px 0px;	
-	vertical-align: middle;
-	line-height: 40px;
 }
 
 .fakeLeftContainer{
@@ -183,7 +136,7 @@ line-height: 40px;
 	background-color: #FFFFFF;
 	margin: 15px;
 	margin-left: auto;
-    margin-right: auto;	
+   margin-right: auto;	
 }
 
 .Entete_piece{
@@ -193,10 +146,18 @@ line-height: 40px;
 	text-align:  center;
 	border-radius: 15px 15px 0px 0px;
 }
-
 .contenu_piece{
 	display: flex;
 	flex-direction: row;
+}
+
+.pieceallume{
+margin: 30px 30px 0px 0px;
+padding-left: 15px;
+}
+
+.btn_pieceallume{
+float: right;
 }
 
 .leftpiece{
@@ -204,14 +165,6 @@ line-height: 40px;
 	flex-direction: column;
 	height: 90%;
 	width: 60%;
-}
-
-.rightpiece{
-	width:40%;	
-}
-
-.texte_couleur{
-	text-align: center;
 }
 
 .colorpicker{
@@ -225,24 +178,110 @@ line-height: 40px;
 }
 
 .div_colorpicker{
-	margin-top: 10px;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-bottom: 2%;
 	position: relative;
 	border: 5px solid black;
 	border-radius: 100px;
-	height: 50px;
-	width: 50px;
-	overflow: hidden;	
+	height: 55px;
+	width: 55px;
+	overflow: hidden;
 }
 
 .texte_couleur{
-	margin-bottom: 15px;
-	margin-top: 5px;
+	text-align: center;
+	margin-bottom: 15%;
+}
+
+.piecerange{
+	margin-left: auto;
+	margin-right: auto;	
+	margin-bottom: 2%;
 }
 
 .texte_intensite{
 	text-align: center;
 }
 
-.piecerange{
-	margin: 10px 10px 10px 10px;
+.rightpiece{
+	width: *;
 }
+
+.soleil{
+	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	width: 100px;
+}
+
+.texteluminosite{
+	margin-left: 5px;
+}
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  float: right;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
