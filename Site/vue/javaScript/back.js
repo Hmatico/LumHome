@@ -139,6 +139,7 @@ function champsRemplis() {
         var emailc = "emailc="+$("#emailc").val();
         var pwd = "pwd="+$("#pwd").val();
         var pwdc = "pwdc="+$("#pwdc").val();
+        var nrue = "nrue="+$("#nrue").val();
         var nomrue = "nomrue="+$("#nomrue").val();
         var cpostal = "cpostal="+$("#cpostal").val();
         var ville = "ville="+$("#ville").val();
@@ -200,6 +201,10 @@ function champsRemplis() {
             alert("Le cryptogramme visuel n'est pas au bon format !");
             $("#crypto").css('border-color', 'red');
         }
+        if(result == "existant")
+            alert("L'email est déjà utilisé !");
+        if(result=="OK")
+            alert("Vous êtes inscrit !");
     }
 
 /*

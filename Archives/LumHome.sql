@@ -58,9 +58,9 @@ CREATE TABLE UTILISATEUR (
 CREATE TABLE HABITAT (
 	idHabitat INT(11),
 	nomHabitat VARCHAR(20) NOT NULL,
-    numero INT(11) NOT NULL,
+    numero VARCHAR(11) NOT NULL,
 	rue VARCHAR(50) NOT NULL,
-    complement VARCHAR(255) NOT NULL,
+    complement VARCHAR(255),
 	ville VARCHAR(50) NOT NULL,
 	codePostal INT(5) NOT NULL,
     fk_proprietaire VARCHAR(30)

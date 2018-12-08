@@ -79,9 +79,21 @@
         $ncarte = $_POST['ncarte'];
         $date = $_POST['date'];
         $crypto = $_POST['crypto'];
+        parseCarte($ncarte);
+        parseDate($date);
         require("modele/utilisateurBD.php");
-        if(exitant())
-            return "existant";
-        else echo inscription($nom, $prenom, $email, $pwd, $nrue, $numrue, $cpostal, $ville, $comp, $ncarte, $date, $crypto);
+        if(existant($email))
+            echo "existant";
+        else echo inscription($nom, $prenom, $email, $pwd, $nrue, $nomrue, $cpostal, $ville, $comp, $ncarte, $date, $crypto);
+    }
+
+    function parseCarte(&$num) {
+        $subString = explode("-",$num);
+        $num = $subString[0] . $subString[1] . $subString[2] . $subString[3];
+    }
+
+    function parseDAte(&$dateE) {
+        $subString = explode("/",$dateE);
+        $dateE = "01/" . $subString[0] . "/20" . $subString[1];
     }
 ?>
