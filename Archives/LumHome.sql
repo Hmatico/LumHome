@@ -47,7 +47,7 @@ CREATE TABLE UTILISATEUR (
     prenomUser VARCHAR(15) NOT NULL,
     adresseFacturation INT(11),
     type VARCHAR(20) NOT NULL,
-    mdpUser VARCHAR(30) NOT NULL,
+    mdpUser VARCHAR(125) NOT NULL,
     pin INT(4),
     numeroCarte INT(16),
 	cryptogramme INT(3),

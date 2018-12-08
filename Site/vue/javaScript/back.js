@@ -1,6 +1,4 @@
-$(document).ready(function(){
-    
-    
+$(document).ready(function(){    
     
     $(".accueil_form .btn").click(function(){
         //console.log("email : "+ $("#email").val());
@@ -32,49 +30,52 @@ $(document).ready(function(){
         }
     });
     
-    function choixInscription(valeur, mail, pass){
-        if(valeur == "inconnu"){
-           if(confirm("Utilisateur inconnu !"+'\n'+"Voulez-vous créer un compte ?")){
-                $("#body").load(
-                    "../index.php",
-                    {
-                        controle: "gestionSession",
-                        action: "nouvelUtilisateur",
-                        login: mail,
-                        pwd: pass
-                    }
-                );
-            } else {
-                $(location).attr("href", "./accueil.html");
-            }
-        } else {
-            if(valeur == "OK"){
-                //TO DO
-            }
-        }
-    }
-    
-     $(".body_container .button").click(function(){
+    $(".body_container .button").click(function(){
          if(champsRemplis())
              if(verifChamps())
                  inscription();
      });
+});
+
+
+    
+function choixInscription(valeur, mail, pass){
+    if(valeur == "inconnu"){
+       if(confirm("Utilisateur inconnu !"+'\n'+"Voulez-vous créer un compte ?")){
+            $("#body").load(
+                "../index.php",
+                {
+                    controle: "gestionSession",
+                    action: "nouvelUtilisateur",
+                    login: mail,
+                    pwd: pass
+                }
+            );
+        } else {
+            $(location).attr("href", "./accueil.html");
+        }
+    } else {
+        if(valeur == "OK"){
+            //TO DO
+        }
+    }
+}
                                           
-     function champsRemplis() {
-         $(".body_container input").css('border-color', '#ccc');
-         var empty = false;
-         $(".body_container input").each(function(){
-             if($(this).val()===""){
-                empty = true;
-                $(this).css('border-color', 'red'); 
-             } 
-         });
-         if(empty){
-             alert("Veuillez renseigner les champs obligatoires");
-             return false;
-         }
-         else return true;
-     }
+function champsRemplis() {
+    $(".body_container input").css('border-color', '#ccc');
+    var empty = false;
+    $(".body_container input").each(function(){
+        if($(this).val()===""){
+            empty = true;
+            $(this).css('border-color', 'red'); 
+        } 
+    });
+    if(empty){
+        alert("Veuillez renseigner les champs obligatoires");
+        return false;
+    }
+    else return true;
+}
     
     function verifChamps(){
         erreur = false;
@@ -103,9 +104,9 @@ $(document).ready(function(){
             $("#nomrue").css('border-color', 'red');
             erreur = true;
         }
-        if($("#cpostal").val().length > 5){
+        if($("#cpostal").val().length != 5){
             $("#cpostal").css('border-color', 'red')
-            erreur = true;
+            erreur2 = true;
         }
         if($("#ville").val().length > 30){
             $("#ville").css('border-color', 'red');
@@ -127,7 +128,7 @@ $(document).ready(function(){
             alert("Les données en rouge sont trop grandes !");
         if(erreur2)
             alert("Les données en rouge ne sont pas au bon format !");
-        return !erreur;
+        return !erreur&& !erreur2;
     }
     
     function inscription(){
@@ -152,6 +153,7 @@ $(document).ready(function(){
             data: dataPOST,
             success: function(data){
                 console.log(data);
+                retourInscription(data);
             },
             error: function(result){
                 if(result){
@@ -160,8 +162,45 @@ $(document).ready(function(){
             }
         });
     }
-
-});
+    
+    function retourInscription(result){
+        if(result == "pwdc"){
+            alert("Les mots de passes ne sont pas identiques !");
+            $("#pwd").css('border-color', 'red');
+            $("#pwdc").css('border-color', 'red');
+        }
+        if(result == "emailc"){
+            alert("Les emails ne sont pas identiques !");
+            $("#email").css('border-color', 'red');
+            $("#emailc").css('border-color', 'red');
+        }
+        if(result == "pwdFAUX"){
+            alert("Le mot de passe n'est pas au bon format !");
+            $("#pwd").css('border-color', 'red');
+            $("#pwdc").css('border-color', 'red');
+        }
+        if(result == "emailFAUX"){
+            alert("L'adresse email n'est pas correcte !");
+            $("#email").css('border-color', 'red');
+            $("#emailc").css('border-color', 'red');
+        }
+        if(result == "cpostalFAUX"){
+            alert("Le code postal est incorrect !");
+            $("#cpostal").css('border-color', 'red');
+        }
+        if(result == "carteFAUX"){
+            alert("Le numéro de la carte n'est pas au bon format !");
+            $("#ncarte").css('border-color', 'red');
+        }
+        if(result == "dateFAUX"){
+            alert("La date n'est pas au bon format !");
+            $("#date").css('border-color', 'red');
+        }
+        if(result == "cryptoFAUX"){
+            alert("Le cryptogramme visuel n'est pas au bon format !");
+            $("#crypto").css('border-color', 'red');
+        }
+    }
 
 /*
             var params = new Array();
