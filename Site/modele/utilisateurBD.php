@@ -1,6 +1,6 @@
 <?php
     function verifIdent(&$mail,&$pwd){
-        require ("modele/connexionBD.php"); //connexion $link à MYSQL et sélection de la base
+        require("modele/connexionBD.php"); //connexion $link à MYSQL et sélection de la base
         require("modele/class_crypto.php");
         $objet = new crypto($pwd);
         $pwdHash = $objet->get_encrypte();
@@ -19,23 +19,23 @@
         }
     }
 
-    function inscription(&$nom, &$prenom, &$email, &$pwd, &$nrue, &$nomrue, &$cpostal, &$ville, &$comp, &$ncarte, &$date, &$crypto){
+    function inscription(&$nom, &$prenom, &$email, &$pwd, &$nrue, &$nomrue, &$cpostal, &$ville, &$comp, &$ncarte, &$date, &$c){
         require("modele/habitatBD.php");
         nouvelHabitatF($nrue,$nomrue,$cpostal,$ville,$comp);
-        require ("modele/connexionBD.php");
-        require("modele/class_crypto.php");
+        require("modele/connexionBD.php");
         $idHabitat = getIdHabitatFacturation($nrue,$nomrue,$ville,$cpostal,$comp);
+        require("modele/class_crypto.php");
         $objet = new crypto($pwd);
         $hash = $objet->get_encrypte();
         $insert = "insert into UTILISATEUR (adresseMail,nomUser, prenomUser,adresseFacturation, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('%s', '%s', '%s', '%d', '%s','%s', '%d', '%d', '%d', '%s')";
-        $req = sprintf($insert,$email,$nom,$prenom,$idHabitat,'user',$mdp,0000,$ncarte,$crypto,$date);
+        $req = sprintf($insert,$email,$nom,$prenom,$idHabitat,'user',$mdp,0000,$ncarte,$c,$date);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req);
         return "OK";
     }
 
     function existant(&$email){
-        require ("modele/connexionBD.php");
+        require("modele/connexionBD.php");
         $select= "select * from UTILISATEUR where adresseMail='%s'"; 
         $req = sprintf($select,$email);
 
