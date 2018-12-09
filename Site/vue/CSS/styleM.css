@@ -138,9 +138,9 @@
 }
 
 .accueil_form input[type="text"]{
-    width: 45%;    
+    width: 40%;    
 }
 
 .accueil_form input[type="password"]{
-    width: 25%;
+    width: 30%;
 }
