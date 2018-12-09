@@ -47,31 +47,33 @@ CREATE TABLE UTILISATEUR (
     prenomUser VARCHAR(15) NOT NULL,
     adresseFacturation INT(11),
     type VARCHAR(20) NOT NULL,
-    mdpUser VARCHAR(30) NOT NULL,
-    pin INT(4),
-    numeroCarte INT(16),
+    mdpUser VARCHAR(125) NOT NULL,
+    pin VARCHAR(4),
+    numeroCarte BIGINT(16),
 	cryptogramme INT(3),
 	dateExpiration DATE
 )ENGINE=InnoDB  CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ***** CREATE TABLE HABITAT
 CREATE TABLE HABITAT (
-	idHabitat INT(11),
+	idHabitat INT(11) NOT NULL AUTO_INCREMENT,
 	nomHabitat VARCHAR(20) NOT NULL,
-    numero INT(11) NOT NULL,
+    numero VARCHAR(11) NOT NULL,
 	rue VARCHAR(50) NOT NULL,
-    complement VARCHAR(255) NOT NULL,
+    complement VARCHAR(255),
 	ville VARCHAR(50) NOT NULL,
 	codePostal INT(5) NOT NULL,
-    fk_proprietaire VARCHAR(30)
+    fk_proprietaire VARCHAR(30),
+	PRIMARY KEY (idHabitat)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ***** CREATE TABLE PIECE
 CREATE TABLE PIECE (
-	idPiece INT(11),
+	idPiece INT(11) NOT NULL AUTO_INCREMENT,
 	type VARCHAR(20) NOT NULL,
     nom VARCHAR(20) NOT NULL,
-    fk_habitat INT(11)
+    fk_habitat INT(11),
+	PRIMARY KEY (idPiece)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ***** CREATE TABLE SCENARIO
@@ -118,10 +120,6 @@ CREATE TABLE SCENARIO_CEMAC (
 -- REM ************************* CONSTRAINTS ************************************
 -- REM ***** UTILISATEUR
 ALTER TABLE UTILISATEUR ADD CONSTRAINT PK_UTILISATEUR PRIMARY KEY (adresseMail)
-;
-ALTER TABLE HABITAT ADD CONSTRAINT PK_HABITAT PRIMARY KEY (idHabitat)
-;
-ALTER TABLE PIECE ADD CONSTRAINT PK_PIECE PRIMARY KEY (idPiece)
 ;
 ALTER TABLE CEMAC ADD CONSTRAINT PK_CEMAC PRIMARY KEY (numeroSerie)
 ;

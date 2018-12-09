@@ -1,5 +1,5 @@
 <?php
-    class crypto {
+    class Crypto {
         var $cryptage;
         
         function __construct($mot){

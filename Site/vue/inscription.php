@@ -65,9 +65,9 @@
                         Entrez vos données bancaires :
                     </div>
                     <div class="input_cdata">
-                        <input type="text" id="ncarte" placeholder="Numéro de carte">
-                        <input type="text" id="expiration" placeholder="Date d'expiration">
-                        <input type="text" id="crypto" placeholder="Cryptogramme visuel">
+                        <input type="text" id="ncarte" placeholder="1111-2222-3333-4444">
+                        <input type="text" id="expiration" placeholder="MM/YY">
+                        <input type="text" id="crypto" placeholder="123">
                     </div>
                 </div>
                 <div class="form_btn">

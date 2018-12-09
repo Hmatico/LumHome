@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<title>Gérer une Pièce</title>
-<link rel="stylesheet" href="style_gerer.css">
+  <meta charset="utf-8">
+  <title>Ajouter un Capteur</title>
+  <link rel="stylesheet" href="style_gerer.css">
 </head>
 <body>
 	<nav class="banner">
@@ -24,7 +24,7 @@
 			<div class="buttonLog">
 				<a href=# class="vert-align">
 					<img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
-					<span class="button_desc">Déconnexion</span>
+					<span class="button_desc">D�connexion</span>
 				</a>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 			<div class="menuButton">
 				<a href=# class="vert-align">
 					<img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
-					<span class="button_desc_fromMenu">Scénario</span>
+					<span class="button_desc_fromMenu">Sc�nario</span>
 				</a>
 			</div>    
 		</div>
@@ -50,7 +50,7 @@
 			<div class="menuButton">
 				<a href="./gerer.html" class="vert-align">
 					<img src="./resources/logo_disconnect.png" class="logoa" alt="Disconnect">
-					<span class="button_desc_fromMenu">Gérer</span>
+					<span class="button_desc_fromMenu">G�rer</span>
 				</a>
 			</div>    
 		</div>
@@ -74,37 +74,25 @@
 	</nav>
 
     <body2>
-        <h1>Gérer pièce</h1>
+        <h1>Ajouter capteur</h1>
     </body2>
 	
-<div class="goptions">
-	<button class="gbutton1">
-		<p class="gtxtAjcapteur">Ajouter un capteur</p>
-	</button>
-	<button class="gbutton1">
-		<p class="gtxtSupcapteur">Retirer un capteur</p>
-	</button>
-    <button class="gbutton1">
-		<p class="gtexte2">Modifier cette pièce</p>
-	</button>
-</div>
-<div class="gcapteurs">
-	<button class="gbouton_capteur">
-		<p class="gtexte2">Capteur 1</p>
-	</button>
-	<button class="gbouton_capteur">
-		<p class="gtexte2">Capteur 2</p>
-	</button>
-	<button class="gbouton_capteur">
-		<p class="gtexte2">Capteur 3</p>
-	</button>
-	<button class="gbouton_capteur">
-		<p class="gtexte2">Capteur 4</p>
-	</button>
-	<button class="gbouton_capteur">
-		<p class="gtexte2">Capteur 5</p>
-	</button>
-
-</div>
+<form>
+    <div class="gcontain">
+        <div class="gzone">
+            <div class="gtexte">
+                <label for="id_capteur" class="glabel">Entrez l'identifiant du capteur présent sur son emballage:</label>
+                <input id="id_capteur" name="id_capteur" class="ginput">
+            </div>
+        </div>
+    </div>
+    <div class="gcontain">
+        <button class="gbouton">
+            <p>ANNULER</p>
+        </button>
+        <button type="submit" class="gbouton">
+            <p>VALIDER</p>
+        </button>
+    </div>
+</form>
 </body>
-</html>
