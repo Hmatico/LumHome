@@ -48,8 +48,8 @@ CREATE TABLE UTILISATEUR (
     adresseFacturation INT(11),
     type VARCHAR(20) NOT NULL,
     mdpUser VARCHAR(125) NOT NULL,
-    pin INT(4),
-    numeroCarte INT(16),
+    pin VARCHAR(4),
+    numeroCarte BIGINT(16),
 	cryptogramme INT(3),
 	dateExpiration DATE
 )ENGINE=InnoDB  CHARACTER SET utf8 COLLATE utf8_bin;

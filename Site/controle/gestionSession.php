@@ -94,6 +94,6 @@
 
     function parseDAte(&$dateE) {
         $subString = explode("/",$dateE);
-        $dateE = "01/" . $subString[0] . "/20" . $subString[1];
+        $dateE ="20" . $subString[1] . "-" . $subString[0] . "-01";
     }
 ?>
