@@ -1,6 +1,6 @@
 <?php
 function chargerClasse($classe){
-    require 'modele/' . $classe . '.php';
+    require_once 'modele/' . $classe . '.php';
 }
 
 spl_autoload_register('chargerClasse');
@@ -24,16 +24,17 @@ spl_autoload_register('chargerClasse');
     }
 
     function inscription(&$nom, &$prenom, &$email, &$pwd, &$nrue, &$nomrue, &$cpostal, &$ville, &$comp, &$ncarte, &$date, &$c){
-        require("modele/habitatBD.php");
+        require_once("modele/habitatBD.php");
         nouvelHabitatF($nrue,$nomrue,$cpostal,$ville,$comp);
         require("modele/connexionBD.php");
         $idHabitat = getIdHabitatFacturation($nrue,$nomrue,$ville,$cpostal,$comp);
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
         $insert = "insert into UTILISATEUR (adresseMail,nomUser, prenomUser,adresseFacturation, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('%s', '%s', '%s', '%d', '%s','%s', '%s', '%d', '%d', '%s')";
-        $req = sprintf($insert,$email,$nom,$prenom,$idHabitat,'user',$hash,0000,$ncarte,$c,$date);
+        $req = sprintf($insert,$email,$nom,$prenom,$idHabitat,'user',$hash,"0000",$ncarte,$c,$date);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        updateFK($email,$nrue,$nomrue,$ville,$cpostal,$comp);
         return "OK";
     }
 
