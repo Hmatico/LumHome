@@ -648,7 +648,7 @@ body        /* Reset des marges et des padding */
         .menuButton:hover
         {
             border-top: 0.3em solid rgba(0, 0 , 255, 1);
-            background-color: #AA22AA;
+            background-color: #BDF9F9;
             height: 4.7em;
         }
 
