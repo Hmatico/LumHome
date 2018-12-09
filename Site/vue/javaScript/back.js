@@ -58,7 +58,7 @@ function choixInscription(valeur, mail, pass){
         if(valeur == "incorrect"){
             alert("Identifiant ou mot de passe incorrect !")
         } else {
-            
+            $(location).attr("href", "./dashboard.html");
         }
     }
 }
