@@ -8,34 +8,35 @@ spl_autoload_register('chargerClasse');
     function verifIdent(&$mail,&$pwd){
         require("modele/connexionBD.php"); //connexion $link à MYSQL et sélection de la base
         $objetT = new Crypto($pwd);
-        $pwdHash = $objetT->get_encrypte();
-        $select= "select * from UTILISATEUR where adresseMail='%s' and mdpUser='%s'"; 
-        $req = sprintf($select,$mail,$pwdHash);
+        $select= "select * from UTILISATEUR where adresseMail='%s'"; 
+        $req = sprintf($select,$mail);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : "). $req .'\n'.mysqli_error($link)); 
 
-        if (mysqli_num_rows ($res) == 1){
-            mysqli_close($link);
-            return "OK";
+        if (mysqli_num_rows ($res) >0){
+            $tab = mysqli_fetch_assoc($res);
+            if($objetT->get_decrypte($tab['mdpUser'])){
+                mysqli_close($link);
+                return "OK";
+            }else {
+                mysqli_close($link);
+                return "incorrect";
+            }
         } else {
             mysqli_close($link);
             return "inconnu";
         }
     }
 
-    function inscription(&$nom, &$prenom, &$email, &$pwd, &$nrue, &$nomrue, &$cpostal, &$ville, &$comp, &$ncarte, &$date, &$c){
-        require_once("modele/habitatBD.php");
-        nouvelHabitatF($nrue,$nomrue,$cpostal,$ville,$comp);
+    function inscription($nom, $prenom, $email, $pwd, $ncarte, $date, $c){
         require("modele/connexionBD.php");
-        $idHabitat = getIdHabitatFacturation($nrue,$nomrue,$ville,$cpostal,$comp);
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
-        $insert = "insert into UTILISATEUR (adresseMail,nomUser, prenomUser,adresseFacturation, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('%s', '%s', '%s', '%d', '%s','%s', '%s', '%d', '%d', '%s')";
-        $req = sprintf($insert,$email,$nom,$prenom,$idHabitat,'user',$hash,"0000",$ncarte,$c,$date);
+        $insert = "insert into UTILISATEUR (adresseMail,nomUser, prenomUser, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('%s', '%s', '%s', '%s','%s', '%s', '%d', '%d', '%s')";
+        $req = sprintf($insert,$email,$nom,$prenom,'user',$hash,"0000",$ncarte,$c,$date);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
-        updateFK($email,$nrue,$nomrue,$ville,$cpostal,$comp);
-        return "OK";
+        return true;
     }
 
     function existant(&$email){
@@ -54,6 +55,13 @@ spl_autoload_register('chargerClasse');
             return false;
         }
     }
-/*
-insert into UTILISATEUR (adresseMail,nomUser, prenomUser,adresseFacturation, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('mathieu@test.fr', 'Mat', 'VAL', 1, 'user','dfghjklfmghghmlkgfvbdvsnfng!:bvksxcdzvbemfnzgR%ù', 0000, '0000-0000-0000-0000', '000', '00/00')*/
+    
+    function UpdateFK(&$mail,$fk){
+        require("modele/connexionBD.php");
+        $update = "update Utilisateur set adresseFacturation = '%d' where adresseMail = '%s'";
+        $req = sprintf($update,intval($fk),$mail);
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        return "OK";
+    }
 ?>

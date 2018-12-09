@@ -1,14 +1,14 @@
 <?php
     function getIdHabitatFacturation(&$num,&$rue,&$codep,&$ville,&$comp,&$email){
         require ("modele/connexionBD.php");
-        $select= "select idHabitat from HABITAT where nomHabitat='%s' and numero='%s' and rue='%s' and ville='%s' and codePostal='%d' and complement='%s' and fk_proprietaire = '%s'"; 
+        $select= "select * from HABITAT where nomHabitat='%s' and numero='%s' and rue='%s' and ville='%s' and codePostal='%d' and complement='%s' and fk_proprietaire = '%s'"; 
         $req = sprintf($select,'facturation',$num,$rue,$ville,$codep,$comp,$email);
 
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         $tab = mysqli_fetch_assoc($res);
         mysqli_close($link);
-        echo $tab['idHabitat'];
+        return $tab['idHabitat'];
     }
 
     function nouvelHabitatF(&$num,&$rue,&$codep,&$ville,&$comp,&$email){
@@ -20,5 +20,6 @@
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         mysqli_close($link);
+        return true;
     }
 ?>

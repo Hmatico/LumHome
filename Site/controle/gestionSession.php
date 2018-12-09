@@ -84,7 +84,14 @@
         require("modele/utilisateurBD.php");
         if(existant($email))
             echo "existant";
-        else echo inscription($nom, $prenom, $email, $pwd, $nrue, $nomrue, $cpostal, $ville, $comp, $ncarte, $date, $crypto);
+        else {
+            require_once("modele/habitatBD.php");
+            if(inscription($nom, $prenom, $email, $pwd, $ncarte, $date, $crypto)){
+                nouvelHabitatF($nrue,$nomrue,$cpostal,$ville,$comp,$email);
+                $fk = getIdHabitatFacturation($nrue,$nomrue,$ville,$cpostal,$comp,$email);
+                echo updateFK($email,$fk);
+            } 
+        }
     }
 
     function parseCarte(&$num) {
