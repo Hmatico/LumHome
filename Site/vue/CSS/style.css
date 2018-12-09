@@ -32,6 +32,12 @@
     padding: 1em;
 }
 
+.logoAccueil
+{
+    margin: 1em;
+    height: 12vh;
+}
+
 .p_data {
     display: block;
 }
