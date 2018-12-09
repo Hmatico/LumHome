@@ -1,16 +1,13 @@
-*{
-	margin: 0;
- 	padding: 0; 
-}
-
-body{
-	background: radial-gradient(circle at center, #DFE0DF,#BDF9F9 );
-}
-
 /* 
     CSS STYLE FILE FOR
     _header.html
 */
+
+body        /* Reset des marges et des padding */
+{
+    margin: 0px;
+    padding: 0px;
+}
 
 body2
 {
@@ -20,6 +17,7 @@ body2
 
 .banner
 {
+    background-color: #9999AA;
     display: flex;
     flex-direction: row;
     width: all;
@@ -65,9 +63,8 @@ body2
     align-items: center;
     justify-content: center;
     width: all;
-    background-color: #35889E;
+    background-color: #AA2222;
     height: 5em;
-			border-radius: 15px 15px 0px 0px;
 }
     
         .menuButton
@@ -88,7 +85,7 @@ body2
         .menuButton:hover
         {
             border-top: 0.3em solid rgba(0, 0 , 255, 1);
-            background-color: #BDF9F9;
+            background-color: #AA22AA;
             height: 4.7em;
         }
 
@@ -132,75 +129,13 @@ nav a       /* Change des paramètres de base sur les liens de manière généra
     color: #FFFFFF;
 }
 
-.menu{
-	display: flex;
-	justify-content: space-around;
-}
-
-.options{
-    display: flex;
-    justify-content: center;
+@media screen and (max-width: 1600px)
+{
+    .menuu
+    {
+        display: flex;
         flex-wrap: wrap;
-    margin-top:30px;
-}
-
-.button1{
-    background-color: #DFE0DF;
-    width: 250px;
-    height: 100px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 0px 0px 40px 40px;
-    border-radius: 35px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 3px 3px #777777;
-}
-
-.pieces {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.txtAjpiece{
-color:rgb(6, 201, 6);
-}
-
-.txtSuppiece{
-color:red;
-}
-.bouton_piece{
-    background-color: #DFE0DF;
-    height: 200px;
-    width: 200px;
-    padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    margin: 40px;
-    border-radius: 35px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 3px 3px #777777;
-}
-
-.habitatactuel{
-    font-size: 30px;
-    color: #35889E;
-    margin:20px;
-    font-size: 16px;
-}
-.habitat{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-
-}
-.contain3{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+        flex-direction: row;
+        align-content: space-between;
+    }
 }
