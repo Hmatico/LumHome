@@ -1,7 +1,7 @@
 ﻿body        /* Reset des marges et des padding */
 {
     background-image:radial-gradient(white, #c5dbe0);
-    background-repeat: no-repeat;
+    background-repeat: all;
     background-size: 100vw 100vh;
     overflow-x: hidden;
 }
