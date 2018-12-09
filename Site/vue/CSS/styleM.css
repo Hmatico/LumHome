@@ -123,3 +123,24 @@
     margin-left:45%;
     margin-top:1em;
 }
+
+.caroussel{
+    margin-left: 10vw;
+    padding-left: 15vw;
+    width: 60vw;
+    height: 30%;
+}
+
+.accueil_form {
+    text-align: left;
+    width: 80%;
+    padding-left: 15%;
+}
+
+.accueil_form input[type="text"]{
+    width: 45%;    
+}
+
+.accueil_form input[type="password"]{
+    width: 25%;
+}

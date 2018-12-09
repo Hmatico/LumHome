@@ -52,12 +52,6 @@
     padding: 1em;
 }
 
-.accueil_form {
-    text-align: left;
-    width: 80%;
-    padding-left: 35%;
-}
-
 .accueil_form input[type="text"], .accueil_form input[type="password"]{
     font-size: 0.8em;
     border: 1px solid #ccc;
@@ -65,14 +59,6 @@
     box-sizing: border-box;
     padding: 0.5em 0.7em;
     margin: 0.5em 0.5em 0.5em 0.5em;
-}
-
-.accueil_form input[type="text"]{
-    width: 40%;    
-}
-
-.accueil_form input[type="password"]{
-    width: 25%;
 }
 
 .logo_content {
@@ -93,13 +79,6 @@
     text-decoration: underline;
     color: black;
     cursor: pointer;
-}
-
-.caroussel{
-    margin-left: 10vw;
-    padding-left: 15vw;
-    width: 60vw;
-    height: 30%;
 }
 
 .carousel_img {
