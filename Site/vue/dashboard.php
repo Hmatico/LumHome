@@ -122,20 +122,8 @@
 					</form>
 				</div>
 				<div class="Line">
-					<div class="Piece">
-						<div class="Entete_piece"> <?php include '../modele/afficherPieceScenario.php'?> </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
+				<?php include '../modele/afficherPieceScenario.php'?>
+
 					<div class="Piece">
 						<div class="Entete_piece"> Chambre de Julie </div>
 						<div class="contenu_piece">
