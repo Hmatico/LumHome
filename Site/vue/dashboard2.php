@@ -16,9 +16,7 @@
         <title>LumHome</title>
     </head>
     <body>
-	
-
-	<?php include "./entete.html";?>
+	<?php include "entete.html";?>
 	<div class = "dhabitatprincipal">
 		<div class="dleftcontainer">
 			<div class="dhabitatactuel">
