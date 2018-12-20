@@ -30,11 +30,11 @@ body{
 				background-color: transparent;
 			}
 		.dtteteindre{
-
 			height: 100px;
 		}
 			.dtxteteindre{
 			margin-top: 50px;
+			margin-bottom: 10px;
 			margin-left: 50px;
 			}
 		/* SWITCH */
@@ -115,31 +115,64 @@ body{
 	height: 1000px;
 	margin-top: 50px;
 	border-top: 1px solid black;
-	background-color: red;
 }
-	.Entete_piece{
-		border: 1px solid black;
+	.dentetepiece{
+		border-bottom: 1px solid black;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
 		border-radius: 0px 0px 100px 100px;
-		background-color: 35889e;
+		background-color: #35889e;
 		width: 99,9%;
 		padding-top: 15px;
 		height: 40px;
 		text-align:  center;
 	}
-	.colorpicker{
-		right: -5px;
-		top:-5px;
-		border: none;
-		vertical-align: center;
-		height: 70px;
-		width: 70px;
+	.dcorppiece{
 	}
-		.div_colorpicker{
-			margin-top: 40px;
-			position: relative;
-			border: 5px solid black;
-			border-radius: 100px;
-			height: 55px;
-			width: 55px;
-			overflow: hidden;
+		.dafficherscenario{
+			width: 100%;
+			height: 50px;
+		}	
+		.dbuttonafficherscenario{
+			margin-top: 15px;
+			margin-left: 60px;
+			vertical-align:middle;
+			border-radius: 20px;
+		}
+		.dcorppiece1{
+			display: flex;	
+			justify-content: space-around;					
+		}
+			.div_colorpicker{
+				position: relative;
+				border: 5px solid black;
+				border-radius: 100px;
+				height: 55px;
+				width: 55px;
+				overflow: hidden;
+			}
+				.colorpicker{
+					position: absolute;
+					right: -10px;
+					top:-10px;
+					border: none;
+					vertical-align: center;
+					height: 75px;
+					width: 75px;
+				}
+				.soleil{
+					height: 70px;
+				}
+	.div_dpiecerange{	
+		display: flex;
+		width: 100%;
+		margin-top: 5%;
+		justify-content: space-around;
+	}
+	.div_dtxtluminosite{
+		display: flex;
+		width: 100%;
+		justify-content: space-around;
+	}
+		.dtxtluminosite{	
 		}
