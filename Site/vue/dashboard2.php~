@@ -21,8 +21,7 @@
 					<div class="dtxteteindre"> Tout éteindre</div>
 					<label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
 				</div>
-			</div>
-			<div class="drightcontainer">
+
 				<div class ="ligne">
 					<div class="detatpiece">
 						<div class="etatpiece"></div>
@@ -212,6 +211,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</body>
 </html>

@@ -8,7 +8,7 @@ a{
 	color: black;
 }
 .fake_entete{
-	height: 200px
+height=" 200px"
 }
 .entete{
 	position: fixed;

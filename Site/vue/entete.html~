@@ -4,7 +4,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
   <body>
-	<div class="fake_entete"></div>
+	<div class="fake_entete" height=" 200px"></div>
 	<div class="entete">
 		<img src="./resources/triche.png" class="triche"> <!-- Permet au code qui suit l'entete de passer derriere l'entete -->
 		<div class ="enteteligne1">
