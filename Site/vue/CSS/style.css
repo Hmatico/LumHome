@@ -126,3 +126,9 @@
 .icon_bas {
     text-align: center;
 }
+
+.logo_accueil {
+    margin: 1em;
+    height: 10vh;
+    width: 5vw;
+}
