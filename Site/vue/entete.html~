@@ -1,0 +1,36 @@
+<html lang="fr">
+  <head>
+  	<link rel="stylesheet" href="entete.css">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+	<div class="fake_entete" height=" 200px"></div>
+	<div class="entete">
+		<img src="./resources/triche.png" class="triche"> <!-- Permet au code qui suit l'entete de passer derriere l'entete -->
+		<div class ="enteteligne1">
+			<img src="./resources/logo.png" class="logo" alt="Logo LumHome">
+			<div class ="compte">
+				<img src="./resources/logo_user.png" class="logomoncompte" alt="User_Account"> 
+				<a class="txtmoncompte">Mon compte</a>
+				<img src="./resources/logo_disconnect.png" class="logodeconnexion" alt="Disconnect">
+				<a class="txtmoncompte">Deconnexion</a>
+			</div>
+		</div>
+		<div class ="enteteligne2">
+			<div class = "boutonaccueil">
+				<div class="txtaccueil"><a href="">ACCUEIL</a></div>
+			</div>
+			<div class = "boutonscenario">
+				<div class="txtscenario"><a href="">SCENARIO</a></div>
+			</div>
+			<div class = "boutongerer">
+				<div class="txtgerer"><a href="">GERER</a></div>
+			</div>
+			<div class = "boutonstatistique">
+				<div class="txtstatistique"><a href="">STATISTIQUE</a></div>
+			</div>
+		</div>
+	</div>
+
+  </body>
+</html>

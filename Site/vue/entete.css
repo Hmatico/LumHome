@@ -1,0 +1,136 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: radial-gradient(circle at center, #DFE0DF,#BDF9F9 );
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.fake_entete{
+	height: 200px
+}
+.entete{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	margin-bottom: 50px;
+}
+.triche{
+	z-index: -1;
+	position: absolute;
+}
+	.enteteligne1{
+		display: flex;
+		height: 100px;
+		justify-content: space-between;
+	}
+		.logo{
+			margin-left: 20px;
+			height: 100px;
+		}
+		.compte{
+			display: flex;
+			justify-content: space-around;		
+			height: 100px;
+			width: 400px;
+		}
+			.moncompte{
+				height: 100px;
+			}
+				.logomoncompte{
+					margin-top: 25px;
+					height: 50px;
+				}
+				.txtmoncompte{
+					margin-top: 38px;
+					font-size: 20px;
+				}
+			.deconnexion{
+				height: 100px;
+			}		
+				.logodeconnexion{
+					margin-top: 25px;
+					height: 50px;
+				}
+				.txtmoncompte{
+					margin-top: 38px;
+					font-size: 20px;
+				}
+	.enteteligne2{
+		display: flex;
+		margin: auto;
+		justify-content: space-between;			
+		width: 80%;
+		height: 100px;
+		border-bottom: 3px solid black;
+	}
+		.boutonaccueil{
+			width: 25%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 38px;
+			font-size: 20px;
+			background-color: #35889E;
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			border-top: 1px solid black;
+			border-radius: 20px 20px 0px 0px;
+		}
+			.txtaccueil{
+				padding-top: 5%;
+				color: #DFE0DF;
+				margin-left: 38%;
+				margin-right: 38%;
+			}
+		.boutonscenario{
+			width: 25%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 38px;
+			font-size: 20px;			
+		}
+			.txtscenario{
+				padding-top: 5%;
+				margin-left: 38%;
+			}
+			.boutonscenario:hover{
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				border-top: 1px solid black;
+				border-radius: 20px 20px 0px 0px;
+			}	
+		.boutongerer{	
+			width: 25%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 38px;
+			font-size: 20px;		
+		}
+			.txtgerer{
+				padding-top: 5%;
+				margin-left: 38%;
+			}
+			.boutongerer:hover{
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				border-top: 1px solid black;
+				border-radius: 20px 20px 0px 0px;
+			}
+		.boutonstatistique{	
+			width: 25%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 38px;
+			font-size: 20px;		
+		}
+			.txtstatistique{
+				padding-top: 5%;
+				margin-left: 38%;
+			}
+			.boutonstatistique:hover{
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				border-top: 1px solid black;
+				border-radius: 20px 20px 0px 0px;
+			}
