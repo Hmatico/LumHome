@@ -1,18 +1,11 @@
 <?php
-$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "base_lumhome";
     
-    $conn = new mysqli($servername, $username, $password,$dbname);
-    if ($conn->connect_error) {
-        die("La connexion a échoué: " . $conn->connect_error);
-    }   
+    require("../modele/connexionBD.php");
     
-    $result = mysqli_query($conn,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='test'");
+    $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='mailtest@gmail.com'");
 
     while ($row = mysqli_fetch_assoc($result)){
         echo '<option value='. $row['idHabitat'] . '>'. $row['nomHabitat'] . '</option>';
     }
-    mysql_close($con);
+    mysqli_close($link);
 ?>
