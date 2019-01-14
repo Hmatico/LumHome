@@ -5,8 +5,7 @@
 		<link rel="stylesheet" href="adios.css">
 	</head>
 	<body>
-		<?php include "entete.html";?>
-		<img src="./resources/triche2.png" class="triche2"> <!-- Permet au code qui suit le dashboard de passer derriere le dashboard-->
+		<img class="triche2" src="./resources/triche2.png"/> 
 		<div class = "dhabitatprincipal">
 			<div class="dleftcontainer">
 				<div class="dhabitatactuel">
@@ -104,8 +103,8 @@
 			</div>
 		</div>
 		<div class = "fake_dhabitatprincipal"></div>
+					<div class="dentetepiece"> Piece </div>
 		<div class ="scenario">
-			<div class="dentetepiece"> Piece </div>
 			<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece"> Chambre de David </div>
