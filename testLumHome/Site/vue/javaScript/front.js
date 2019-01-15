@@ -1,15 +1,3 @@
-     
-    $(".accordion").click(function(){
-        alert("ok");
-        $(".accordion").each(function(){
-            if($(this).hasClass("disAble"))
-                $(this).toggleClass("disAble");
-            this.nextElementSibling.style.maxHeight = null;
-        });
-        $(this).toggleClass("disAble");
-        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
-    });
-    
     $(".logo_content").hover(function(){
         $(this).css("cursor","pointer");
     })
