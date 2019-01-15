@@ -13,6 +13,17 @@
                 $answer = $answer . '<div class="accordionContent"><p>'
                     . utf8_encode($e['reponse']) . "</p></div>";
             }
+                $answer = $answer .'<script>
+                $(".accordion").click(function(){
+                $(".accordion").each(function(){
+                    if($(this).hasClass("disAble"))
+                        $(this).toggleClass("disAble");
+                    this.nextElementSibling.style.maxHeight = null;
+                });
+                $(this).toggleClass("disAble");
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
+                });
+                </script>';
             return $answer;
     }
 
