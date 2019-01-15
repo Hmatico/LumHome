@@ -1,0 +1,98 @@
+﻿body        /* Reset des marges et des padding */
+{
+	background: radial-gradient(circle at center, #DFE0DF,#BDF9F9 );
+    overflow-x: hidden;
+}
+
+.logo
+{
+    margin: 1em;
+    height: 10vh;
+}
+
+.go_back {
+    color: #c5dbe0;
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-top: 2%;
+    margin-right: 3%;
+}
+
+.text_i{
+    font-size : 1.5em;
+    color : rgba(54,136,158,1);
+}
+
+.text_erreur{
+    margin: 0.2em 0px 0px 5%;
+    font-size : 0.8em;
+    width: 80%;
+    color:red;
+}
+
+.input_pdata .text_i{
+    width: 20%;
+}
+
+.input_pdata input{
+    padding: 0.5em 0.7em;
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.button {
+    background-color : rgba(66,66,66,1);
+    padding : 0.7em;
+    border-radius : 0.7em;
+    color : #c5dbe0;
+    border : none;
+    cursor: pointer;
+}
+
+.a_data .text_i{
+    font-size : 1.5em;
+    width: 90%;
+}
+
+.input_adata input {
+    padding: 0.5em 0.7em;
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.adata_textaera {
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 85%;
+    padding: 0.5em 0.7em;
+    margin: 0.5em 1em;
+}
+
+.c_data .text_i{
+    font-size : 1.4em;
+    width: 90%;
+}
+
+.input_cdata input {
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 90%;
+    padding: 0.5em 0.7em;
+}
+
+.form_btn {
+    display: inline-block;
+    width: 100%;
+    margin-left:35%;
+    margin-top:1em;
+}

@@ -7,6 +7,7 @@ USE base_lumhome;
 -- REM **************************************************************************
 
 -- REM ************************* DROP *******************************************
+DROP TABLE IF EXISTS QUESTIONS;
 DROP TABLE IF EXISTS STATS ;
 DROP TABLE IF EXISTS PARAMETRE ;
 DROP TABLE IF EXISTS SCENARIO_CEMAC ;
@@ -117,6 +118,14 @@ CREATE TABLE SCENARIO_CEMAC (
     valeurIntensite INT(11),
     valeurCouleur CHAR(6)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- REM ***** CREATE TABLE QUESTIONS
+CREATE TABLE QUESTIONS (
+	id_question INT(100) PRIMARY KEY AUTO_INCREMENT,
+    question LONGTEXT NOT NULL,
+	reponse LONGTEXT NOT NULL
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
+
 -- REM ************************* FIN TABLES *************************************
 
 -- REM ************************* CONSTRAINTS ************************************
@@ -164,6 +173,18 @@ ALTER TABLE SCENARIO_CEMAC ADD CONSTRAINT FK_SCENARIO_CEMAC_CEMAC FOREIGN KEY (f
 -- REM ************************* FIN CONSTRAINTS ********************************
 
 -- REM ************************* DATAS ******************************************
+
+-- REM ***** QUESTIONS
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment je peux créer mon compte ?","Pour créer  votre compte, vous devez renseigner votre adresse email et choisir un mot de passe respectant le format imposé. Vous devez ensuite renseigner le numéro de série du CeMAC préalablement acheté.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment puis-je me procurer un CeMAC ?","Les capteurs CeMAC sont disponibles sur le site de DomISEP à l'adresse suivante : www.domisep.fr/products/");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Je ne retrouve plus les identifiants de mon compte, que dois-je faire ?","Veuillez en informer l'administrateur du site via l'onglet 'Contactez-nous'. Certaines informations personnelles seront requises pour votre identification.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment modifier les informations de mon compte ?","Connectez vous avec vos identifiants actuels et allez dans l'onglet 'Mon Compte' afin de modifier les données de votre compte.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Mon CeMAC est en panne ou cassé que faire ?","Veuillez en informer l'administrateur du site via l'onglet 'Contactez-nous'. Un professionnel sera mis à votre disposition pour vérifier votre installation. Il effectuera les réparations nécessaires.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Je suis promoteur immobilier, comment mettre en place les installations chez les locataires ?","Veuillez contacter l'administrateur du site via l'onglet 'Contactez-nous' pour mettre en place l'installation des produits.");
+
+
+
+
 -- REM ***** UTILISATEUR
 INSERT INTO UTILISATEUR VALUES ();
 INSERT INTO UTILISATEUR VALUES ();
