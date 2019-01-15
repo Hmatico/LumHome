@@ -1,7 +1,5 @@
-$(document).ready(function(){
-    
-    
-    $(".accordion").click(function(){
+ $("#accordionSet").ready(function(){
+      $(".accordion").click(function(){
         $(".accordion").each(function(){
             if($(this).hasClass("disAble"))
                 $(this).toggleClass("disAble");
@@ -26,8 +24,11 @@ $(document).ready(function(){
         if(page=="questions")
             window.location.replace("faq.html");
     });
+ });   
+   
+
+
     
     $(".format_info").click(function(){
         alert("Le mot de passe doit contenir une minuscule, une majuscule, un chiffre et un caractère spécial au minimum. La taille minimale est de huit caractères.");
     });
-});

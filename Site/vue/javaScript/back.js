@@ -197,7 +197,7 @@ function champsRemplis() {
         }
         if(result == "dateFAUX"){
             alert("La date n'est pas au bon format !");
-            $("#expiration").css('border-color', 'red');
+            $("#date").css('border-color', 'red');
         }
         if(result == "cryptoFAUX"){
             alert("Le cryptogramme visuel n'est pas au bon format !");
@@ -205,11 +205,8 @@ function champsRemplis() {
         }
         if(result == "existant")
             alert("L'email est déjà utilisé !");
-        if(result=="OK"){
+        if(result=="OK")
             alert("Vous êtes inscrit !");
-            $(location).attr("href", "./dashboard.html");
-        }
-            
     }
 
 /*
