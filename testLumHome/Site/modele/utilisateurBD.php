@@ -28,12 +28,12 @@ spl_autoload_register('chargerClasse');
         }
     }
 
-    function inscription($email, $nom, $pwd){
+    function inscription($email, $nom, $pwd, $profil){
         require("modele/connexionBD.php");
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
         $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin) values('%s', '%s', '%s', '%s', '%s')";
-        $req = sprintf($insert,$email, $nom,'user',$hash,"0000");
+        $req = sprintf($insert,$email, $nom,$profil,$hash,"0000");
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         return "OK";

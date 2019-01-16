@@ -20,7 +20,7 @@ $(document).ready(function(){
                         if(data == "incorrect"){
                             alert("Identifiant ou mot de passe incorrect !")
                         } else {
-                            $(location).attr("href", "./dashboard.html");
+                            connexion(data);
                         }
                     }
                 },
@@ -40,12 +40,13 @@ $(document).ready(function(){
     })
     
     $(".accueil_ins .btn").click(function(){
+        $("#select_profil").css('border-color', '#ccc');
         $("#logini").css('border-color', '#ccc');
         $("#pwdi").css('border-color', '#ccc');
         $("#loginci").css('border-color', '#ccc');
         $("#pwdci").css('border-color', '#ccc');
         $("#cap").css('border-color', '#ccc');
-        if($("#logini").val() != "" && $("#pwdi").val() != "" && $("#loginci").val() != "" && $("#pwdci").val() != ""){
+        if($("#logini").val() != "" && $("#pwdi").val() != "" && $("#loginci").val() != "" && $("#pwdci").val() != "" && $("#select_profil option:selected").val() !=""){
             if($("#cgu").is(':checked')){
                 if($("#logini").val() === $("#loginci").val())
                     if($("#pwdi").val() === $("#pwdci").val())
@@ -65,6 +66,8 @@ $(document).ready(function(){
             }
         } else {
             alert("Au moins un des champs est vide !");
+            if($("#select_profil option:selected").val() == "")
+                $("#select_profil").css('border-color', 'red');
             if($("#logini").val() == "")
                 $("#logini").css('border-color', 'red');
             if($("#pwdi").val() == "")
@@ -84,13 +87,13 @@ $(document).ready(function(){
         var email = "email="+$("#logini").val();
         var pwd = "pwd="+$("#pwdi").val();
         var cap = "cap="+$("#cap").val();
-        var dataPOST = controler+"&"+email+"&"+pwd+"&"+cap;
+        var profil = "profil="+$("#select_profil option:selected").val();
+        var dataPOST = controler+"&"+email+"&"+pwd+"&"+cap+"&"+profil;
         $.ajax({
             type: "POST",
             url: "../index.php",
             data: dataPOST,
             success: function(data){
-                console.log(data);
                 retourInscription(data);
             },
             error: function(result){
@@ -117,24 +120,39 @@ $(document).ready(function(){
             $("#logini").css('border-color', 'red');
             $("#loginci").css('border-color', 'red');
         }
-        if(result=="OK")
+        if(result=="user" || result=="maire" || result=="promoteur" || result=="maintenance")
             alert("Vous êtes inscrit !");
+            connexion(result);
         if(result=="cexistant"){
             alert("Le numéro de série est déjà utilisé !");
             $("#cap").css('border-color', 'red');
         }
     }
 
-$("#accordionSet").ready(function(){
-    $("#accordionSet").load(
-        "../index.php",
-        {
-            controle: "accueil",
-            action: "questions"
-        }
-    );
-                         
-});
+    $("#accordionSet").ready(function(){
+        $("#accordionSet").load(
+            "../index.php",
+            {
+                controle: "accueil",
+                action: "questions"
+            }
+        );
+
+    });
+
+    function connexion(profil){
+        if(profil="user")
+            $(location).attr('href',"dashboard.html");
+        if(profil="admin")
+            $(location).attr('href',"administration.html");
+        if(profil="maire")
+            $(location).attr('href',"mairie.html");
+        if(profil="promoteur")
+            $(location).attr('href',"promoteur.html");
+        if(profil="maintenance")
+            $(location).attr('href',"maintenance.html");
+            
+    }
 /*
             var params = new Array();
             var mail = $("#email").val();

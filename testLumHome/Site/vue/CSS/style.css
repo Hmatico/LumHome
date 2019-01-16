@@ -94,7 +94,7 @@
     justify-content: space-around;
 }
 
-.accueil_con input[type="text"], .accueil_ins input[type="text"], .accueil_con input[type="password"], .accueil_ins input[type="password"], .form_mal_admin input[type="text"],.form_mal_admin input[type="password"]{
+.accueil_con input[type="text"], .accueil_ins input[type="text"], .accueil_con input[type="password"], .accueil_ins input[type="password"], .form_mal_admin input[type="text"],.form_mal_admin input[type="password"],select option{
     padding: 0.5em;
     margin: 0.3em;
     font-size: 1em;

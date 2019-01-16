@@ -68,15 +68,17 @@
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
         $cap = $_POST['cap'];
+        $profil = $_POST['profil'];
         require("modele/utilisateurBD.php");
         if(existant($email))
             echo "existant";
         else {
             require("modele/capteurBD.php");
             if(!capteurExistant($cap))
-                if(inscription($email, $nom, $pwd) == "OK"){
+                if(inscription($email, $nom, $pwd, $profil) == "OK"){
                     $_SESSION['user'] = $email;
-                    echo "OK";
+                    $_SESSION['profil'] = $profil;
+                    echo $_SESSION['profil'];
                 } else echo inscription($email, $nom, $pwd);
             else echo "cexistant";
         }

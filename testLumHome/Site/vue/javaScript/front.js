@@ -5,9 +5,9 @@
     $(".logo_content").click(function(){
         var page = $(this).attr('id');
         if(page=="lumhome")
-            window.location.replace("faq.html");
+            window.location.replace("erreur.html");
         if(page=="nous")
-            window.location.replace("faq.html");
+            window.location.replace("erreur.html");
         if(page=="contact")
             window.location.replace("contact.html");
         if(page=="questions")
