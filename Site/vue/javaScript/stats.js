@@ -6,6 +6,7 @@
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
       // draws it.
+      $(document).ready(drawChart);
       $("#habitation").change(drawChart);
       $("#periode").change(drawChart);
       
@@ -27,7 +28,8 @@
         var options = {chart: {title:'Heures cumulées d\'utilisation inutile'},
                        hAxis:{
                            format:'d MMM yy'
-                       }
+                       },
+                       backgroundColor: { fill:'transparent' }
                       };
 
         // Instantiate and draw our chart, passing in some options.

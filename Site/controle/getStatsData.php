@@ -9,7 +9,7 @@
         $req = $req." AND dateStat >= DATE_ADD(NOW(), INTERVAL -1 ".$periode.") AND dateStat < NOW()";
         $result = mysqli_query($link,$req);
 
-        $json = "{ \"cols\": [ {\"id\":\"\",\"label\":\"Date\",\"pattern\":\"\",\"type\":\"date\"}, {\"id\":\"\",\"label\":\"Nombre d'heures inutiles\",\"pattern\":\"\",\"type\":\"number\"} ], \"rows\": [ ";
+        $json = "{ \"cols\": [ {\"id\":\"\",\"label\":\"Date\",\"pattern\":\"\",\"type\":\"date\"}, {\"id\":\"\",\"label\":\"Nombre d'heures gaspillées\",\"pattern\":\"\",\"type\":\"number\"} ], \"rows\": [ ";
 
         if($result != FALSE){
             $total_rows = mysqli_num_rows($result);
