@@ -7,7 +7,7 @@
             <option selected disabled >Selectionner un habitat</option>
             <?php
             //afficher toutes les habitations de l'utilisateur
-                include "../modele/afficherHabitatsDispoStats.php";
+                include "../controle/afficherHabitatsDispoStats.php";
             ?>
         </select>
         <select id="periode">

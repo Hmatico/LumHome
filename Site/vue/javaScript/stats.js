@@ -12,9 +12,9 @@
       function drawChart() {
           
         var jsonData = $.ajax({
-          url: "../modele/getStatsData.php",
+          url: "../index.php",
           method : "POST",
-          data: {q:$("#habitation").val(), periode :$("#periode").val()},
+          data: {q:$("#habitation").val(), periode :$("#periode").val(), controle : "getStatsData", action :"getData"},
           dataType: "json",
           async: false,
           }).responseText;
