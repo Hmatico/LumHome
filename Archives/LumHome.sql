@@ -3,16 +3,17 @@ USE base_lumhome;
 -- REM Base : BASE_LUMHOME
 -- REM Auteur : Mathieu VALENTIN
 -- REM Group : G2B
--- REM Date de Mise à Jour : 25/10/2018
+-- REM Date de Mise à Jour : 08/10/2019
 -- REM **************************************************************************
 
 -- REM ************************* DROP *******************************************
+DROP TABLE IF EXISTS QUESTIONS;
+DROP TABLE IF EXISTS STATS ;
 DROP TABLE IF EXISTS PARAMETRE ;
-DROP TABLE IF EXISTS SCENARIO_UTILISATEUR ;
 DROP TABLE IF EXISTS SCENARIO_CEMAC ;
 DROP TABLE IF EXISTS CEMAC ;
-DROP TABLE IF EXISTS PIECE ;
 DROP TABLE IF EXISTS SCENARIO ;
+DROP TABLE IF EXISTS PIECE ;
 DROP TABLE IF EXISTS HABITAT ;
 DROP TABLE IF EXISTS UTILISATEUR ;
 
@@ -43,12 +44,12 @@ DROP TABLE IF EXISTS UTILISATEUR ;
 -- REM ***** CREATE TABLE UTILISATEUR
 CREATE TABLE UTILISATEUR (
     adresseMail VARCHAR(30),
-    nomUser VARCHAR (15) NOT NULL,
-    prenomUser VARCHAR(15) NOT NULL,
+    nomUser VARCHAR (30) NOT NULL,
+    prenomUser VARCHAR(30) ,
     adresseFacturation INT(11),
     type VARCHAR(20) NOT NULL,
     mdpUser VARCHAR(125) NOT NULL,
-    pin VARCHAR(4),
+    pin VARCHAR(4) NOT NULL,
     numeroCarte BIGINT(16),
 	cryptogramme INT(3),
 	dateExpiration DATE
@@ -83,7 +84,8 @@ CREATE TABLE SCENARIO (
     dateFin TIMESTAMP,
     statut BOOLEAN NOT NULL,
     scenario VARCHAR(30) NOT NULL,
-    type VARCHAR(30) NOT NULL
+    type VARCHAR(30) NOT NULL,
+	fk_proprietaire VARCHAR(30)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ***** CREATE TABLE CEMAC
@@ -102,10 +104,11 @@ CREATE TABLE PARAMETRE (
 	valeur VARCHAR(20) NOT NULL
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
--- REM ***** CREATE TABLE SCENARIO_UTILISATEUR
-CREATE TABLE SCENARIO_UTILISATEUR (
-    fk_scenario VARCHAR(20),
-    fk_proprietaire VARCHAR(30)
+-- REM ***** CREATE TABLE STATS
+CREATE TABLE STATS (
+	fk_habitat INT(11),
+    dateStat DATE,
+	nbrHeuresInutiles INT(11)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ***** CREATE TABLE SCENARIO_CEMAC
@@ -115,6 +118,14 @@ CREATE TABLE SCENARIO_CEMAC (
     valeurIntensite INT(11),
     valeurCouleur CHAR(6)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- REM ***** CREATE TABLE QUESTIONS
+CREATE TABLE QUESTIONS (
+	id_question INT(100) PRIMARY KEY AUTO_INCREMENT,
+    question LONGTEXT NOT NULL,
+	reponse LONGTEXT NOT NULL
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
+
 -- REM ************************* FIN TABLES *************************************
 
 -- REM ************************* CONSTRAINTS ************************************
@@ -127,39 +138,31 @@ ALTER TABLE PARAMETRE ADD CONSTRAINT PK_PARAMETRE PRIMARY KEY (type)
 ;
 ALTER TABLE SCENARIO ADD CONSTRAINT PK_SCENARIO PRIMARY KEY (nom)
 ;
-ALTER TABLE SCENARIO_UTILISATEUR ADD CONSTRAINT PK_SCENARIO_UTILISATEUR PRIMARY KEY (fk_scenario, fk_proprietaire)
-;
 ALTER TABLE SCENARIO_CEMAC ADD CONSTRAINT PK_SCENARIO_CEMAC PRIMARY KEY (fk_scenario, fk_CeMAC)
 ;
 
 -- REM ***** HABITAT
-
 ALTER TABLE HABITAT ADD CONSTRAINT FK_HABITAT_UTILISATEUR FOREIGN KEY (fk_proprietaire) REFERENCES UTILISATEUR(adresseMail) ON DELETE CASCADE
 ;
 -- REM ***** PIECE
-
 ALTER TABLE PIECE ADD CONSTRAINT FK_PIECE_HABITAT FOREIGN KEY (fk_habitat) REFERENCES HABITAT(idHabitat) ON DELETE CASCADE
 ;
 
 -- REM ***** SCENARIO
-
+ALTER TABLE SCENARIO ADD CONSTRAINT FK_SCENARIO_UTILISATEUR FOREIGN KEY (fk_proprietaire) REFERENCES UTILISATEUR(adresseMail) ON DELETE CASCADE
+;
 
 -- REM ***** CEMAC
-
 ALTER TABLE CEMAC ADD CONSTRAINT FK_CEMAC_PIECE FOREIGN KEY (fk_piece) REFERENCES PIECE(idPiece) ON DELETE CASCADE
 ;
 
 -- REM ***** PARAMETRE
-
 ALTER TABLE PARAMETRE ADD CONSTRAINT FK_PARAMETRE_CEMAC FOREIGN KEY (fk_CeMAC) REFERENCES CEMAC(numeroSerie) ON DELETE CASCADE
 ;
 
--- REM ***** SCENARIO_UTILISATEUR
-ALTER TABLE SCENARIO_UTILISATEUR ADD CONSTRAINT FK_SCENARIO_UTILISATEUR_SCENARIO FOREIGN KEY (fk_scenario) REFERENCES SCENARIO(nom) ON DELETE CASCADE
+-- REM ***** STATS
+ALTER TABLE STATS ADD CONSTRAINT FK_STATS_HABITAT FOREIGN KEY (fk_habitat) REFERENCES HABITAT(idHabitat) ON DELETE CASCADE
 ;
-ALTER TABLE SCENARIO_UTILISATEUR ADD CONSTRAINT FK_SCENARIO_UTILISATEUR_UTILISATEUR FOREIGN KEY (fk_proprietaire) REFERENCES UTILISATEUR(adresseMail) ON DELETE CASCADE
-;
-
 
 -- REM ***** SCENARIO_CEMAC
 ALTER TABLE SCENARIO_CEMAC ADD CONSTRAINT FK_SCENARIO_CEMAC_SCENARIO FOREIGN KEY (fk_scenario) REFERENCES SCENARIO(nom) ON DELETE CASCADE
@@ -170,6 +173,18 @@ ALTER TABLE SCENARIO_CEMAC ADD CONSTRAINT FK_SCENARIO_CEMAC_CEMAC FOREIGN KEY (f
 -- REM ************************* FIN CONSTRAINTS ********************************
 
 -- REM ************************* DATAS ******************************************
+
+-- REM ***** QUESTIONS
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment je peux créer mon compte ?","Pour créer  votre compte, vous devez renseigner votre adresse email et choisir un mot de passe respectant le format imposé. Vous devez ensuite renseigner le numéro de série du CeMAC préalablement acheté.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment puis-je me procurer un CeMAC ?","Les capteurs CeMAC sont disponibles sur le site de DomISEP à l'adresse suivante : www.domisep.fr/products/");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Je ne retrouve plus les identifiants de mon compte, que dois-je faire ?","Veuillez en informer l'administrateur du site via l'onglet 'Contactez-nous'. Certaines informations personnelles seront requises pour votre identification.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Comment modifier les informations de mon compte ?","Connectez vous avec vos identifiants actuels et allez dans l'onglet 'Mon Compte' afin de modifier les données de votre compte.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Mon CeMAC est en panne ou cassé que faire ?","Veuillez en informer l'administrateur du site via l'onglet 'Contactez-nous'. Un professionnel sera mis à votre disposition pour vérifier votre installation. Il effectuera les réparations nécessaires.");
+INSERT INTO QUESTIONS(question,reponse) VALUES("Je suis promoteur immobilier, comment mettre en place les installations chez les locataires ?","Veuillez contacter l'administrateur du site via l'onglet 'Contactez-nous' pour mettre en place l'installation des produits.");
+
+
+
+
 -- REM ***** UTILISATEUR
 INSERT INTO UTILISATEUR VALUES ();
 INSERT INTO UTILISATEUR VALUES ();

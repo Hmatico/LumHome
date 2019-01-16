@@ -5,8 +5,7 @@
 		<link rel="stylesheet" href="adios.css">
 	</head>
 	<body>
-		<?php include "entete.html";?>
-		<img src="./resources/triche2.png" class="triche2"> <!-- Permet au code qui suit le dashboard de passer derriere le dashboard-->
+		<img class="triche2" src="./resources/triche2.png"/> 
 		<div class = "dhabitatprincipal">
 			<div class="dleftcontainer">
 				<div class="dhabitatactuel">
@@ -18,94 +17,16 @@
 					</form>
 				</div>
 				<div class="dtteteindre">
-					<div class="dtxteteindre"> Tout éteindre</div>
-					<label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+					<div class="dtxteteindre"> <button class="btntteteindre" type="button">Tout eteindre</button> </div>
 				</div>
 			</div>
-			<div class="drightcontainer">
-				<div class ="ligne">
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-				</div>
-				<div class ="ligne">
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piecfgujffge <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-				</div>
-				<div class ="ligne">
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-					<div class="detatpiece">
-						<div class="etatpiece"></div>
-						Piece <a class = "detat"> (état) </a>
-					</div>
-				</div>
+			<div id="drightcontainer">
+					<?php include "../modele/afficherEtatPiece.php"?>
 			</div>
 		</div>
 		<div class = "fake_dhabitatprincipal"></div>
+					<div class="dentetepiece"> Piece </div>
 		<div class ="scenario">
-			<div class="dentetepiece"> Piece </div>
 			<div class="Line">
 					<div class="Piece">
 						<div class="Entete_piece"> Chambre de David </div>
@@ -213,5 +134,6 @@
 					</div>
 				</div>
 		</div>
+		<script type="text/javascript" src="./javaScript/dashboard.js"></script>
 	</body>
 </html>

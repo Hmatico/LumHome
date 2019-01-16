@@ -1,13 +1,14 @@
-.fake_dhabitatprincipal{
-	margin-bottom: 300px;
-}
 .triche2{
-	z-index: 0;
 	position: fixed;
 	height: 300px;
+	z-index: 0;
+	width:100%;
+	margin-top: -48px;
+}
+.btnaccueil{
+	border: none;
 }
 .dhabitatprincipal{
-	margin-top: 50px;
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
@@ -18,6 +19,7 @@
 	border: 2px solid #35889e;
 	background-color: #79bfd2;
 	box-shadow : 0px 0px 20px 5px #35889e;
+	z-index: 1;
 }
 	.dleftcontainer{
 		width: 200px;	
@@ -43,60 +45,10 @@
 			margin-bottom: 10px;
 			margin-left: 50px;
 			}
-		/* SWITCH */
-		.switch {
-		  position: relative;
-		  display: inline-block;
-		  width: 90px;
-		  height: 45px;
-		  margin-left : 48px;
+		.btntteteindre{
+			border-radius: 20px;
 		}
-			.switch input {
-			  opacity: 0;
-			  width: 0;
-			  height: 0;
-			}
-			.slider {
-			  position: absolute;	  
-			  cursor: pointer;
-			  top: 0;
-			  left: 0;
-			  right: 0;
-			  bottom: 0;
-			  background-color: #ccc;
-			  -webkit-transition: .4s;
-			  transition: .4s;
-			}
-				.slider:before {
-				  position: absolute;
-				  content: "";
-				  height: 38px;
-				  width: 38px;
-				  left: 4px;
-				  bottom: 4px;
-				  background-color: white;	
-				  -webkit-transition: .4s;
-				  transition: .4s;
-				}
-				input:checked + .slider {
-				  background-color: #2196F3;
-				}
-				input:focus + .slider {
-				  box-shadow: 0 0 1px #2196F3;
-				}
-				input:checked + .slider:before {
-				  -webkit-transform: translateX(45px);
-				  -ms-transform: translateX(45px);
-				  transform: translateX(45px);
-				}
-				.slider.round {
-				  border-radius: 34px;
-				}
-				.slider.round:before {
-				  border-radius: 50%;
-				} 
-		/*FIN SIWTCH*/
-	.drightcontainer{
+	#drightcontainer{
 		margin-right: 2%;
 		width: 98%;
 		height: 200px;
@@ -125,22 +77,22 @@
 			.detat{				
 				float: right;
 				margin-left: 30px;
-			}
-.fake_scenario{
-}		
+			}	
 .scenario{
+	padding-top: 280px;
 	z-index: -10;
 	height: 100px;
 	margin-top: 50px;
 }
 	.dentetepiece{
 		position: fixed;
+		margin-top: 220px;
 		border: 1px solid black;
 		background-color: #35889e;
 		width: 100%;
 		padding-top: 15px;
 		height: 40px;
-		text-align:  center;
+		text-align: center;
 	}
 .Line{
 	z-index: -10;
@@ -148,6 +100,7 @@
 	flex-direction: line;
 }
 .Piece{
+	position: static;
 	height: 200px;
 	width: 450px;
 	border: 1px solid black;
@@ -165,6 +118,7 @@
 	text-align:  center;
 	border-radius: 15px 15px 0px 0px;
 }
+
 .contenu_piece{
 	display: flex;
 	flex-direction: row;
@@ -187,26 +141,14 @@ float: right;
 }
 
 .colorpicker{
-	position: absolute;
-	right: -10px;
-	top:-10px;
-	border: none;
-	vertical-align: center;
-	height: 90px;
-	width: 90px;
+
 }
 
 .div_colorpicker{
-	margin-top: 2%;
-	margin-left: auto;
-	margin-right: auto;	
-	margin-bottom: 2%;
-	position: relative;
-	border: 5px solid black;
-	border-radius: 100px;
-	height: 55px;
-	width: 55px;
-	overflow: hidden;
+	margin-left : auto;
+	margin-right: auto;
+	margin-top: 8%;
+	margin-bottom: 8%;
 }
 
 .texte_couleur{

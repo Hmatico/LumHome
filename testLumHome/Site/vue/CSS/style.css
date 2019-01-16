@@ -1,0 +1,181 @@
+﻿body        /* Reset des marges et des padding */
+{
+	background: radial-gradient(circle at center, #DFE0DF,#BDF9F9 );
+    overflow-x: hidden;
+}
+
+.logo
+{
+    margin: 1em;
+    height: 13vh;
+}
+
+.logo_haut {
+    margin: 1em;
+    height: 9vh;
+    width: 6vm;
+}
+
+.banner
+{
+    display: flex;
+    flex-direction: row;
+    width: all;
+}
+
+.vert-align             /* Aligne l'élément verticalement */
+{
+    display: flex;
+    align-items: center;
+}
+
+.body_container{
+    padding: 1em;
+}
+
+.img_container {
+    margin-left: 11%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+    align-content: space-between;
+}
+
+.logo_content {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.accueil_form {
+    text-align: left;
+    width: 80%;
+    padding-left: 35%;
+}
+
+.logo_content {
+    color : rgba(54,136,158,1);
+    font-size: 1em;
+}
+
+.lien {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
+.accueil_bas {
+    width: 100%;
+    position: absolute;
+    bottom : 0;
+}
+
+.icon_bas img{
+    height: 8vh;
+}
+
+.icon_bas {
+    text-align: center;
+}
+
+.logo_accueil {
+    margin: 1em;
+    height: 10vh;
+    width: 5vw;
+}
+
+.insconnexion {
+    margin-top: 3%;
+    display: flex;
+    width: 60%;
+    margin-left: 22%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.accueil_con input[type="text"], .accueil_ins input[type="text"], .accueil_con input[type="password"], .accueil_ins input[type="password"], .form_mal_admin input[type="text"],.form_mal_admin input[type="password"],select option{
+    padding: 0.5em;
+    margin: 0.3em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 15em;
+}
+
+.accueil_con input[type="button"], .accueil_ins input[type="button"], .form_mal_admin input[type="button"]{
+    background-color : rgba(66,66,66,1);
+    padding : 0.7em;
+    border-radius : 0.7em;
+    color : #c5dbe0;
+    border : none;
+    cursor: pointer;
+}
+
+.nav_accueil {
+    margin-top: -1em;
+    margin-left: 4em;
+    color : blue;
+}
+
+.nav_accueil a {
+    color : inherit;
+    text-decoration: underline;
+}
+
+#accordionSet {
+    padding-top: 2em;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.accordion {
+    background-color: rgba(54,136,158,1);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.disAble, .accordion:hover {
+    background-color: #74c8db;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.disAble:after {
+    content: "\2212";
+}
+
+.accordionContent { 
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.format_info {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+}
+
+#form_mail {
+    margin-top: 5em;
+}
+
+form h2 {
+    color : rgba(54,136,158,1);
+}
