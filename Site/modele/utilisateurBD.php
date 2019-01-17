@@ -28,15 +28,16 @@ spl_autoload_register('chargerClasse');
         }
     }
 
-    function inscription($nom, $prenom, $email, $pwd, $ncarte, $date, $c){
+    function inscription($email, $nom, $pwd, $profil){
         require("modele/connexionBD.php");
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
-        $insert = "insert into UTILISATEUR (adresseMail,nomUser, prenomUser, type, mdpUser,pin,numeroCarte,cryptogramme,dateExpiration) values('%s', '%s', '%s', '%s','%s', '%s', '%d', '%d', '%s')";
-        $req = sprintf($insert,$email,$nom,$prenom,'user',$hash,"0000",$ncarte,$c,$date);
+        $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin) values('%s', '%s', '%s', '%s', '%s')";
+        $req = sprintf($insert,$email, $nom,$profil,$hash,"0000");
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
-        return true;
+        mysqli_close($link);
+        return "OK";
     }
 
     function existant(&$email){
@@ -63,5 +64,19 @@ spl_autoload_register('chargerClasse');
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         return "OK";
+    }
+
+    function getProfil(&$login){
+         require ("modele/connexionBD.php");
+         $select= "select type from UTILISATEUR where adresseMail='%s'"; 
+         $req = sprintf($select,$login);
+         $answer = "";
+         $res = mysqli_query($link, $req)	
+             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+         while ($e = mysqli_fetch_assoc($res)) {
+             $answer = $e['type'];
+         }
+         mysqli_close($link);
+         return $answer;
     }
 ?>

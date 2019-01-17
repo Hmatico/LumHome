@@ -2,9 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" media="screen and (min-width: 1100px)" href="./css/styleG.css" />
-        <link rel="stylesheet" media="screen and (min-width: 650px) and (max-width: 1100px)" href="./css/styleM.css" />
-        <link rel="stylesheet" media="screen and (max-width: 650px)" href="./css/styleP.css" />
         <link rel="stylesheet" href="./css/style.css" />
         <script type="text/javascript" src="./javaScript/jquery-3.3.1.min.js"></script>
         <title>LumHome - Accueil</title>
@@ -12,59 +9,66 @@
     <body id="body">
         <nav class="banner">
             <div class="vert-align">
-                <a href=#>
+                <a href="../index.php">
                     <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <div class="accueil_form">
-                <form >
-                    <input type="text" id="email" placeholder="Adresse email">
-                    <input type="password" id="pwd" placeholder="Mot de passe">
-                    <input type="button" class="btn" value="Se connecter"><br>
-                    Mot de passe/identifiant oublié ? <a href="" class="lien">Cliquez ici</a><br>
-                    Toujours pas inscrit ? Créez votre compte en <a href="" class="lien">cliquant ici.</a>
-                </form>
-                
+            <div class="img_container">
+                <div id="lumhome" class="logo_content">
+                    <img src="./resources/Logo_info.png" class="logo_haut" alt="LumHome">
+                    LumHome
+                </div>
+                <div id="nous" class="logo_content">
+                    <img src="./resources/Logo_nous.png" class="logo_haut" alt="Qui sommes nous ?">
+                    Qui sommes nous ?
+                </div>
+                <div id="contact" class="logo_content">
+                    <img src="./resources/Logo_contact.png" class="logo_haut" alt="Nous contacter">
+                    Nous contacter
+                </div>
+                <div id="questions" class="logo_content">
+                    <img src="./resources/Logo_forum.png" class="logo_haut" alt="Questions fréquentes">
+                    Questions
+                </div>
             </div>
         </nav>
         <div class="accueil_body">
-            <div class="img_container">
-                <div class="logo_content">
-                    <img src="./resources/Logo_info.png" class="logoAccueil" alt="LumHome">
-                    LumHome
+            <div class="insconnexion">
+                <div class="accueil_con">
+                    <form>
+                        <h2> Connexion :</h2>
+                        Identifiant <br>
+                        <input type="text" id="login" placeholder="Login..." required><br>
+                        Mot de passe <br>
+                        <input type="password" id="pwd" placeholder="Password..." required><br>
+                        <input class="btnc" type="button" value="Se connecter">
+                    </form>
                 </div>
-                <div class="logo_content">
-                    <img src="./resources/Logo_nous.png" class="logoAccueil" alt="Qui sommes nous ?">
-                    Qui sommes nous ?
+                <div class="accueil_ins">
+                    <form>
+                        <h2> Inscription :</h2>
+                        <select id="select_profil">
+                            <option id="profil" value="">--Selectionnez votre statut--</option>
+                            <option id="profil" value="user">Utilisateur</option>
+                            <option id="profil" value="maire">Maire</option>
+                            <option id="profil" value="promoteur">Promoteur</option>
+                            <option id="profil" value="maintenance">Agent de maintenance</option>
+                        </select><br>
+                        Identifiant : <br>
+                        <input type="text" id="logini" placeholder="Login..." required><br>
+                        <input type="text" id="loginci" placeholder="Confirmation..." required><br>
+                        Mot de passe suivant ce <a class="format_info">format</a><br>
+                        <input type="password" id="pwdi" placeholder="Password..." required><br>
+                        <input type="password" id="pwdci" placeholder="Confirmation..." required><br>
+                        Numéro du capteur : <br>
+                        <input type="text" id="cap" placeholder="AEDC-SDCV-GCVH-GFCV" required><br>
+                        <label for="cgu"><input type="checkbox" id="cgu" required>J'accepte les conditions générales d'utilisation</label><br>
+                        <input class="btn" type="button" value="S'inscrire">
+                    </form>
                 </div>
-                <div class="logo_content">
-                    <img src="./resources/Logo_contact.png" class="logoAccueil" alt="Nous contacter">
-                    Nous contacter
-                </div>
-                <div class="logo_content">
-                    <img src="./resources/Logo_forum.png" class="logoAccueil" alt="Forum">
-                    Forum
-                </div>
-            </div>
-            <div class="caroussel">
-                <img src="./resources/slide_1.jpg" class="carousel_img">
-                <img src="./resources/slide_2.jpg" class="carousel_img">
-                <img src="./resources/slide_3.jpg" class="carousel_img">
             </div>
             <div class="accueil_bas">
-                <div class="logo_reseaux">
-                    <div class="icon_bas">
-                        <img src="./resources/icone_fb.png" class="logo">
-                    </div>
-                    <div class="icon_bas">
-                        <img src="./resources/icone_linkedin.png" class="logo">
-                    </div>
-                    <div class="icon_bas">
-                        <img src="./resources/icone_twitter.png" class="logo">
-                    </div>
-                </div>
-                <div class="icon_bas">
-                    FAQ-CGU - Plan du site - Politique de confidentialité et Cookies
+                <div class="icon_bas">Plan du site
                 </div>
             </div>
         </div>
