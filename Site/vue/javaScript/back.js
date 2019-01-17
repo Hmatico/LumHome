@@ -141,17 +141,30 @@ $(document).ready(function(){
     });
 
     function connexion(profil){
-        if(profil=="user")
-            $(location).attr('href',"entete.html");
-        if(profil=="admin")
-            $(location).attr('href',"administration.html");
-        if(profil=="maire")
-            $(location).attr('href',"mairie.html");
-        if(profil=="promoteur")
-            $(location).attr('href',"promoteur.html");
-        if(profil=="maintenance")
-            $(location).attr('href',"maintenance.html");
-            
+        var controler = "controle=gestionSession&action=setActif";
+        $.ajax({
+            type: "POST",
+            url: "../index.php",
+            data: controler,
+            success: function(data){
+                alert(data);
+                if(profil=="user")
+                    $(location).attr('href',"entete.html");
+                if(profil=="admin")
+                    $(location).attr('href',"administration.html");
+                if(profil=="maire")
+                    $(location).attr('href',"mairie.html");
+                if(profil=="promoteur")
+                    $(location).attr('href',"promoteur.html");
+                if(profil=="maintenance")
+                    $(location).attr('href',"maintenance.html");
+            },
+            error: function(result){
+                if(result){
+                    console.log(result);
+                }
+            }
+        });
     }
 /*
             var params = new Array();

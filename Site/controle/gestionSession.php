@@ -86,6 +86,11 @@
         }
     }
 
+    function setActif(){
+        require("modele/utilisateurBD.php");
+        echo setConnecte($_SESSION['user'],true);
+    }
+
     function parseCarte(&$num) {
         $subString = explode("-",$num);
         $num = $subString[0] . $subString[1] . $subString[2] . $subString[3];

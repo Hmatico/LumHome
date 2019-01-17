@@ -32,8 +32,8 @@ spl_autoload_register('chargerClasse');
         require("modele/connexionBD.php");
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
-        $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin) values('%s', '%s', '%s', '%s', '%s')";
-        $req = sprintf($insert,$email, $nom,$profil,$hash,"0000");
+        $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin,actif) values('%s', '%s', '%s', '%s', '%s','%b')";
+        $req = sprintf($insert,$email, $nom,$profil,$hash,"0000",true);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         mysqli_close($link);
@@ -64,5 +64,14 @@ spl_autoload_register('chargerClasse');
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         return "OK";
+    }
+
+    function setConnecte(&$mail,$boolean){
+        require("modele/connexionBD.php");
+        $update = "update Utilisateur set actif = '%d\n' where adresseMail = '%s'";
+        $req = sprintf($update,$boolean,$mail);
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        return "actif";
     }
 ?>
