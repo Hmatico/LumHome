@@ -15,15 +15,16 @@
             }
                 $answer = $answer .'<script>
                 $(".accordion").click(function(){
-                $(".accordion").each(function(){
-                    if($(this).hasClass("disAble"))
-                        $(this).toggleClass("disAble");
-                    this.nextElementSibling.style.maxHeight = null;
-                });
-                $(this).toggleClass("disAble");
-                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
+                    $(".accordion").each(function(){
+                        if($(this).hasClass("disAble"))
+                            $(this).toggleClass("disAble");
+                        this.nextElementSibling.style.maxHeight = null;
+                    });
+                    $(this).toggleClass("disAble");
+                    this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
                 });
                 </script>';
+            mysqli_close($link);
             return $answer;
     }
 

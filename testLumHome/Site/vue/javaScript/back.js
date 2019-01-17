@@ -141,15 +141,15 @@ $(document).ready(function(){
     });
 
     function connexion(profil){
-        if(profil="user")
+        if(profil=="user")
             $(location).attr('href',"dashboard.html");
-        if(profil="admin")
+        if(profil=="admin")
             $(location).attr('href',"administration.html");
-        if(profil="maire")
+        if(profil=="maire")
             $(location).attr('href',"mairie.html");
-        if(profil="promoteur")
+        if(profil=="promoteur")
             $(location).attr('href',"promoteur.html");
-        if(profil="maintenance")
+        if(profil=="maintenance")
             $(location).attr('href',"maintenance.html");
             
     }
