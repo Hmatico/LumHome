@@ -189,10 +189,11 @@ INSERT INTO QUESTIONS(question,reponse) VALUES("Je suis promoteur immobilier, co
 
 
 -- REM ***** UTILISATEUR
-INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.matico@mail.com","Hmatico","admin",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
-INSERT INTO UTILISATEUR VALUES ();
-INSERT INTO UTILISATEUR VALUES ();
-INSERT INTO UTILISATEUR VALUES ();
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.admin@gmail.com","Hmatico","admin",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.mairie@gmail.com","Hmatico","maire",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.promoteur@gmail.com","Hmatico","promoteur",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.user@gmail.com","Hmatico","user",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.maintenance@gmail.com","Hmatico","maintenance",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
 
 -- REM ***** HABITAT
 INSERT INTO PARAMETRE VALUES ();

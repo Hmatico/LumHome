@@ -8,9 +8,10 @@
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
         require("modele/utilisateurBD.php");
-        if(verifIdent($login,$pwd)=="OK"){
+        $type = verifIdent($login,$pwd);
+        if($type=="admin" || $type=="user" || $type=="maire" || $type=="promoteur" || $type=="maintenance"){
             $_SESSION['user'] = $login;
-            $_SESSION['profil'] = getProfil($login);
+            $_SESSION['profil'] = $type;
             echo $_SESSION['profil'];
         } else echo verifIdent($login,$pwd);
     }

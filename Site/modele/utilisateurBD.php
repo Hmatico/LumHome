@@ -17,7 +17,7 @@ spl_autoload_register('chargerClasse');
             $tab = mysqli_fetch_assoc($res);
             if($objetT->get_decrypte($tab['mdpUser'])){
                 mysqli_close($link);
-                return "OK";
+                return $tab['type'];
             }else {
                 mysqli_close($link);
                 return "incorrect";
@@ -64,19 +64,5 @@ spl_autoload_register('chargerClasse');
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         return "OK";
-    }
-
-    function getProfil(&$login){
-         require ("modele/connexionBD.php");
-         $select= "select type from UTILISATEUR where adresseMail='%s'"; 
-         $req = sprintf($select,$login);
-         $answer = "";
-         $res = mysqli_query($link, $req)	
-             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
-         while ($e = mysqli_fetch_assoc($res)) {
-             $answer = $e['type'];
-         }
-         mysqli_close($link);
-         return $answer;
     }
 ?>
