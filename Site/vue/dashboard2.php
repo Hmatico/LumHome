@@ -2,17 +2,16 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<title>Accueil</title>
-		<link rel="stylesheet" href="adios.css">
+		<link rel="stylesheet" href="dashboard2.css">
 	</head>
 	<body>
 		<img class="triche2" src="./resources/triche2.png"/> 
 		<div class = "dhabitatprincipal">
 			<div class="dleftcontainer">
 				<div class="dhabitatactuel">
-					<form method="post" action="">
-						<select class = "dselecthabitat">
-						   <option value="france">Habitation 1(principal)</option>
-						   <option value="espagne">Habitation 2</option>
+					<form method="post">
+						<select class = "dselecthabitat" id="dselecthabitat" onchange="afficherEtatPiece()">
+							<?php include("../modele/afficherSelectionHabitatBD.php"); ?>
 					   </select>
 					</form>
 				</div>
@@ -21,118 +20,13 @@
 				</div>
 			</div>
 			<div id="drightcontainer">
-					<?php include "../modele/afficherEtatPiece.php"?>
+				<?php include("../modele/afficherEtatPieceBD.php"); ?>
 			</div>
 		</div>
 		<div class = "fake_dhabitatprincipal"></div>
-					<div class="dentetepiece"> Piece </div>
+					<div class="dentetepiece"> Pieces </div>
 		<div class ="scenario">
-			<div class="Line">
-					<div class="Piece">
-						<div class="Entete_piece"> Chambre de David </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-					<div class="Piece">
-						<div class="Entete_piece"> Chambre de Julie </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="Line">
-					<div class="Piece">
-						<div class="Entete_piece"> Chambre des parents </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-					<div class="Piece">
-						<div class="Entete_piece"> Couloir </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="Line">
-					<div class="Piece">
-						<div class="Entete_piece">Cuisine </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-					<div class="Piece">
-						<div class="Entete_piece">Salle à manger </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="Line">
-					<div class="Piece">
-						<div class="Entete_piece"> Salle de bain </div>
-						<div class="contenu_piece">
-							<div class="leftpiece"> 
-								<div class="div_colorpicker"><input type="color" class="colorpicker"></div>
-								<div class="texte_couleur">Couleur</div>
-								<input class="piecerange" type="range"/>
-								<div class="texte_intensite">Intensité</div>
-							</div>
-							<div class="rightpiece">
-							<img src="./resources/soleil.png" class = "soleil"><br><a class="texteluminosite">Luminosité</a>
-							</div>
-						</div>
-					</div>
-				</div>
+		<?php include("../modele/afficherPieceScenarioBD.php"); ?>
 		</div>
 		<script type="text/javascript" src="./javaScript/dashboard.js"></script>
 	</body>
