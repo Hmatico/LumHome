@@ -1,4 +1,4 @@
-USE base_lumhome;
+﻿USE base_lumhome;
 -- REM **************************************************************************
 -- REM Base : BASE_LUMHOME
 -- REM Auteur : Mathieu VALENTIN
@@ -91,6 +91,9 @@ CREATE TABLE SCENARIO (
 -- REM ***** CREATE TABLE CEMAC
 CREATE TABLE CEMAC (
     numeroSerie VARCHAR(30),
+	etat INT(1),
+	intensite INT(11),
+	couleur INT(6),
 	adresseMac CHAR(12) NOT NULL,
 	type VARCHAR(10) NOT NULL,
 	panne BOOLEAN NOT NULL,
