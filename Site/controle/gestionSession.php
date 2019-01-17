@@ -1,4 +1,5 @@
 <?php
+
     function accueil(){
         header("Location: vue/accueil.html");   
     }
@@ -7,29 +8,27 @@
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
         require("modele/utilisateurBD.php");
-        echo verifIdent($login,$pwd);
+        if(verifIdent($login,$pwd)=="OK"){
+            $_SESSION['user'] = $login;
+            $_SESSION['profil'] = getProfil($login);
+            echo $_SESSION['profil'];
+        } else echo verifIdent($login,$pwd);
     }
 
     function nouvelUtilisateur(){
         $email = $_POST['login'];
         $pwd = $_POST['pwd'];
-        require("vue/inscription.php");
+        require("vue/accueil.php");
     }
 
     function creationCompte(){
         $email = $_POST['email'];
-        $emailc = $_POST['emailc'];
         $pwd = $_POST['pwd'];
-        $pwdc = $_POST['pwdc'];
-        if(verifEqual($email,$emailc))
-            if(verifEqual($pwd,$pwdc))
-                if(verifData($email,$pwd) == "OK")
-                    if(verifDataNum()=="OK")
-                        inscriptionUtilisateur();
-                    else echo verifDataNum();
-                else echo verifData($email,$pwd);
-            else echo "pwdc";  
-        else echo "emailc";
+        $sub = explode("@",$email);
+        $nom = $sub[0];
+        if(verifData($email,$pwd) == "OK")
+            inscriptionUtilisateur($nom);
+        else echo verifData($email,$pwd);
     }
 
     function verifEqual(&$var,&$varc){
@@ -66,31 +65,23 @@
         else return "cpostalFAUX";
     }
 
-    function inscriptionUtilisateur(){
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
+    function inscriptionUtilisateur($nom){
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
-        $nrue = $_POST['nrue'];
-        $nomrue = $_POST['nomrue'];
-        $cpostal = $_POST['cpostal'];
-        $ville = $_POST['ville'];
-        $comp = $_POST['comp'];
-        $ncarte = $_POST['ncarte'];
-        $date = $_POST['date'];
-        $crypto = $_POST['crypto'];
-        parseCarte($ncarte);
-        parseDate($date);
+        $cap = $_POST['cap'];
+        $profil = $_POST['profil'];
         require("modele/utilisateurBD.php");
         if(existant($email))
             echo "existant";
         else {
-            require_once("modele/habitatBD.php");
-            if(inscription($nom, $prenom, $email, $pwd, $ncarte, $date, $crypto)){
-                nouvelHabitatF($nrue,$nomrue,$cpostal,$ville,$comp,$email);
-                $fk = getIdHabitatFacturation($nrue,$nomrue,$ville,$cpostal,$comp,$email);
-                echo updateFK($email,$fk);
-            } 
+            require("modele/capteurBD.php");
+            if(!capteurExistant($cap))
+                if(inscription($email, $nom, $pwd, $profil) == "OK"){
+                    $_SESSION['user'] = $email;
+                    $_SESSION['profil'] = $profil;
+                    echo $_SESSION['profil'];
+                } else echo inscription($email, $nom, $pwd);
+            else echo "cexistant";
         }
     }
 
