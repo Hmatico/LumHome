@@ -10,4 +10,9 @@
         echo nbInactif();
     }
 
+    function afficherCGU(){
+        require("modele/adminBD.php");
+        echo inputCGU();
+    }
+
 ?>

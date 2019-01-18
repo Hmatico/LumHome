@@ -41,4 +41,14 @@ $(document).ready(function(){
 
     $(".close").click(function(){
         $(".modal").css("display","none");
-    })
+    });
+
+    $(".accordion").click(function(){
+        $(".accordion").each(function(){
+        if($(this).hasClass("disAble"))
+            $(this).toggleClass("disAble");
+            this.nextElementSibling.style.maxHeight = null;
+        });
+        $(this).toggleClass("disAble");
+        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
+    });

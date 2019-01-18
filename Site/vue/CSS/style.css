@@ -124,7 +124,7 @@
     text-decoration: underline;
 }
 
-#accordionSet {
+#accordionSet, #accordionSetA {
     padding-top: 2em;
     margin-left: 10%;
     width: 80%;
