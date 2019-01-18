@@ -22,6 +22,7 @@ $(document).ready(function(){
                             $(".modal .modal-content p").html("Identifiant ou mot de passe incorrect !");
                             $(".modal").css("display","block");
                         } else {
+                            console.log(data);
                             connexion(data);
                         }
                     }
