@@ -1,4 +1,18 @@
 <?php
+
+    function getHabitats(){
+        require("../modele/connexionBD.php");
+    
+        $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='test'");
+
+
+        $options = '';
+        while ($row = mysqli_fetch_assoc($result)){
+            $options .= '<option value='. $row['idHabitat'] . '>'. $row['nomHabitat'] . '</option>';
+        }
+        mysqli_close($link);
+        return $options;
+    }
     
     function getData(){
         $q=$_POST["q"];
@@ -30,7 +44,6 @@
         }
         $json .= " ] }";
         mysqli_close($link);
-        echo $json;
+        return $json;
     }
-    
 ?>
