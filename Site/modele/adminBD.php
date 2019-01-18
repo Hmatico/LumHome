@@ -15,7 +15,17 @@
                 . utf8_encode($e['texte']) . "</textarea><br>";
             $cpt = $cpt + 1;
         }
-        $answer = $answer . "<input type='button' value='Modifier'><br></form>";
+        $answer = $answer . "<input id='ajoutCGU' type='button' value='Ajouter un paragraphe'><input id='supprCGU' type='button' value='Supprimer un paragraphe'><br><input type='button' value='Modifier les CGU'><br></form>";
+        $answer = $answer . '<script>
+        var cpt = '.$cpt. ';
+        $("#ajoutCGU").click(function(){
+            var partie = "partie" + cpt;
+            var texte = "texte"+cpt;'
+                . '$("#ajoutCGU").insertBefore("<input type="text" id=partie><br>");'
+                . '$("#ajoutCGU").insertBefore("<textarea id=texte rows="10" cols="80"></teaxtarea><br>");
+                cpt = cpt + 1;
+        });
+        </script>';
         mysqli_close($link);
         return $answer;
     }
