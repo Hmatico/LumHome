@@ -15,10 +15,12 @@ $(document).ready(function(){
                 data: controler+"&"+email_content+"&"+pwd_content,
                 success: function(data){
                     if(data == "inconnu"){
-                        alert("Utilisateur inconnu !"+'\n'+"Si vous n'avez pas de compte, créez le !");
+                        $(".modal .modal-content p").html("Utilisateur inconnu !"+'\n'+"Si vous n'avez pas de compte, créez le !");
+                        $(".modal").css("display","block");
                     } else {
                         if(data == "incorrect"){
-                            alert("Identifiant ou mot de passe incorrect !")
+                            $(".modal .modal-content p").html("Identifiant ou mot de passe incorrect !");
+                            $(".modal").css("display","block");
                         } else {
                             connexion(data);
                         }
@@ -31,7 +33,8 @@ $(document).ready(function(){
                 }
             });
         } else {
-            alert("Au moins un des champs est vide !");
+            $(".modal .modal-content p").html("Au moins un des champs est vide !");
+            $(".modal").css("display","block");
             if($("#login").val() == "")
                 $("#login").css('border-color', 'red');
             if($("#pwd").val() == "")
@@ -52,20 +55,24 @@ $(document).ready(function(){
                     if($("#pwdi").val() === $("#pwdci").val())
                         inscription();
                     else {
-                        alert("Les emails sont différents");
+                        $(".modal .modal-content p").html("Les emails sont différents");
+                        $(".modal").css("display","block");
                         $("#pwdi").css('border-color', 'red');
                         $("#pwdci").css('border-color', 'red');
                     }
                 else {
-                    alert("Les emails sont différents");
+                    $(".modal .modal-content p").html("Les emails sont différents");
+                    $(".modal").css("display","block");
                     $("#logini").css('border-color', 'red');
                     $("#loginci").css('border-color', 'red');
                 }
             } else {
-                alert("Veuillez accepter les CGU");
+                $(".modal .modal-content p").html("Veuillez accepter les CGU");
+                $(".modal").css("display","block");
             }
         } else {
-            alert("Au moins un des champs est vide !");
+            $(".modal .modal-content p").html("Au moins un des champs est vide !");
+            $(".modal").css("display","block");
             if($("#select_profil option:selected").val() == "")
                 $("#select_profil").css('border-color', 'red');
             if($("#logini").val() == "")
@@ -106,25 +113,30 @@ $(document).ready(function(){
     
     function retourInscription(result){
         if(result == "pwdFAUX"){
-            alert("Le mot de passe n'est pas au bon format !");
+            $(".modal .modal-content p").html("Le mot de passe n'est pas au bon format !");
+            $(".modal").css("display","block");
             $("#pwdi").css('border-color', 'red');
             $("#pwdci").css('border-color', 'red');
         }
         if(result == "emailFAUX"){
-            alert("L'adresse email n'est pas correcte !");
+            $(".modal .modal-content p").html("L'adresse email n'est pas correcte !");
+            $(".modal").css("display","block");
             $("#logini").css('border-color', 'red');
             $("#loginci").css('border-color', 'red');
         }
         if(result == "existant") {
-            alert("L'email est déjà utilisé !");
+            $(".modal .modal-content p").html("L'email est déjà utilisé !");
+            $(".modal").css("display","block");
             $("#logini").css('border-color', 'red');
             $("#loginci").css('border-color', 'red');
         }
         if(result=="user" || result=="maire" || result=="promoteur" || result=="maintenance")
-            alert("Vous êtes inscrit !");
+            $(".modal .modal-content p").html("Vous êtes inscrit !");
+        $(".modal").css("display","block");
             connexion(result);
         if(result=="cexistant"){
-            alert("Le numéro de série est déjà utilisé !");
+            $(".modal .modal-content p").html("Le numéro de série est déjà utilisé !");
+            $(".modal").css("display","block");
             $("#cap").css('border-color', 'red');
         }
     }
@@ -147,7 +159,6 @@ $(document).ready(function(){
             url: "../index.php",
             data: controler,
             success: function(data){
-                alert(data);
                 if(profil=="user")
                     $(location).attr('href',"entete.html");
                 if(profil=="admin")
@@ -185,6 +196,17 @@ $(document).ready(function(){
                 action: "inactif"
             }
         );
+    });
+
+    $(".cgu_info").click(function(){
+        $(".modal .modal-content p").load(
+            "../index.php",
+            {
+                controle: "accueil",
+                action: "getCGU"
+            }
+        );
+        $(".modal").css("display","block");
     });
 /*
             var params = new Array();

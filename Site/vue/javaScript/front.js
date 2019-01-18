@@ -35,5 +35,10 @@ $(document).ready(function(){
     });
     
     $(".format_info").click(function(){
-        alert("Le mot de passe doit contenir une minuscule, une majuscule, un chiffre et un caractère spécial au minimum. La taille minimale est de huit caractères.");
+        $(".modal .modal-content p").html("Le mot de passe doit contenir une minuscule, une majuscule, un chiffre et un caractère spécial au minimum. La taille minimale est de huit caractères.");
+        $(".modal").css("display","block");
     });
+
+    $(".close").click(function(){
+        $(".modal").css("display","none");
+    })
