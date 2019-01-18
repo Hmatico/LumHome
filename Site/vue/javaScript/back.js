@@ -211,7 +211,7 @@ $(document).ready(function(){
     });
 
     $("#modifCGU").ready(function(){
-        $("#modifCGU").load(
+        $("#modifCGU ~ .accordionContent").load(
             "../index.php",
             {
                 controle: "administration",
