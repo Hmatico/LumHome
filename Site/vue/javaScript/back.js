@@ -166,6 +166,26 @@ $(document).ready(function(){
             }
         });
     }
+
+    $("#userCo").ready(function(){
+        $("#userCo").load(
+            "../index.php",
+            {
+                controle: "administration",
+                action: "actif"
+            }
+        );
+    });
+
+    $("#userDeco").ready(function(){
+        $("#userDeco").load(
+            "../index.php",
+            {
+                controle: "administration",
+                action: "inactif"
+            }
+        );
+    });
 /*
             var params = new Array();
             var mail = $("#email").val();
