@@ -186,7 +186,7 @@ INSERT INTO QUESTIONS(question,reponse) VALUES("Je suis promoteur immobilier, co
 
 
 -- REM ***** UTILISATEUR
-INSERT INTO UTILISATEUR VALUES ();
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.matico@mail.com","Hmatico","admin",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
 INSERT INTO UTILISATEUR VALUES ();
 INSERT INTO UTILISATEUR VALUES ();
 INSERT INTO UTILISATEUR VALUES ();

@@ -10,7 +10,8 @@
         require("modele/utilisateurBD.php");
         if(verifIdent($login,$pwd)=="OK"){
             $_SESSION['user'] = $login;
-            echo "OK";
+            $_SESSION['profil'] = getProfil($login);
+            echo $_SESSION['profil'];
         } else echo verifIdent($login,$pwd);
     }
 

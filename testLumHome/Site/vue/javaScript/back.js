@@ -46,7 +46,7 @@ $(document).ready(function(){
         $("#loginci").css('border-color', '#ccc');
         $("#pwdci").css('border-color', '#ccc');
         $("#cap").css('border-color', '#ccc');
-        if($("#logini").val() != "" && $("#pwdi").val() != "" && $("#loginci").val() != "" && $("#pwdci").val() != "" && $("#select_profil option:selected").val() !=""){
+        if($("#logini").val() != "" && $("#pwdi").val() != "" && $("#loginci").val() != "" && $("#pwdci").val() != "" && $("#select_profil option:selected").val() !="" && $("#cap").val()!=""){
             if($("#cgu").is(':checked')){
                 if($("#logini").val() === $("#loginci").val())
                     if($("#pwdi").val() === $("#pwdci").val())
@@ -141,15 +141,15 @@ $(document).ready(function(){
     });
 
     function connexion(profil){
-        if(profil="user")
-            $(location).attr('href',"dashboard.html");
-        if(profil="admin")
+        if(profil=="user")
+            $(location).attr('href',"entete.html");
+        if(profil=="admin")
             $(location).attr('href',"administration.html");
-        if(profil="maire")
+        if(profil=="maire")
             $(location).attr('href',"mairie.html");
-        if(profil="promoteur")
+        if(profil=="promoteur")
             $(location).attr('href',"promoteur.html");
-        if(profil="maintenance")
+        if(profil=="maintenance")
             $(location).attr('href',"maintenance.html");
             
     }

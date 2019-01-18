@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 if ((count($_POST)!=0) && !(isset($_POST['controle']) && isset ($_POST['action'])))
     require ('./vue/accueil.html'); //cas d'un appel à index.php avec des paramètres incorrects	
 else {
