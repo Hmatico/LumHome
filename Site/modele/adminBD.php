@@ -77,8 +77,10 @@
                     url: "../index.php",
                     data: controler+questions+reponses,
                     success: function(data){
-                        $(".modal .modal-content p").html("Modifications effectuées !");
-                        $(".modal").css("display","block");
+                        if(data == "ok"){
+                            $(".modal .modal-content p").html("Modifications effectuées !");
+                            $(".modal").css("display","block");
+                        } else alert(data);
                     },
                     error: function(result){
                         console.log(result);
@@ -168,8 +170,10 @@
                     url: "../index.php",
                     data: controler+parties+textes,
                     success: function(data){
-                        $(".modal .modal-content p").html("Modifications effectuées !");
-                        $(".modal").css("display","block");
+                        if(data == "ok"){
+                            $(".modal .modal-content p").html("Modifications effectuées !");
+                            $(".modal").css("display","block");
+                        } else alert(data);
                     },
                     error: function(result){
                         console.log(result);
@@ -188,10 +192,10 @@
         $req = sprintf($delete);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
-        $insert = "";
+        
         for($i=0 ; $i < sizeOf($questions) ; $i++){
-            $insert = "INSERT INTO QUESTIONS(question,reponse) VALUES('%s','%s')";
-            $req = sprintf($insert, $questions[$i], $reponses[$i]);
+            $insert = 'INSERT INTO QUESTIONS(question,reponse) VALUES ("' . htmlentities($questions[$i]) . '","' . htmlentities($reponses[$i]) . '");';
+            $req = sprintf($insert);
             $res = mysqli_query($link, $req)	
                 or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         }
@@ -206,12 +210,13 @@
         $req = sprintf($delete);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
-        $insert = "";
+        
         for($i=0 ; $i < sizeOf($parties) ; $i++){
-            $insert = "INSERT INTO CGU(partie,texte) VALUES('%s','%s')";
-            $req = sprintf($insert, $parties[$i], $textes[$i]);
+            $insert = 'INSERT INTO CGU(partie,texte) VALUES ("' . htmlentities($parties[$i]) . '","' . htmlentities($textes[$i]) . '");';
+            $req = sprintf($insert);
             $res = mysqli_query($link, $req)	
                 or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+            
         }
         
         mysqli_close($link);
