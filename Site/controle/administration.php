@@ -10,9 +10,28 @@
         echo nbInactif();
     }
 
+    function afficherFAQ(){
+        require("modele/adminBD.php");
+        echo inputFAQ();
+    }
+
     function afficherCGU(){
         require("modele/adminBD.php");
         echo inputCGU();
+    }
+
+    function modifFAQ(){
+        $nb = count($_POST)/2;
+        $questions = array();
+        $reponses = array();
+        for($i = 1;$i < $nb ; $i ++){
+            $tempQ = "question" . $i;
+            $temR = "reponse" . $i;
+            $questions[] = $_POST[$tempQ];
+            $reponses[] = $_POST[$temR];
+        }
+        require("modele/adminBD.php");
+        echo modifierFAQ($questions,$reponses);
     }
 
     function modifCGU(){

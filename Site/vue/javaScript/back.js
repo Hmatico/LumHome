@@ -210,6 +210,16 @@ $(document).ready(function(){
         $(".modal").css("display","block");
     });
 
+    $("#modifFAQ").ready(function(){
+        $("#modifFAQ ~ .accordionContent").load(
+            "../index.php",
+            {
+                controle: "administration",
+                action: "afficherFAQ"
+            }
+        );
+    });
+
     $("#modifCGU").ready(function(){
         $("#modifCGU ~ .accordionContent").load(
             "../index.php",

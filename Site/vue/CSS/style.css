@@ -230,7 +230,7 @@ form h2 {
     cursor: pointer;
 }
 
-#form_modif_cgu input[type="text"] {
+#form_modif_cgu input[type="text"], #form_modif_faq input[type="text"] {
     padding: 0.5em;
     margin: 0.3em;
     font-size: 1em;
@@ -240,7 +240,7 @@ form h2 {
     width: 30em;
 }
 
-#form_modif_cgu input[type="button"]{
+#form_modif_cgu input[type="button"], #form_modif_faq input[type="button"]{
     background-color : rgba(66,66,66,1);
     padding : 0.7em;
     border-radius : 0.7em;
@@ -249,11 +249,11 @@ form h2 {
     cursor: pointer;
 }
 
-#form_modif_cgu #ajoutCGU {
+#form_modif_cgu #ajoutCGU, #form_modif_faq #ajoutFAQ {
     color: green;
 }
 
-#form_modif_cgu #supprCGU {
+#form_modif_cgu #supprCGU, #form_modif_faq #supprFAQ {
     color: red; 
 }
 /*********************************************
