@@ -6,9 +6,19 @@
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
       // draws it.
-      $(document).ready(drawChart);
+      $(document).ready(function(){drawChart(); afficherOptionsHabitats();});
       $("#habitation").change(drawChart);
       $("#periode").change(drawChart);
+
+      function afficherOptionsHabitats(){
+          var options = $.ajax({
+              url:"..index.php",
+              method : "POST",
+              data : {controle: "stats", action : "habitats"},
+              dataType: "text",
+          }).responseText;
+          $("#habitation").html(options);
+      }
       
       function drawChart() {
           

@@ -4,10 +4,9 @@
 <body>
     <form>
         <select id="habitation" style="margin: 10px;">
-            <option selected disabled >Selectionner un habitat</option>
-            <?php
-            //afficher toutes les habitations de l'utilisateur
-                include "../index.php";
+            <?php 
+            include "../modele/statsBD.php";
+            echo getHabitats();
             ?>
         </select>
         <select id="periode" style="margin: 10px;">

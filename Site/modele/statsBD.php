@@ -3,8 +3,8 @@
     function getHabitats(){
         require("../modele/connexionBD.php");
     
-        $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='test'");
-
+        $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='test'")
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
 
         $options = '';
         while ($row = mysqli_fetch_assoc($result)){
@@ -21,7 +21,8 @@
 
         $req = "SELECT dateStat,nbrHeuresInutiles FROM stats WHERE fk_habitat=".$q;
         $req = $req." AND dateStat >= DATE_ADD(NOW(), INTERVAL -1 ".$periode.") AND dateStat < NOW()";
-        $result = mysqli_query($link,$req);
+        $result = mysqli_query($link,$req)
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
 
         $json = "{ \"cols\": [ {\"id\":\"\",\"label\":\"Date\",\"pattern\":\"\",\"type\":\"date\"}, {\"id\":\"\",\"label\":\"Nombre d'heures gaspillées\",\"pattern\":\"\",\"type\":\"number\"} ], \"rows\": [ ";
 
