@@ -211,7 +211,7 @@ $(document).ready(function(){
     });
 
     $("#modifFAQ").ready(function(){
-        $("#modifFAQ ~ .accordionContent").load(
+        $("#modifFAQ + .accordionContent").load(
             "../index.php",
             {
                 controle: "administration",
@@ -221,7 +221,7 @@ $(document).ready(function(){
     });
 
     $("#modifCGU").ready(function(){
-        $("#modifCGU ~ .accordionContent").load(
+        $("#modifCGU + .accordionContent").load(
             "../index.php",
             {
                 controle: "administration",
