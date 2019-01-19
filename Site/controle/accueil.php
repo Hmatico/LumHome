@@ -5,4 +5,9 @@ function questions(){
     echo getAllQuestions();
 }
 
+function getCGU(){
+    require("modele/accueilBD.php");
+    echo cgu();
+}
+
 ?>

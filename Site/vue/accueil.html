@@ -7,6 +7,12 @@
         <title>LumHome - Accueil</title>
     </head>
     <body id="body">
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p></p>
+            </div>
+        </div>
         <nav class="banner">
             <div class="vert-align">
                 <a href="../index.php">
@@ -61,8 +67,7 @@
                         <input type="password" id="pwdi" placeholder="Password..." required><br>
                         <input type="password" id="pwdci" placeholder="Confirmation..." required><br>
                         Numéro du capteur : <br>
-                        <input type="text" id="cap" placeholder="AEDC-SDCV-GCVH-GFCV" required><br>
-                        <label for="cgu"><input type="checkbox" id="cgu" required>J'accepte les conditions générales d'utilisation</label><br>
+                        <input type="text" id="cap" placeholder="AEDC-SDCV-GCVH-GFCV" required><br><input type="checkbox" id="cgu" required>J'accepte les <a class="cgu_info">conditions générales d'utilisation</a><br>
                         <input class="btn" type="button" value="S'inscrire">
                     </form>
                 </div>

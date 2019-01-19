@@ -1,4 +1,4 @@
-USE base_lumhome;
+﻿USE base_lumhome;
 -- REM **************************************************************************
 -- REM Base : BASE_LUMHOME
 -- REM Auteur : Mathieu VALENTIN
@@ -7,6 +7,7 @@ USE base_lumhome;
 -- REM **************************************************************************
 
 -- REM ************************* DROP *******************************************
+DROP TABLE IF EXISTS CGU;
 DROP TABLE IF EXISTS QUESTIONS;
 DROP TABLE IF EXISTS STATS ;
 DROP TABLE IF EXISTS PARAMETRE ;
@@ -50,6 +51,7 @@ CREATE TABLE UTILISATEUR (
     type VARCHAR(20) NOT NULL,
     mdpUser VARCHAR(125) NOT NULL,
     pin VARCHAR(4) NOT NULL,
+	actif BOOLEAN NOT NULL,
     numeroCarte BIGINT(16),
 	cryptogramme INT(3),
 	dateExpiration DATE
@@ -91,6 +93,9 @@ CREATE TABLE SCENARIO (
 -- REM ***** CREATE TABLE CEMAC
 CREATE TABLE CEMAC (
     numeroSerie VARCHAR(30),
+	etat INT(1),
+	intensite INT(11),
+	couleur INT(6),
 	adresseMac CHAR(12) NOT NULL,
 	type VARCHAR(10) NOT NULL,
 	panne BOOLEAN NOT NULL,
@@ -124,6 +129,13 @@ CREATE TABLE QUESTIONS (
 	id_question INT(100) PRIMARY KEY AUTO_INCREMENT,
     question LONGTEXT NOT NULL,
 	reponse LONGTEXT NOT NULL
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- REM ***** CREATE TABLE CGU
+CREATE TABLE CGU (
+	id_cgu INT(100) PRIMARY KEY AUTO_INCREMENT,
+    partie LONGTEXT NOT NULL,
+	texte LONGTEXT NOT NULL
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- REM ************************* FIN TABLES *************************************
@@ -182,14 +194,34 @@ INSERT INTO QUESTIONS(question,reponse) VALUES("Comment modifier les information
 INSERT INTO QUESTIONS(question,reponse) VALUES("Mon CeMAC est en panne ou cassé que faire ?","Veuillez en informer l'administrateur du site via l'onglet 'Contactez-nous'. Un professionnel sera mis à votre disposition pour vérifier votre installation. Il effectuera les réparations nécessaires.");
 INSERT INTO QUESTIONS(question,reponse) VALUES("Je suis promoteur immobilier, comment mettre en place les installations chez les locataires ?","Veuillez contacter l'administrateur du site via l'onglet 'Contactez-nous' pour mettre en place l'installation des produits.");
 
+-- REM ***** QUESTIONS
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 1 : Objet"," Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla imperdiet odio at vehicula. Praesent tincidunt diam sed sollicitudin ornare. Mauris ac rutrum elit. Fusce accumsan enim vitae nulla sagittis fermentum. Aenean in nunc porttitor, rhoncus dolor eu, aliquam est. Phasellus faucibus, enim id imperdiet ornare, nunc metus faucibus justo, eget posuere sapien libero ac orci. In lectus tellus, eleifend non ex a, commodo posuere nisi. Etiam ligula libero, viverra in varius at, bibendum a orci. Aenean quis lacus at arcu aliquet maximus at sit amet leo. Vivamus sit amet urna et dui vehicula malesuada vitae id leo. Nulla at nisl lectus. Sed congue facilisis diam non fringilla. Donec ut vulputate massa. Etiam lacinia erat ac erat laoreet laoreet. Integer porttitor massa ut erat finibus, in pharetra nibh finibus.
 
+Donec gravida placerat massa eget egestas. Cras scelerisque mi et ipsum iaculis, id tempor eros mollis. Aliquam libero turpis, vestibulum pharetra eros at, posuere aliquet diam. Suspendisse potenti. Cras tortor felis, egestas id metus lacinia, tincidunt scelerisque enim. Sed ultrices dui a blandit luctus. Donec eu massa sem.
 
+Phasellus gravida laoreet placerat. Vivamus bibendum in metus eget dapibus. Donec ac justo sollicitudin, convallis ex a, pharetra tortor. Curabitur sagittis lacinia accumsan. Vivamus non justo bibendum tortor ornare aliquet et eget lorem. Suspendisse consequat diam quis consectetur tempus. Nunc ante metus, varius a augue at, suscipit pharetra dolor. Sed et odio ligula. Nulla commodo nibh diam, ut iaculis odio porta in. Etiam malesuada dui ac ex semper, a dignissim mi ultricies. Fusce ornare tincidunt maximus. Etiam vulputate molestie diam, et lobortis lectus pretium in. Nulla facilisis sapien eget felis molestie aliquam. Pellentesque placerat metus vitae purus scelerisque dapibus. Mauris sit amet metus sit amet tellus suscipit gravida. Suspendisse suscipit elementum aliquam. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 2 : Mentions légales"," Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla imperdiet odio at vehicula. Praesent tincidunt diam sed sollicitudin ornare. Mauris ac rutrum elit. Fusce accumsan enim vitae nulla sagittis fermentum. Aenean in nunc porttitor, rhoncus dolor eu, aliquam est. Phasellus faucibus, enim id imperdiet ornare, nunc metus faucibus justo, eget posuere sapien libero ac orci. In lectus tellus, eleifend non ex a, commodo posuere nisi. Etiam ligula libero, viverra in varius at, bibendum a orci. Aenean quis lacus at arcu aliquet maximus at sit amet leo. Vivamus sit amet urna et dui vehicula malesuada vitae id leo. Nulla at nisl lectus. Sed congue facilisis diam non fringilla. Donec ut vulputate massa. Etiam lacinia erat ac erat laoreet laoreet. Integer porttitor massa ut erat finibus, in pharetra nibh finibus.
+
+Donec gravida placerat massa eget egestas. Cras scelerisque mi et ipsum iaculis, id tempor eros mollis. Aliquam libero turpis, vestibulum pharetra eros at, posuere aliquet diam. Suspendisse potenti. Cras tortor felis, egestas id metus lacinia, tincidunt scelerisque enim. Sed ultrices dui a blandit luctus. Donec eu massa sem.
+
+Phasellus gravida laoreet placerat. Vivamus bibendum in metus eget dapibus. Donec ac justo sollicitudin, convallis ex a, pharetra tortor. Curabitur sagittis lacinia accumsan. Vivamus non justo bibendum tortor ornare aliquet et eget lorem. Suspendisse consequat diam quis consectetur tempus. Nunc ante metus, varius a augue at, suscipit pharetra dolor. Sed et odio ligula. Nulla commodo nibh diam, ut iaculis odio porta in. Etiam malesuada dui ac ex semper, a dignissim mi ultricies. Fusce ornare tincidunt maximus. Etiam vulputate molestie diam, et lobortis lectus pretium in. Nulla facilisis sapien eget felis molestie aliquam. Pellentesque placerat metus vitae purus scelerisque dapibus. Mauris sit amet metus sit amet tellus suscipit gravida. Suspendisse suscipit elementum aliquam. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 3 : Définitions","Nullam sollicitudin non justo mattis facilisis. Curabitur et ornare urna, at malesuada velit. Sed condimentum turpis quis lorem laoreet, non ornare mi pulvinar. Etiam at ligula ut tortor rhoncus luctus ut vitae mi. Nam vehicula sem quis eros suscipit, sed auctor turpis laoreet. Nulla auctor ut leo quis blandit. Donec non dolor a urna aliquam volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In cursus elementum eleifend. Aliquam mattis augue sed lacus rhoncus, eget dapibus diam auctor. Ut nibh orci, interdum a mattis id, auctor sit amet sapien. Praesent mattis suscipit arcu, a semper sem lobortis id. Vivamus eget aliquam ipsum. Duis rhoncus turpis tortor, vitae pulvinar neque dignissim eget. Donec vulputate orci eget sollicitudin finibus. Vivamus eu nisi sit amet libero finibus volutpat. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 4 : accès aux services","Nullam sollicitudin non justo mattis facilisis. Curabitur et ornare urna, at malesuada velit. Sed condimentum turpis quis lorem laoreet, non ornare mi pulvinar. Etiam at ligula ut tortor rhoncus luctus ut vitae mi. Nam vehicula sem quis eros suscipit, sed auctor turpis laoreet. Nulla auctor ut leo quis blandit. Donec non dolor a urna aliquam volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In cursus elementum eleifend. Aliquam mattis augue sed lacus rhoncus, eget dapibus diam auctor. Ut nibh orci, interdum a mattis id, auctor sit amet sapien. Praesent mattis suscipit arcu, a semper sem lobortis id. Vivamus eget aliquam ipsum. Duis rhoncus turpis tortor, vitae pulvinar neque dignissim eget. Donec vulputate orci eget sollicitudin finibus. Vivamus eu nisi sit amet libero finibus volutpat. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 5 : Propriété intellectuelle","Nullam sollicitudin non justo mattis facilisis. Curabitur et ornare urna, at malesuada velit. Sed condimentum turpis quis lorem laoreet, non ornare mi pulvinar. Etiam at ligula ut tortor rhoncus luctus ut vitae mi. Nam vehicula sem quis eros suscipit, sed auctor turpis laoreet. Nulla auctor ut leo quis blandit. Donec non dolor a urna aliquam volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In cursus elementum eleifend. Aliquam mattis augue sed lacus rhoncus, eget dapibus diam auctor. Ut nibh orci, interdum a mattis id, auctor sit amet sapien. Praesent mattis suscipit arcu, a semper sem lobortis id. Vivamus eget aliquam ipsum. Duis rhoncus turpis tortor, vitae pulvinar neque dignissim eget. Donec vulputate orci eget sollicitudin finibus. Vivamus eu nisi sit amet libero finibus volutpat. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 6 : Données personnelles","Phasellus gravida laoreet placerat. Vivamus bibendum in metus eget dapibus. Donec ac justo sollicitudin, convallis ex a, pharetra tortor. Curabitur sagittis lacinia accumsan. Vivamus non justo bibendum tortor ornare aliquet et eget lorem. Suspendisse consequat diam quis consectetur tempus. Nunc ante metus, varius a augue at, suscipit pharetra dolor. Sed et odio ligula. Nulla commodo nibh diam, ut iaculis odio porta in. Etiam malesuada dui ac ex semper, a dignissim mi ultricies. Fusce ornare tincidunt maximus. Etiam vulputate molestie diam, et lobortis lectus pretium in. Nulla facilisis sapien eget felis molestie aliquam. Pellentesque placerat metus vitae purus scelerisque dapibus. Mauris sit amet metus sit amet tellus suscipit gravida. Suspendisse suscipit elementum aliquam. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 7 : Responsabilité et force majeure","Phasellus gravida laoreet placerat. Vivamus bibendum in metus eget dapibus. Donec ac justo sollicitudin, convallis ex a, pharetra tortor. Curabitur sagittis lacinia accumsan. Vivamus non justo bibendum tortor ornare aliquet et eget lorem. Suspendisse consequat diam quis consectetur tempus. Nunc ante metus, varius a augue at, suscipit pharetra dolor. Sed et odio ligula. Nulla commodo nibh diam, ut iaculis odio porta in. Etiam malesuada dui ac ex semper, a dignissim mi ultricies. Fusce ornare tincidunt maximus. Etiam vulputate molestie diam, et lobortis lectus pretium in. Nulla facilisis sapien eget felis molestie aliquam. Pellentesque placerat metus vitae purus scelerisque dapibus. Mauris sit amet metus sit amet tellus suscipit gravida. Suspendisse suscipit elementum aliquam. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 8 : Liens hypertextes","Donec gravida placerat massa eget egestas. Cras scelerisque mi et ipsum iaculis, id tempor eros mollis. Aliquam libero turpis, vestibulum pharetra eros at, posuere aliquet diam. Suspendisse potenti. Cras tortor felis, egestas id metus lacinia, tincidunt scelerisque enim. Sed ultrices dui a blandit luctus. Donec eu massa sem. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 9 : Évolution du contrat","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla imperdiet odio at vehicula. Praesent tincidunt diam sed sollicitudin ornare. Mauris ac rutrum elit. Fusce accumsan enim vitae nulla sagittis fermentum. Aenean in nunc porttitor, rhoncus dolor eu, aliquam est. Phasellus faucibus, enim id imperdiet ornare, nunc metus faucibus justo, eget posuere sapien libero ac orci. In lectus tellus, eleifend non ex a, commodo posuere nisi. Etiam ligula libero, viverra in varius at, bibendum a orci. Aenean quis lacus at arcu aliquet maximus at sit amet leo. Vivamus sit amet urna et dui vehicula malesuada vitae id leo. Nulla at nisl lectus. Sed congue facilisis diam non fringilla. Donec ut vulputate massa. Etiam lacinia erat ac erat laoreet laoreet. Integer porttitor massa ut erat finibus, in pharetra nibh finibus. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 10 : Durée","Donec gravida placerat massa eget egestas. Cras scelerisque mi et ipsum iaculis, id tempor eros mollis. Aliquam libero turpis, vestibulum pharetra eros at, posuere aliquet diam. Suspendisse potenti. Cras tortor felis, egestas id metus lacinia, tincidunt scelerisque enim. Sed ultrices dui a blandit luctus. Donec eu massa sem. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 11 : Droit applicable et juridiction compétente","Donec gravida placerat massa eget egestas. Cras scelerisque mi et ipsum iaculis, id tempor eros mollis. Aliquam libero turpis, vestibulum pharetra eros at, posuere aliquet diam. Suspendisse potenti. Cras tortor felis, egestas id metus lacinia, tincidunt scelerisque enim. Sed ultrices dui a blandit luctus. Donec eu massa sem. ");
+INSERT INTO CGU(partie,texte) VALUES("ARTICLE 12 : Publication par l'Utilisateur","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla imperdiet odio at vehicula. Praesent tincidunt diam sed sollicitudin ornare. Mauris ac rutrum elit. Fusce accumsan enim vitae nulla sagittis fermentum. Aenean in nunc porttitor, rhoncus dolor eu, aliquam est. Phasellus faucibus, enim id imperdiet ornare, nunc metus faucibus justo, eget posuere sapien libero ac orci. In lectus tellus, eleifend non ex a, commodo posuere nisi. Etiam ligula libero, viverra in varius at, bibendum a orci. Aenean quis lacus at arcu aliquet maximus at sit amet leo. Vivamus sit amet urna et dui vehicula malesuada vitae id leo. Nulla at nisl lectus. Sed congue facilisis diam non fringilla. Donec ut vulputate massa. Etiam lacinia erat ac erat laoreet laoreet. Integer porttitor massa ut erat finibus, in pharetra nibh finibus. ");
 
 -- REM ***** UTILISATEUR
-INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin) VALUES("h.matico@mail.com","Hmatico","admin",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000");
-INSERT INTO UTILISATEUR VALUES ();
-INSERT INTO UTILISATEUR VALUES ();
-INSERT INTO UTILISATEUR VALUES ();
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.admin@gmail.com","Hmatico","admin",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.mairie@gmail.com","Hmatico","maire",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.promoteur@gmail.com","Hmatico","promoteur",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.user@gmail.com","Hmatico","user",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
+INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.maintenance@gmail.com","Hmatico","maintenance",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
 
 -- REM ***** HABITAT
 INSERT INTO PARAMETRE VALUES ();
