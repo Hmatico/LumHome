@@ -2,8 +2,9 @@
 
     function getHabitats(){
         require("../modele/connexionBD.php");
+        session_start();
     
-        $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='test'")
+        $result = mysqli_query($link,"SELECT nomHabitat,idHabitat FROM habitat WHERE fk_proprietaire='".$_SESSION['user']."'")
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
 
         $options = '';
