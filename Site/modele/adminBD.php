@@ -16,15 +16,27 @@
             $cpt = $cpt + 1;
         }
         $answer = $answer . "<input id='ajoutCGU' type='button' value='Ajouter un paragraphe'><input id='supprCGU' type='button' value='Supprimer un paragraphe'><br><input type='button' value='Modifier les CGU'><br></form>";
-        $answer = $answer . '<script>
+        $answer = $answer . 
+        '<script>
         var cpt = '.$cpt. ';
         $("#ajoutCGU").click(function(){
             var partie = "partie" + cpt;
             var texte = "texte"+cpt;'
-                . '$("#ajoutCGU").insertBefore("<input type="text" id=partie><br>");'
-                . '$("#ajoutCGU").insertBefore("<textarea id=texte rows="10" cols="80"></teaxtarea><br>");
+                . '$("<input type=\'text\' id="+partie+"><br>").insertBefore("#ajoutCGU");'
+                . '$("<textarea id="+texte+" rows=\'10\' cols=\'80\'></textarea><br>").insertBefore("#ajoutCGU");
                 cpt = cpt + 1;
         });
+        $("#supprCGU").click(function(){
+            if(cpt > 0){
+                cpt = cpt -1;
+                var partie = "partie" + cpt;
+                var texte = "texte"+cpt;
+                $("#" +partie).next().remove();
+                $("#" +texte).next().remove();
+                $("input").remove("#" +partie);
+                $("textarea").remove("#" +texte);
+            }
+        })
         </script>';
         mysqli_close($link);
         return $answer;
