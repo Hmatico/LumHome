@@ -7,28 +7,22 @@
         <title>LumHome - Accueil</title>
     </head>
     <body id="body">
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p></p>
+            </div>
+        </div>
         <nav class="banner">
             <div class="vert-align">
                 <a href="../index.php">
                     <img src="./resources/logo.png" class="logo vert-align" alt="Logo LumHome">
                 </a>
             </div>
-            <div class="img_container">
-                <div id="lumhome" class="logo_content">
-                    <img src="./resources/Logo_info.png" class="logo_haut" alt="LumHome">
-                    LumHome
+            <div id="userNombre">
+                <div id="userCo">
                 </div>
-                <div id="nous" class="logo_content">
-                    <img src="./resources/Logo_nous.png" class="logo_haut" alt="Qui sommes nous ?">
-                    Qui sommes nous ?
-                </div>
-                <div id="contact" class="logo_content">
-                    <img src="./resources/Logo_contact.png" class="logo_haut" alt="Nous contacter">
-                    Nous contacter
-                </div>
-                <div id="questions" class="logo_content">
-                    <img src="./resources/Logo_forum.png" class="logo_haut" alt="Questions fréquentes">
-                    Questions
+                <div id="userDeco">
                 </div>
             </div>
         </nav>
@@ -38,12 +32,18 @@
             <a>Administration</a>
         </div>
         <div class="accueil_body admin_accueil">
-        </div>
-        <div class="accueil_bas">
-                <div class="icon_bas">
-                    Plan du site
+            <div id="accordionSetA">
+                <button class="accordion">Fermer les onglets</button>
+                <div class="accordionContent">
+                </div>
+                <button id="modifFAQ" class="accordion">Modifier la FAQ</button>
+                <div class="accordionContent">
+                </div>
+                <button id="modifCGU" class="accordion">Modifier les CGU</button>
+                <div class="accordionContent">
                 </div>
             </div>
+        </div>
     </body>
     <script type="text/javascript" src="./javaScript/front.js"></script>
     <script type="text/javascript" src="./javaScript/back.js"></script>

@@ -32,7 +32,7 @@ spl_autoload_register('chargerClasse');
         require("modele/connexionBD.php");
         $objet = new Crypto($pwd);
         $hash = $objet->get_encrypte();
-        $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin,actif) values('%s', '%s', '%s', '%s', '%s','%b')";
+        $insert = "insert into UTILISATEUR (adresseMail, nomUser,type, mdpUser,pin,actif) values('%s', '%s', '%s', '%s', '%s','%d\n')";
         $req = sprintf($insert,$email, $nom,$profil,$hash,"0000",true);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
@@ -72,6 +72,29 @@ spl_autoload_register('chargerClasse');
         $req = sprintf($update,$boolean,$mail);
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        mysqli_close($link);
         return "actif";
+    }
+
+    function nbActif(){
+        require("modele/connexionBD.php");
+        $count = "select count(actif) as nombre from Utilisateur where actif = true";
+        $req = sprintf($count);
+        $answer = '<img src="./resources/co.png" class="logo_co" alt="Utilisateurs actifs">';
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        mysqli_close($link);
+        return $answer . mysqli_fetch_assoc($res)['nombre'] . " actif(s)";
+    }
+
+    function nbInactif(){
+        require("modele/connexionBD.php");
+        $count = "select count(actif) as nombre from Utilisateur where actif = false";
+        $req = sprintf($count);
+        $answer = '<img src="./resources/deco.png" class="logo_co" alt="Utilisateurs inactifs">';
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        mysqli_close($link);
+        return $answer . mysqli_fetch_assoc($res)['nombre'] . " inactif(s)";
     }
 ?>
