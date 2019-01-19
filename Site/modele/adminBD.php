@@ -189,9 +189,9 @@
         $res = mysqli_query($link, $req)	
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         $insert = "";
-        for($i=0 ; $i < sizeOf($parties) ; $i++){
+        for($i=0 ; $i < sizeOf($questions) ; $i++){
             $insert = "INSERT INTO QUESTIONS(question,reponse) VALUES('%s','%s')";
-            $req = sprintf($insert, $questions[$i], $reponses[$i]);
+            $req = sprintf($insert, htmlspecialchars(utf8_encode(($questions[$i]))), htmlspecialchars(utf8_encode(($reponses[$i]))));
             $res = mysqli_query($link, $req)	
                 or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         }
@@ -209,7 +209,7 @@
         $insert = "";
         for($i=0 ; $i < sizeOf($parties) ; $i++){
             $insert = "INSERT INTO CGU(partie,texte) VALUES('%s','%s')";
-            $req = sprintf($insert, $parties[$i], $textes[$i]);
+            $req = sprintf($insert, htmlspecialchars(utf8_encode(($parties[$i]))), htmlspecialchars(utf8_encode(($textes[$i]))));
             $res = mysqli_query($link, $req)	
                 or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
         }
