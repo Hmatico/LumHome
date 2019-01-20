@@ -56,7 +56,7 @@ $(document).ready(function(){
                     if($("#pwdi").val() === $("#pwdci").val())
                         inscription();
                     else {
-                        $(".modal .modal-content p").html("Les emails sont différents");
+                        $(".modal .modal-content p").html("Les mots des passes sont différents");
                         $(".modal").css("display","block");
                         $("#pwdi").css('border-color', 'red');
                         $("#pwdci").css('border-color', 'red');
@@ -239,4 +239,5 @@ $(document).ready(function(){
                 action: "deconnexion"
             }
         );
+        $(location).attr('href',"accueil.html");
     });
