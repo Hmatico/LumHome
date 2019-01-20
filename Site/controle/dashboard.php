@@ -23,5 +23,11 @@
 	function ModifierCouleur(){
         require("modele/dashboardBD.php");
         echo ChangerCouleur();
-    }	
+    }
+	
+	function ModifierIntensite(){
+        require("modele/dashboardBD.php");
+        echo ChangerIntensite();
+    }
+	
 ?>

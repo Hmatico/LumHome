@@ -5,7 +5,7 @@ $(document).ready(function(){
 			var page="dashboard2.php";
 		}
 		if (lien == "btnscenario") {
-			var page="vueScenario.php";
+			var page="gerer_sc.html";
 		}
 		if (lien == "btngerer") {
 			var page="gerer.php";
