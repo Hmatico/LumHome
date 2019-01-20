@@ -65,13 +65,19 @@ $('.btntteteindre').click(
 		}
 });
 
+function ModifierEtatPiece(clicked_id){
+	var controler = "controle=dashboard&action=ModifierEtatPiece";
+	var piece = "piece="+clicked_id;
+	var couleur = "couleur="+document.getElementById(clicked_id).style.getPropertyValue('background-color');
+	alert(couleur);
+	var dataPOST = controler+"&"+piece+"&"+couleur;
+}
 
 function ModifierCouleur(clicked_id){
 	var controler = "controle=dashboard&action=ModifierCouleur";
-	var piece = "piece="+clicked_id[clicked_id.length -1];
+	var piece = "piece="+ clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
 	var couleur = "couleur="+document.getElementById(clicked_id).value;
 	var dataPOST = controler+"&"+piece+"&"+couleur;
-	alert(dataPOST);
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
@@ -81,10 +87,9 @@ function ModifierCouleur(clicked_id){
 
 function ModifierIntensite(clicked_id){
 	var controler = "controle=dashboard&action=ModifierIntensite";
-	var piece = "piece="+clicked_id[clicked_id.length -1];
+	var piece = "piece="+clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
 	var intensite = "intensite="+document.getElementById(clicked_id).value;
 	var dataPOST = controler+"&"+piece+"&"+intensite;
-	alert(dataPOST);
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
