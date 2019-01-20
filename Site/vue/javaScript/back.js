@@ -232,12 +232,17 @@ $(document).ready(function(){
     });
 
     $("#admin_out").click(function(){
-        $("body").load(
-            "../index.php",
-            {
-                controle: "administration",
-                action: "deconnexion"
+        $.ajax({
+           type: "POST",
+           url: "../index.php",
+           data: "controle=administration&action=deconnexion",
+           success: function(data){
+                $(".modal .modal-content p").html("Vous allez être redirigé vers la page d'accueil dans 3 secondes.");
+                $(".modal").css("display","block");
+                setTimeout(function(){ $(location).attr('href', 'accueil.html')}, 3000);
+            },
+            error: function(result){
+                console.log(result);
             }
-        );
-        $(location).attr('href',"accueil.html");
+        });
     });

@@ -22,8 +22,8 @@
         $("#ajoutFAQ").click(function(){
             var question = "question" + cpt1;
             var reponse = "reponse"+cpt1;'
-                . '$("<input type=\'text\' id="+question+"><br>").insertBefore("#ajoutFAQ");'
-                . '$("<textarea id="+reponse+" rows=\'10\' cols=\'80\'></textarea><br>").insertBefore("#ajoutFAQ");
+                . '$("<input type=\'text\' id="+question+" placeholder=\'Question...\'><br>").insertBefore("#ajoutFAQ");'
+                . '$("<textarea id="+reponse+" rows=\'10\' cols=\'80\' placeholder=\'Réponse...\'></textarea><br>").insertBefore("#ajoutFAQ");
                 cpt1 = cpt1 + 1;
             $("#modifFAQ").removeClass("disAble");
             $("#modifFAQ").click();
@@ -115,8 +115,8 @@
         $("#ajoutCGU").click(function(){
             var partie = "partie" + cpt;
             var texte = "texte"+cpt;'
-                . '$("<input type=\'text\' id="+partie+"><br>").insertBefore("#ajoutCGU");'
-                . '$("<textarea id="+texte+" rows=\'10\' cols=\'80\'></textarea><br>").insertBefore("#ajoutCGU");
+                . '$("<input type=\'text\' id="+partie+" placeholder=\'Article...\'><br>").insertBefore("#ajoutCGU");'
+                . '$("<textarea id="+texte+" rows=\'10\' cols=\'80\' placeholder=\'Texte...\'></textarea><br>").insertBefore("#ajoutCGU");
                 cpt = cpt + 1;
             $("#modifCGU").removeClass("disAble");
             $("#modifCGU").click();
@@ -221,6 +221,15 @@
         
         mysqli_close($link);
         return "ok";
+    }
+
+    function decoAdmin($mail,$boolean){
+        require("modele/connexionBD.php");
+        $update = "update Utilisateur set actif = '%d\n' where adresseMail = '%s'";
+        $req = sprintf($update,$boolean,$mail);
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        mysqli_close($link);
     }
 
 ?>

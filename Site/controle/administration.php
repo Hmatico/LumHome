@@ -49,9 +49,12 @@
     }
 
     function deconnexion(){
+        require("modele/adminBD.php");
+        $return = decoAdmin($_SESSION['user'],false);
         $_SESSION['user'] = "";
         $_SESSION['profil'] = "";
         session_destroy();
+        return $return;
     }
 
 ?>
