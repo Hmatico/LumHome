@@ -95,7 +95,7 @@ CREATE TABLE CEMAC (
     numeroSerie VARCHAR(30),
 	etat INT(1),
 	intensite INT(11),
-	couleur INT(6),
+	couleur VARCHAR(6),
 	adresseMac CHAR(12) NOT NULL,
 	type VARCHAR(10) NOT NULL,
 	panne BOOLEAN NOT NULL,
