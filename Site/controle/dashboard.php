@@ -30,4 +30,8 @@
         echo ChangerIntensite();
     }
 	
+	function ModifierEtatPiece(){
+        require("modele/dashboardBD.php");
+        echo ChangerEtatPiece();
+    }
 ?>

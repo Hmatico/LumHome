@@ -5,16 +5,16 @@
 		$i = 6;
 		$piece = "";
 		$finligne=0;
-		$req = 'SELECT cemac.etat,piece.nom,piece.type from piece inner join cemac on piece.idPiece = cemac.fk_piece where piece.fk_habitat='.$_POST['habitatselect'] ;
+		$req = 'SELECT cemac.etat,piece.nom,piece.type,piece.idPiece from piece inner join cemac on piece.idPiece = cemac.fk_piece where piece.fk_habitat='.$_POST['habitatselect'] ;
 		$res = mysqli_query($link, $req)
 			or die (utf8_encode("")); 
 		while($tab = mysqli_fetch_assoc($res))
 		{
 			if($i%6==0)$piece = $piece.'<div class ="ligne">';
-			$piece = $piece.'<div class="detatpiece"><div class=';
+			$piece = $piece.'<div class="detatpiece"><div onclick=\"ModifierEtatPiece(this.id)\" class=';
 			if($tab['etat']==0)$piece = $piece.'"etatpieceeteint"';
 			else $piece = $piece.'"etatpieceallume"';
-			$piece = $piece.'></div>'.$tab['nom'].'<a class = "detat">'.$tab['type'].'</a></div>';
+			$piece = $piece.'></div>'.$tab['nom'].'<a class = "detat" >'.$tab['type'].'</a></div>';
 			if($i%6==5)
 			{
 				$piece = $piece.'</div>';
@@ -32,7 +32,7 @@
 		$habitat = "";
 		$i=1;
 		$req= "select `nomHabitat`,`idHabitat` from `habitat` where fk_proprietaire = \"".$_SESSION['user']."\"";
-		$res = mysqli_query($link, $req)		
+		$res = mysqli_query($link, $req)	
 			or die (utf8_encode("")); 
 		while($tab = mysqli_fetch_assoc($res))
 		{
@@ -67,9 +67,9 @@
 				$intensite = $tab['intensite'];
 				$idpiece = $tab['fk_piece'];
 				if($i%3==0)$piece = $piece."<div class=\"Line\">";
-				$piece = $piece."<div class=\"Piece\"> <div class=\"Entete_piece\">".$nom." </div> <div class=\"contenu_piece\"> <div class=\"leftpiece\"><div class=\"div_colorpicker\"><input type=\"color\" onchange=\"ModifierCouleur(this.id)\" value=\"#".$couleur."\" class=\"colorpicker\" id = \"color".$idpiece."\"></div>";
-				$piece = $piece."<div class=\"texte_couleur\">#".$couleur."</div><input onchange=\"ModifierIntensite(this.id)\" class=\"piecerange\" min=\"0\" max=\"100\" id = \"intensite".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div class=\"texte_intensite\">".$intensite."%</div></div>";
-				$piece = $piece."<div class=\"rightpiece\"><img src=\"./resources/soleil.png\" class = \"soleil\"><br><a class=\"texteluminosite\"></a></div></div></div>"; // Rajouter Intensité quand la bdd sera clean
+				$piece = $piece."<div class=\"Piece\"> <div class=\"Entete_piece\">".$nom." </div> <div class=\"contenu_piece\"> <div class=\"leftpiece\"><div class=\"div_colorpicker\"><input type=\"color\" onchange=\"ModifierCouleur(this.id)\" value=\"#".$couleur."\" class=\"colorpicker\" id = \"color000".$idpiece."\"></div>";
+				$piece = $piece."<div class=\"texte_couleur\">#".$couleur."</div><input onchange=\"ModifierIntensite(this.id)\" class=\"piecerange\" min=\"0\" max=\"100\" id = \"intensite000".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div class=\"texte_intensite\">".$intensite."%</div></div>";
+				$piece = $piece."<div class=\"rightpiece\"><img src=\"./resources/soleil.png\" class = \"soleil\"><br><a class=\"texteluminosite\"></a></div></div></div>"; // Rajouter Intensite quand la bdd sera clean
 				if($i%3==2)$piece = $piece."</div>";
 				$i++;
 			}
