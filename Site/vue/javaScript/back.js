@@ -131,10 +131,11 @@ $(document).ready(function(){
             $("#logini").css('border-color', 'red');
             $("#loginci").css('border-color', 'red');
         }
-        if(result=="user" || result=="maire" || result=="promoteur" || result=="maintenance")
+        if(result=="user" || result=="maire" || result=="promoteur" || result=="maintenance"){
             $(".modal .modal-content p").html("Vous êtes inscrit !");
-        $(".modal").css("display","block");
-            connexion(result);
+            $(".modal").css("display","block");
+            setTimeout(function(){ connexion(result)}, 3000);
+        }
         if(result=="cexistant"){
             $(".modal .modal-content p").html("Le numéro de série est déjà utilisé !");
             $(".modal").css("display","block");
