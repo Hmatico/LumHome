@@ -11,7 +11,6 @@
 				<div class="dhabitatactuel">
 					<form method="post">
 						<select class = "dselecthabitat" id="dselecthabitat" onchange="afficherEtatPiece()">
-							<?php include("../modele/afficherSelectionHabitatBD.php"); ?>
 					   </select>
 					</form>
 				</div>
@@ -20,13 +19,11 @@
 				</div>
 			</div>
 			<div id="drightcontainer">
-				<?php include("../modele/afficherEtatPieceBD.php"); ?>
 			</div>
 		</div>
 		<div class = "fake_dhabitatprincipal"></div>
 					<div class="dentetepiece"> Pieces </div>
 		<div class ="scenario">
-		<?php include("../modele/afficherPieceScenarioBD.php"); ?>
 		</div>
 		<script type="text/javascript" src="./javaScript/dashboard.js"></script>
 	</body>
