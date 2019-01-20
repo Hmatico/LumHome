@@ -31,12 +31,12 @@
 		require("modele/connexionBD.php");
 		$habitat = "";
 		$i=1;
-		$req= "select `nomHabitat` from `habitat`";
+		$req= "select `nomHabitat`,`idHabitat` from `habitat` where fk_proprietaire = \"".$_SESSION['user']."\"";
 		$res = mysqli_query($link, $req)		
 			or die (utf8_encode("")); 
 		while($tab = mysqli_fetch_assoc($res))
 		{
-			$habitat = $habitat.'<option value = "'.$i.'">'.$tab['nomHabitat'];
+			$habitat = $habitat.'<option value = "'.$tab['idHabitat'].'">'.$tab['nomHabitat'];
 			$habitat = $habitat.'</option>';
 		$i++;
 		}
@@ -59,7 +59,7 @@
 		{
 			$req= 'select cemac.intensite,cemac.couleur,piece.nom,cemac.fk_piece from cemac inner join piece on piece.idPiece = cemac.fk_piece where piece.fk_habitat = '.$_POST['habitatselect'];
 			$res = mysqli_query($link, $req)	
-				or die (utf8_encode("erreur de requête : "). $req .'\n'.mysqli_error($link));
+				or die (utf8_encode(""));
 			while($tab = mysqli_fetch_assoc($res))
 			{
 				$nom = $tab['nom'];
@@ -67,8 +67,8 @@
 				$intensite = $tab['intensite'];
 				$idpiece = $tab['fk_piece'];
 				if($i%3==0)$piece = $piece."<div class=\"Line\">";
-				$piece = $piece."<div class=\"Piece\"> <div class=\"Entete_piece\">".$nom." </div> <div class=\"contenu_piece\"> <div class=\"leftpiece\"><div class=\"div_colorpicker\"><input type=\"color\" onchange=\"ModifierCouleur(this.id)\" value=\"#".$couleur."\" class=\"colorpicker\" id = \"".$idpiece."\"></div>";
-				$piece = $piece."<div class=\"texte_couleur\">#".$couleur."</div><input class=\"piecerange\" min=\"0\" max=\"100\" id = \"".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div class=\"texte_intensite\">".$intensite."%</div></div>";
+				$piece = $piece."<div class=\"Piece\"> <div class=\"Entete_piece\">".$nom." </div> <div class=\"contenu_piece\"> <div class=\"leftpiece\"><div class=\"div_colorpicker\"><input type=\"color\" onchange=\"ModifierCouleur(this.id)\" value=\"#".$couleur."\" class=\"colorpicker\" id = \"color".$idpiece."\"></div>";
+				$piece = $piece."<div class=\"texte_couleur\">#".$couleur."</div><input onchange=\"ModifierIntensite(this.id)\" class=\"piecerange\" min=\"0\" max=\"100\" id = \"intensite".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div class=\"texte_intensite\">".$intensite."%</div></div>";
 				$piece = $piece."<div class=\"rightpiece\"><img src=\"./resources/soleil.png\" class = \"soleil\"><br><a class=\"texteluminosite\"></a></div></div></div>"; // Rajouter Intensité quand la bdd sera clean
 				if($i%3==2)$piece = $piece."</div>";
 				$i++;
@@ -78,10 +78,19 @@
 	}
 	
 	function ChangerCouleur(){
+		
 		require("modele/connexionBD.php");
-	$req= 'UPDATE `cemac` SET `couleur` ='.$_POST['couleur'].' WHERE cemac.fk_piece = piece.idPiece and fk_habitat = '.$_POST['habitatselect'];
+		$couleur = substr($_POST['couleur'], -6);
+		$req= 'UPDATE `cemac` SET `couleur` ="'.$couleur.'" WHERE cemac.fk_piece ='.$_POST['piece'];
 		$res = mysqli_query($link, $req)	
 			or die (utf8_encode(""));
-		
+	}
+	
+	function ChangerIntensite(){
+		require("modele/connexionBD.php");
+		$couleur = substr($_POST['couleur'], 0, -1);
+		$req= 'UPDATE `cemac` SET `intensite` ="'.$_POST['intensite'].'" WHERE cemac.fk_piece ='.$_POST['piece'];
+		$res = mysqli_query($link, $req)	
+			or die (utf8_encode(""));
 	}
 ?>

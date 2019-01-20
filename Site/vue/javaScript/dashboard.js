@@ -68,7 +68,7 @@ $('.btntteteindre').click(
 
 function ModifierCouleur(clicked_id){
 	var controler = "controle=dashboard&action=ModifierCouleur";
-	var piece = "piece="+clicked_id;
+	var piece = "piece="+clicked_id[clicked_id.length -1];
 	var couleur = "couleur="+document.getElementById(clicked_id).value;
 	var dataPOST = controler+"&"+piece+"&"+couleur;
 	alert(dataPOST);
@@ -79,6 +79,15 @@ function ModifierCouleur(clicked_id){
 	});
 }
 
-function ModifierIntensite(){
-	alert("bonjour");
+function ModifierIntensite(clicked_id){
+	var controler = "controle=dashboard&action=ModifierIntensite";
+	var piece = "piece="+clicked_id[clicked_id.length -1];
+	var intensite = "intensite="+document.getElementById(clicked_id).value;
+	var dataPOST = controler+"&"+piece+"&"+intensite;
+	alert(dataPOST);
+	$.ajax({
+		type: "POST",
+		url: "../index.php",
+		data: dataPOST,
+	});
 }
