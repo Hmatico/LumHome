@@ -230,3 +230,13 @@ $(document).ready(function(){
             }
         );
     });
+
+    $("#admin_out").click(function(){
+        $("body").load(
+            "../index.php",
+            {
+                controle: "administration",
+                action: "deconnexion"
+            }
+        );
+    });

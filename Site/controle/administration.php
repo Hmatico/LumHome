@@ -48,4 +48,11 @@
         echo modifierCGU($parties,$textes);
     }
 
+    function deconnexion(){
+        $_SESSION['user'] = "";
+        $_SESSION['profil'] = "";
+        session_destroy();
+        require("vue/accueil.html");
+    }
+
 ?>
