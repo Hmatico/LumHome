@@ -1,0 +1,178 @@
+
+body
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+table
+    {
+        border-collapse: collapse;
+    }
+
+        .nb_color
+        {
+            width: 4em;
+        }
+
+    .form_nb_couleur
+    {
+        padding: .5em;
+    }
+
+    .row_gerer_scenario:hover
+    {
+        background-color: #234223;
+    }
+
+    td
+    {
+        border: 1px solid black;
+        padding: .5em;
+    }
+
+    .separator
+    {
+        border-left: solid 1px black;
+        height: 5em;
+        margin-left: 2em;
+        padding-right: 2em;
+    }
+
+.scenario_gestion
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scenario_gestion>table
+{
+    margin-bottom: 1em;
+}
+
+.bloc
+{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+    #type_description
+    {
+        text-decoration: underline;
+    }
+
+    .scenario_description
+    {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+    }
+
+    .scenario_parameters
+    {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+    }
+    #temp_parameters
+    {
+        width: 25vw;
+        justify-content: center;
+    }
+    .other_parameters
+    {
+        width: 25vw;
+        justify-content: center;
+    }
+
+    .used_color
+    {
+        display: flex;
+        flex-direction: row;
+        width: 10vw;
+/*        background-color: #DDDDDD;*/
+        border-radius: 5px;
+        border: 2px solid #123543;
+        margin: .1em;
+    }
+
+.color
+{
+    height: 1em;
+    width: 1em;
+    border:1px solid #DDDDDD;
+    border-radius: 50%;
+    background-color: #FF0000;
+    margin-right: .5em;
+    margin-left: .5em;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.temp_parameters input[type="checkbox"]
+{
+    pointer-events:none
+}

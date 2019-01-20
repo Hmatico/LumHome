@@ -223,25 +223,37 @@ INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.
 INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.user@gmail.com","Hmatico","user",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
 INSERT INTO UTILISATEUR(adresseMail, nomUser,type, mdpUser,pin,actif) VALUES("h.maintenance@gmail.com","Hmatico","maintenance",'$argon2i$v=19$m=1024,t=2,p=2$MFExUmJVRHlVYk1GaHNreA$7aRpebR+chLtj8IZVl+lZit/gQA9Snxz7keCVYXQVuQ',"0000",false);
 
+-- REM ***** CEMAC
+INSERT INTO `cemac` (`numeroSerie`, `adresseMac`, `type`, `panne`, `fk_piece`) VALUES
+('123456', '123456789', 'ampoule', 0, 1),
+('123789', '753456', 'ampoule', 0, 2),
+('5675341', '1352343', 'ampoule', 0, 3);
+
 -- REM ***** HABITAT
-INSERT INTO PARAMETRE VALUES ();
-INSERT INTO PARAMETRE VALUES ();
+INSERT INTO `habitat` (`idHabitat`, `nomHabitat`, `numero`, `rue`, `complement`, `ville`, `codePostal`, `fk_proprietaire`) VALUES
+(1, 'Maison de Mathieu', '12', 'rue de pierre', NULL, 'best ville', 12345, 'h.matico@mail.com'),
+(2, 'Maison de Patrick', '12', 'rue du classeur', NULL, 'Didier du champs sur Marne aux fleurs', 78340, 'h.matico@mail.com');
+
 
 -- REM ***** PIECE
-INSERT INTO PIECE VALUES ();
+INSERT INTO `piece` (`idPiece`, `type`, `nom`, `fk_habitat`) VALUES
+(1, 'Detente', 'Cuisine', 1),
+(2, 'Noel', 'Salon', 2),
+(3, 'Detente', 'Chambre de Didier', 2);
 
 -- REM ***** SCENARIO
-INSERT INTO SCENARIO VALUES ();
+INSERT INTO `scenario` (`nom`, `dateDebut`, `dateFin`, `statut`, `scenario`, `type`, `fk_proprietaire`) VALUES
+('Cuisine Detente', NULL, NULL, 0, 'Allume la cuisine et detente', 'Detente', 'h.matico@mail.com'),
+('Noel dans le salon', NULL, NULL, 1, '', 'Noel', 'h.matico@mail.com');
+
+-- REM ***** SCENARIO_CEMAC
+INSERT INTO `scenario_cemac` (`fk_scenario`, `fk_CeMAC`, `valeurIntensite`, `valeurCouleur`) VALUES
+('Cuisine Detente', '123456', 70, '123456'),
+('Noel dans le salon', '5675341', 12, '753654');
 
 -- REM ***** CEMAc
 INSERT INTO CEMAC VALUES ();
 
 -- REM ***** PARAMETRE
 INSERT INTO PARAMETRE VALUES ();
-
--- REM ***** SCENARIO_UTILISATEUR
-INSERT INTO SCENARIO_UTILISATEUR VALUES ();
-
--- REM ***** SCENARIO_CEMAC
-INSERT INTO SCENARIO_CEMAC VALUES ();
 -- REM ************************* FIN DATAS **************************************
