@@ -1,4 +1,5 @@
-﻿DROP DATABASE IF EXISTS base_lumhome;
+﻿
+DROP DATABASE IF EXISTS base_lumhome;
 CREATE DATABASE base_lumhome CHARACTER SET utf8 COLLATE utf8_bin;
 DROP USER IF EXISTS 'serveur';
 CREATE USER 'serveur' IDENTIFIED BY 'qmhd"rfhb1A$64!';
