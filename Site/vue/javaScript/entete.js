@@ -32,10 +32,10 @@ $(document).ready(function(){
 			}
 		);
      });
-	$('a').click(function(){
+	$('img').click(function(){
 		var lien = $(this).attr("class");
 
-		if (lien == "txtmoncompte1") {
+		if (lien == "logomoncompte") {
 			var page="mod_infos.html";
 			$("#suite").load(
 				page,
@@ -46,7 +46,7 @@ $(document).ready(function(){
 				}
 			);
 		}
-		else if (lien == "txtmoncompte2") {
+		else if (lien == "logodeconnexion") {
 			var dataPOST = "controle=administration&action=deconnexion";
 			$.ajax({
 				type: "POST",
