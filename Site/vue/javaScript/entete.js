@@ -1,4 +1,13 @@
 $(document).ready(function(){ 
+
+	$("#suite").load(
+		"dashboard2.php",
+		{
+			controle: "entete",
+			action: "afficherPage",
+			link: "dashboard2.php"
+		}
+	);
     $('button').click(function(){
 		var lien = $(this).attr("class");
 		if (lien == "btnaccueil") {
