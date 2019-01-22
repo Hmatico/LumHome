@@ -116,6 +116,14 @@
     }
 
     /**
+    * Fonction rendant l'utilisateur actif
+    */
+    function setInactif(){
+        require("modele/utilisateurBD.php");
+        echo setConnecte($_SESSION['user'],false);
+    }
+	
+    /**
     * Fonction parsant le numéro de carte bancaire
     */
     function parseCarte(&$num) {

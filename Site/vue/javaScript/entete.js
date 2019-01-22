@@ -34,17 +34,36 @@ $(document).ready(function(){
      });
 	$('a').click(function(){
 		var lien = $(this).attr("class");
-		
+
 		if (lien == "txtmoncompte1") {
 			var page="mod_infos.html";
+			$("#suite").load(
+				page,
+				{
+					controle: "entete",
+					action: "afficherPage",
+					link: page
+				}
+			);
 		}
-		$("#suite").load(
-			page,
-			{
-				controle: "entete",
-				action: "afficherPage",
-				link: page
-			}
-		);
+		else if (lien == "txtmoncompte2") {
+			var dataPOST = "controle=administration&action=deconnexion";
+			$.ajax({
+				type: "POST",
+				url: "../index.php",
+				data: dataPOST,
+				success: function(data){
+				},
+			});
+			var dataPOST = "controle=gestionSession&action=setInactif";
+			$.ajax({
+				type: "POST",
+				url: "../index.php",
+				data: dataPOST,
+				success: function(data){
+					document.location.href="accueil.html";
+				},
+			});
+		}
 	});
 });
