@@ -10,6 +10,7 @@ $(document).ready(function(){
 	);
     $('button').click(function(){
 		var lien = $(this).attr("class");
+
 		if (lien == "btnaccueil") {
 			var page="dashboard2.php";
 		}
@@ -21,7 +22,7 @@ $(document).ready(function(){
 		}
 		if (lien == "btnstatistique") {
 			var page="statistiques.php";
-		}	
+		}
 		$("#suite").load(
 			page,
 			{
@@ -31,4 +32,19 @@ $(document).ready(function(){
 			}
 		);
      });
+	$('a').click(function(){
+		var lien = $(this).attr("class");
+		
+		if (lien == "txtmoncompte1") {
+			var page="mod_infos.html";
+		}
+		$("#suite").load(
+			page,
+			{
+				controle: "entete",
+				action: "afficherPage",
+				link: page
+			}
+		);
+	});
 });
