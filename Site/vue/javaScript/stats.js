@@ -24,7 +24,7 @@
         var jsonData = $.ajax({
           url: "../index.php",
           method : "POST",
-          data: {q:$("#habitation").val(), periode :$("#periode").val(), controle : "stats", action :"dataStats"},
+          data: {habitation:$("#habitation").val(), periode :$("#periode").val(), controle : "stats", action :"dataStats"},
           dataType: "json",
           async: false,
           }).responseText;

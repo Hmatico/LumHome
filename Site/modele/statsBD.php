@@ -16,11 +16,11 @@
     }
     
     function getData(){
-        $q=$_POST["q"];
+        $habitation=$_POST["habitation"];
         $periode=$_POST["periode"];
         require("modele/connexionBD.php");
 
-        $req = "SELECT dateStat,nbrHeuresInutiles FROM stats WHERE fk_habitat=".$q;
+        $req = "SELECT dateStat,nbrHeuresInutiles FROM stats WHERE fk_habitat=".$habitation;
         $req = $req." AND dateStat >= DATE_ADD(NOW(), INTERVAL -1 ".$periode.") AND dateStat < NOW()";
         $result = mysqli_query($link,$req)
             or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
