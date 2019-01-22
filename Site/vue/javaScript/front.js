@@ -94,6 +94,6 @@ $(document).ready(function(){
     });
 
     $("#site").click(function(){
-        $(".modal .modal-content p").prepend("<img src='./resources/Architecture_Site.png' width=100%>");
+        $(".modal .modal-content p").html("<img src='./resources/Architecture_Site.png' width=100%>");
         $(".modal").css("display","block");
     });
