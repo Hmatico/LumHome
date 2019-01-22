@@ -7,6 +7,12 @@
         <title>LumHome - Accueil</title>
     </head>
     <body id="body">
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p></p>
+            </div>
+        </div>
         <nav class="banner">
             <div class="vert-align">
                 <a href="../index.php">
@@ -38,10 +44,10 @@
             <a>Contact</a>
         </div>
         <div id="form_mail">
-                <form class="form_mal_admin">
+                <form id="form_mail_admin">
                     <center>
-                        <b>Votre nom : </b><input name="nom" size=50 maxlength=50 placeholder="Nom..." required><br>
-                        <b>Votre mail : </b><input name="email" size=50 maxlength=50 placeholder="Mail..." required><br>
+                        <b>Votre nom : </b><input id="nom" size=50 maxlength=50 placeholder="Nom..." required><br>
+                        <b>Votre mail : </b><input id="email" size=50 maxlength=50 placeholder="Mail..." required><br>
                         <b> Objet du mail : </b>
                         <select id="object_select" required>
                             <option value="">--Choisissez un objet de mail--</option>
@@ -51,8 +57,8 @@
                             <option value="maintenance">Maintenance capteur</option>
                             <option value="autre">Autres</option>
                         </select><br>
-                        <textarea name="message" cols="60" rows="5" placeholder="Ne divulguer pas d'information personnelle ici. Veuillez décrire votre demande." required></textarea><br>
-                        <input type="submit" id="btn" value="Envoyer">
+                        <textarea id="message" cols="60" rows="5" placeholder="Ne divulguer pas d'information personnelle ici. Veuillez décrire votre demande." required></textarea><br>
+                        <input type="button" id="btn" value="Envoyer">
                     </center>
                 </form>
         </div>
@@ -61,7 +67,8 @@
         </div>
         <div class="accueil_bas">
                 <div class="icon_bas">
-                    Plan du site
+                    <div class="icon_bas"><a class="lien" id="site">Plan du site</a>
+                </div>
                 </div>
             </div>
     </body>

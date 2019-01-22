@@ -12,7 +12,7 @@ $(document).ready(function(){
             var controler = "controle=gestionSession&action=ident";
             var email_content = "login="+ mail;
             var pwd_content = "pwd="+ pass;
-            /* ENvoi au controler via ajax */
+            /* Envoi au controler via ajax */
             $.ajax({
                 type: "POST",
                 url: "../index.php",

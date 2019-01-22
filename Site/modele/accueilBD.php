@@ -51,4 +51,34 @@
         return $answer;
     }
 
+    /**
+    * Fonction récupérant l'email d'un admin
+    */
+    function mailAdmin(&$nom, &$mail, &$obj, &$msg){
+        require ("modele/connexionBD.php");
+        $select= "select * from UTILISATEUR where type='admin'"; 
+        $req = sprintf($select);
+        $answer = "";
+        $res = mysqli_query($link, $req)	
+            or die (utf8_encode("erreur de requête : ") . $req .'\n'.mysqli_error($link));
+        while ($e = mysqli_fetch_assoc($res)) {
+            $answer = $e['adresseMail'];
+        }
+        $headers ='From: "nom"serveur.lumhome@gmail.com' . "\n";
+         $headers .='Reply-To: '.$answer."\n";
+         $headers .='Content-Type: text/html; charset="iso-8859-1"'."\n";
+         $headers .='Content-Transfer-Encoding: 8bit';
+
+         $message ='<html><head><title>'. $obj . '</title></head><body>'. $msg .'</body></html>';
+
+         if(mail($answer, 'Demande : '.$obj, $message, $headers))
+         {
+              return 'Le message a été envoyé';
+         }
+         else
+         {
+              return 'Le message n\'a pu être envoyé';
+         }   
+    }
+
 ?>

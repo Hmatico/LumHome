@@ -52,3 +52,48 @@ $(document).ready(function(){
         $(this).toggleClass("disAble");
         this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
     });
+
+    $("#form_mail_admin #btn").click(function(){
+        $("#nom").css('border-color', '#ccc');
+        $("#email").css('border-color', '#ccc');
+        $("#object_select").css('border-color', '#ccc');
+        $("#message").css('border-color', '#ccc');
+        if($("#nom").val() != "" && $("#email").val() != "" && $("#object_select").val() != "" && $("#message").val() != ""){
+            var nom = "nom=" + $("#nom").val();
+            var email = "mail=" + $("#email").val();
+            var controler = "controle=accueil&action=getMail";
+            var objet = "obj=" + $("#object_select").val();
+            var message = "msg=" + $("#message").val();
+            /* Envoi au controler via ajax */
+            $.ajax({
+                type: "POST",
+                url: "../index.php",
+                data: controler+"&"+nom+"&"+email+"&"+objet+"&"+message,
+                success: function(data){
+                    $(".modal .modal-content p").html(data);
+                    $(".modal").css("display","block");
+                },
+                error: function(result){
+                    if(result){
+                        console.log(result);
+                    }
+                }
+            });
+        } else {
+            $(".modal .modal-content p").html("Au moins un des champs est vide !");
+            $(".modal").css("display","block");
+            if($("#nom").val() == "")
+                $("#nom").css('border-color', 'red');
+            if($("#email").val() == "")
+                $("#email").css('border-color', 'red');
+            if($("#object_select").val() == "")
+                $("#object_select").css('border-color', 'red');
+            if($("#message").val() == "")
+                $("#message").css('border-color', 'red');
+        }
+    });
+
+    $("#site").click(function(){
+        $(".modal .modal-content p").prepend("<img src='./resources/Architecture_Site.png' width=100%>");
+        $(".modal").css("display","block");
+    });
