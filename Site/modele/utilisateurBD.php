@@ -1,10 +1,16 @@
 <?php
+/* Permet d'instancier une seule fois l'objet de cryptage de mot de passe */
 function chargerClasse($classe){
     require_once 'modele/' . $classe . '.php';
 }
 
 spl_autoload_register('chargerClasse');
 
+    /**
+    * Fonction vérifiant si l'utilisateur est connu en base
+    *   $mail : son adresse mail
+    *   $pwd : son mot de passe non crypté
+    */
     function verifIdent(&$mail,&$pwd){
         require("modele/connexionBD.php"); //connexion $link à MYSQL et sélection de la base
         $objetT = new Crypto($pwd);
@@ -28,6 +34,13 @@ spl_autoload_register('chargerClasse');
         }
     }
 
+    /**
+    * Fonction inscrivant un nouvel utilisateur en base
+    *   $email : son adresse mail
+    *   $nom : son nom
+    *   $pwd : son mot de passe non crypté
+    *   $profil : le type d'utilisateur
+    */
     function inscription($email, $nom, $pwd, $profil){
         require("modele/connexionBD.php");
         $objet = new Crypto($pwd);
@@ -40,6 +53,10 @@ spl_autoload_register('chargerClasse');
         return "OK";
     }
 
+    /**
+    * Fonction vérifiant si l'utilisateur est connu en base
+    *   $email : son adresse mail
+    */
     function existant(&$email){
         require("modele/connexionBD.php");
         $select= "select * from UTILISATEUR where adresseMail='%s'"; 
@@ -57,6 +74,11 @@ spl_autoload_register('chargerClasse');
         }
     }
     
+    /**
+    * Fonction modifiant la clé primaire entre un utilisateur et son habitat
+    *   $mail : adresse mail de l'utilisateur
+    *   $fk : clé étrangère de l'habitat
+    */
     function UpdateFK(&$mail,$fk){
         require("modele/connexionBD.php");
         $update = "update Utilisateur set adresseFacturation = '%d' where adresseMail = '%s'";
@@ -66,6 +88,11 @@ spl_autoload_register('chargerClasse');
         return "OK";
     }
 
+    /**
+    * Fonction mettant un utilisateur connecté
+    *   $mail : adresse mail de l'utilisateur
+    *   $boolean : (true) s'il est connecté, (false) sinon
+    */
     function setConnecte(&$mail,$boolean){
         require("modele/connexionBD.php");
         $update = "update Utilisateur set actif = '%d\n' where adresseMail = '%s'";
@@ -76,6 +103,9 @@ spl_autoload_register('chargerClasse');
         return "actif";
     }
 
+    /**
+    * Fonction comptant d'utilisateurs actif sur le site
+    */
     function nbActif(){
         require("modele/connexionBD.php");
         $count = "select count(actif) as nombre from Utilisateur where actif = true";
@@ -87,6 +117,9 @@ spl_autoload_register('chargerClasse');
         return $answer . mysqli_fetch_assoc($res)['nombre'] . " actif(s)";
     }
 
+    /**
+    * Fonction comptant d'utilisateurs inactif sur le site
+    */
     function nbInactif(){
         require("modele/connexionBD.php");
         $count = "select count(actif) as nombre from Utilisateur where actif = false";

@@ -1,4 +1,8 @@
 <?php
+
+    /**
+    * Fonction vérifiant si le capteur est déjà en base
+    */
     function capteurExistant(&$cap){
         require ("modele/connexionBD.php");
         $select= "select * from CeMAC where numeroSerie='%s'"; 

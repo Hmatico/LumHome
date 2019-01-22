@@ -1,4 +1,5 @@
 <?php
+/* Page récupérant le lien de connexion à la base de données */
     $hote='localhost';   		
     $login='serveur';  	        //root
     $pass='qmhd"rfhb1A$64!';    //		

@@ -1,25 +1,40 @@
 <?php
 
+    /**
+    * Fonction retournant le nombre d'utilisateurs actif
+    */
     function actif(){
         require("modele/utilisateurBD.php");
         echo nbActif();
     }
 
+    /**
+    * Fonction retournant le nombre d'utilisateurs inactif
+    */
     function inactif(){
         require("modele/utilisateurBD.php");
         echo nbInactif();
     }
 
+    /**
+    * Fonction retournant les questions de la FAQ
+    */
     function afficherFAQ(){
         require("modele/adminBD.php");
         echo inputFAQ();
     }
 
+    /**
+    * Fonction retournant les parties des CGU
+    */
     function afficherCGU(){
         require("modele/adminBD.php");
         echo inputCGU();
     }
 
+    /**
+    * Fonction qui envoie les modifications de la FAQ
+    */
     function modifFAQ(){
         $nb = count($_POST)/2;
         $questions = array();
@@ -34,6 +49,9 @@
         echo modifierFAQ($questions,$reponses);
     }
 
+    /**
+    * Fonction qui envoie les modifications des CGU
+    */
     function modifCGU(){
         $nb = count($_POST)/2;
         $parties = array();
@@ -48,6 +66,9 @@
         echo modifierCGU($parties,$textes);
     }
 
+    /**
+    * Fonction qui demande la déconnexion de l'administrateur
+    */
     function deconnexion(){
         require("modele/adminBD.php");
         $return = decoAdmin($_SESSION['user'],false);

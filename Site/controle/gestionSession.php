@@ -1,9 +1,15 @@
 <?php
 
+    /**
+    * Fonction changeant la position actuelle à celle de la page d'accueil
+    */
     function accueil(){
         header("Location: vue/accueil.html");   
     }
 
+    /**
+    * Fonction identifiant un utilisateur
+    */
     function ident(){
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
@@ -22,6 +28,9 @@
         require("vue/accueil.php");
     }
 
+    /**
+    * Fonction créant le compte du nouvel utilisateur
+    */
     function creationCompte(){
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
@@ -32,10 +41,16 @@
         else echo verifData($email,$pwd);
     }
 
+    /**
+    * Fonction vérifiant si deux valeurs sont exactes
+    */
     function verifEqual(&$var,&$varc){
         return $var===$varc;
     }
 
+    /**
+    * FOnction vérifiant le format de l'adresse mail et du mot de passe
+    */
     function verifData(&$mail,&$pwd){
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $upperCase = preg_match('@[A-Z]@', $pwd);
@@ -50,6 +65,9 @@
         }
     }
 
+    /**
+    * Fontino vérifiant la conformité de la date et des données bancaires et du code postal
+    */
     function verifDataNum(){
         $cpostal = $_POST['cpostal'];
         $date = $_POST['date'];
@@ -66,6 +84,9 @@
         else return "cpostalFAUX";
     }
 
+    /**
+    * Fonction inscrivant l'utilisateur
+    */
     function inscriptionUtilisateur($nom){
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
@@ -86,16 +107,25 @@
         }
     }
 
+    /**
+    * Fonction rendant l'utilisateur actif
+    */
     function setActif(){
         require("modele/utilisateurBD.php");
         echo setConnecte($_SESSION['user'],true);
     }
 
+    /**
+    * Fonction parsant le numéro de carte bancaire
+    */
     function parseCarte(&$num) {
         $subString = explode("-",$num);
         $num = $subString[0] . $subString[1] . $subString[2] . $subString[3];
     }
 
+    /**
+    * Fonction parsant la date
+    */
     function parseDAte(&$dateE) {
         $subString = explode("/",$dateE);
         $dateE ="20" . $subString[1] . "-" . $subString[0] . "-01";

@@ -1,5 +1,8 @@
 <?php
 
+    /**
+    * Fonction récupérant les questions depuis la base de données
+    */
     function inputFAQ(){
         require ("modele/connexionBD.php");
         $select= "select question,reponse from QUESTIONS"; 
@@ -15,7 +18,13 @@
                 . utf8_encode($e['reponse']) . "</textarea><br>";
             $cpt = $cpt + 1;
         }
+        /* Ajout des boutons en dessous des questions */
         $answer = $answer . "<input id='ajoutFAQ' type='button' value='Ajouter une question'><input id='supprFAQ' type='button' value='Supprimer une question'><br><input id='recFAQ' type='button' value='Modifier les questions'><br></form>";
+        /* Ajout des scripts de :
+            - ajout d'une question
+            - suppression de la dernière question
+            - validation des modifications de la FAQ
+        */
         $answer = $answer . 
         '<script>
         var cpt1 = '.$cpt. ';
@@ -93,6 +102,9 @@
         return $answer;
     }
 
+    /**
+    * Fonction récupérant les cgu depuis la base de données
+    */
     function inputCGU(){
         require ("modele/connexionBD.php");
         $select= "select partie,texte from CGU"; 
@@ -109,6 +121,11 @@
             $cpt = $cpt + 1;
         }
         $answer = $answer . "<input id='ajoutCGU' type='button' value='Ajouter un paragraphe'><input id='supprCGU' type='button' value='Supprimer un paragraphe'><br><input id='recCGU' type='button' value='Modifier les CGU'><br></form>";
+        /* Ajout des scripts de :
+            - ajout d'une partie
+            - suppression de la dernière partie
+            - validation des modifications des CGU
+        */
         $answer = $answer . 
         '<script>
         var cpt = '.$cpt. ';
@@ -186,6 +203,11 @@
         return $answer;
     }
 
+    /**
+    * Fonction modifiant les questions en base
+    *   $questions : liste des questions
+    *   $reponses : liste des réponses
+    */
     function modifierFAQ($questions,$reponses){
         require ("modele/connexionBD.php");
         $delete= "delete from QUESTIONS"; 
@@ -204,6 +226,11 @@
         return "ok";
     }
 
+    /**
+    * Fonction modifiant les cgu en base
+    *   $parties : liste des articles
+    *   $textes : liste des paragraphes
+    */
     function modifierCGU($parties,$textes){
         require ("modele/connexionBD.php");
         $delete= "delete from CGU"; 
@@ -223,6 +250,9 @@
         return "ok";
     }
 
+    /**
+    * Fonction déconnectant l'administrateur en base
+    */
     function decoAdmin($mail,$boolean){
         require("modele/connexionBD.php");
         $update = "update Utilisateur set actif = '%d\n' where adresseMail = '%s'";

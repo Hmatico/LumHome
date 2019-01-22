@@ -1,5 +1,8 @@
 <?php
 
+    /**
+    * Fonction récupérant les questions depuis la base de données
+    */
     function getAllQuestions(){
         require ("modele/connexionBD.php");
         $select= "select question,reponse from QUESTIONS"; 
@@ -13,6 +16,7 @@
             $answer = $answer . '<div class="accordionContent"><p>'
                 . utf8_encode($e['reponse']) . "</p></div>";
         }
+        /* Script de pour faire fonctionner les onglets */
             $answer = $answer .'<script>
             $(".accordion").click(function(){
                 $(".accordion").each(function(){
@@ -28,6 +32,9 @@
         return $answer;
     }
 
+    /**
+    * Fonction récupérant les cgu depuis la base de données
+    */
     function cgu(){
         require ("modele/connexionBD.php");
         $select= "select partie,texte from CGU"; 
