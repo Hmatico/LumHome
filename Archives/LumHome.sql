@@ -245,10 +245,10 @@ INSERT INTO `piece` (`idPiece`, `type`, `nom`, `fk_habitat`) VALUES
 (3, 'Detente', 'Chambre de Didier', 2);
 
 -- REM ***** CEMAC
-INSERT INTO `cemac` (`numeroSerie`, `adresseMac`, `type`, `panne`, `fk_piece`) VALUES
-('123456', '123456789', 'ampoule', 0, 1),
-('123789', '753456', 'ampoule', 0, 2),
-('5675341', '1352343', 'ampoule', 0, 3);
+INSERT INTO `cemac` (`numeroSerie`, `etat`, `intensite`, `couleur`, `adresseMac`, `type`, `panne`, `fk_piece`) VALUES
+('123456', '0', '75', 'EF4231', '123456789', 'ampoule', 0, 1),
+('123789', '1', '12', '443216', '753456', 'ampoule', 0, 2),
+('5675341', '1', '60', 'AB2216', '1352343', 'ampoule', 0, 3);
 
 -- REM ***** SCENARIO
 INSERT INTO `scenario` (`nom`, `dateDebut`, `dateFin`, `statut`, `scenario`, `type`, `fk_proprietaire`) VALUES
