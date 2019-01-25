@@ -3,8 +3,8 @@
   <head>
     <title>Titre</title>
     <meta charset="utf-8"/>
-      <link rel="stylesheet" href="./vue/styleScenario.css"/>
-      <script type="text/javascript" src="./vue/jquery.js"></script>
+      <link rel="stylesheet" href="./styleScenario.css"/>
+      <script type="text/javascript" src="./javaScript/jquery-3.3.1.min.js"></script>
 
   </head>
   <body>
@@ -85,15 +85,7 @@
 
         </div>
 
-
-    <button id="btnTest">
-        Bouton de test
-    </button>
-    <button id="btnTest2">
-        Bouton de test 2
-    </button>
-
-    <script type="text/javascript" src="./vue/back.js"></script>
+    <script type="text/javascript" src="./javaScript/backScenario.js"></script>
   </body>
 
 </html>
