@@ -29,11 +29,12 @@ function getLogs(){
     }
     require("modele/gateway.php");
     sql_request("moteur",hexdec($moteur));
-    sql_request("lumiere",hexdec($lum));
+    sql_request("ampoule",hexdec($lum));
 }
 
 
-function sendCommand($trame){
+function sendCommand(){
+    $trame = $_POST["trame"];
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=A02B&TRAME=".$trame);
     curl_setopt($ch, CURLOPT_POST, 0);
