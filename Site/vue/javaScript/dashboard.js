@@ -65,6 +65,27 @@ $('.btntteteindre').click(
 		}
 });
 
+function ChangerEtatMoteur(clicked_id){
+	
+	var controler = "controle=dashboard&action=ModifierMoteur";
+	var piece = "piece="+ clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
+	var etat = "";
+	if (document.getElementById(clicked_id).checked)
+	{
+		etat = "etat=1";
+		
+	} else {
+		etat = "etat=0";
+	}
+	var dataPOST = controler+"&"+piece+"&"+etat;
+	alert(dataPOST);
+	$.ajax({
+		type: "POST",
+		url: "../index.php",
+		data: dataPOST,
+	});
+}
+
 function ModifierEtatPiece(clicked_id){
 	var controler = "controle=dashboard&action=ModifierEtatPiece";
 	var piece = "piece="+clicked_id;
