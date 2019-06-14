@@ -1,4 +1,7 @@
 afficherSelectionHabitat();
+majLog();
+
+setInterval("majLog()",60000);
 
 function afficherSelectionHabitat(){
 	
@@ -10,7 +13,17 @@ function afficherSelectionHabitat(){
 		data: dataPOST,
 		success: function(data){
 			document.getElementById('dselecthabitat').innerHTML = '<option value = "0">Choisir un habitat</option>'+data;
-		},
+		}
+	});
+}
+
+function majLog(){
+    var controler = "controle=gateway&action=getLogs";
+	var dataPOST = controler;
+	$.ajax({
+		type: "POST",
+		url: "../index.php",
+		data: dataPOST
 	});
 }
 
@@ -27,7 +40,7 @@ $(".dselecthabitat").change(
 			data: dataPOST,
 			success: function(data){
 				document.getElementById('drightcontainer').innerHTML = data;
-			},
+			}
 		});
 		
 		var controler = "controle=dashboard&action=afficherPieceScenario";
@@ -41,7 +54,7 @@ $(".dselecthabitat").change(
 			success: function(data){
 				if($piece="");
 				else document.getElementsByClassName("scenario")[0].innerHTML = data;
-			},
+			}
 		});
 	}
 );
@@ -56,7 +69,7 @@ $('.btntteteindre').click(
 		$.ajax({
 			type: "POST",
 			url: "../index.php",
-			data: dataPOST,
+			data: dataPOST
 		});
 		$nbPiece = document.getElementsByClassName('etatpieceallume').length;
 		for ($i = 0; $i < $nbPiece; $i++) 
@@ -75,22 +88,22 @@ function ChangerEtatMoteur(clicked_id){
 	if (document.getElementById(clicked_id).checked)
 	{
 		etat = "etat=1";
-		trame = 'trame=1A02B1a040001000065';
+		trame = 'trame=1A02B1a04000165';
 	} else {
 		etat = "etat=0";
-		trame = 'trame=1A02B1a040000000065';
+		trame = 'trame=1A02B1a04000065';
 	}
 	var dataPOST = controler+"&"+piece+"&"+etat;
 	var dataPOST2 = controler2+"&"+trame;
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST2,
+		data: dataPOST2
 	});
 }
 
@@ -111,7 +124,7 @@ function ModifierCouleur(clicked_id){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 }
 
@@ -135,7 +148,7 @@ function ModifierIntensite(clicked_id){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 		$.ajax({
 		type: "POST",

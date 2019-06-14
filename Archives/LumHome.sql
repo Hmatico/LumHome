@@ -248,6 +248,7 @@ INSERT INTO `piece` (`idPiece`, `type`, `nom`, `fk_habitat`) VALUES
 INSERT INTO `cemac` (`numeroSerie`, `adresseMac`, `type`, `panne`, `fk_piece`) VALUES
 ('123456', '123456789', 'ampoule', 0, 1),
 ('123789', '753456', 'ampoule', 0, 2),
+('123788', '753456', 'moteur', 0, 2),
 ('5675341', '1352343', 'ampoule', 0, 3);
 
 -- REM ***** SCENARIO
