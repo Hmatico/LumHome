@@ -1,4 +1,7 @@
 afficherSelectionHabitat();
+majLog();
+
+setInterval("majLog()",30000);
 
 function afficherSelectionHabitat(){
 	
@@ -10,6 +13,19 @@ function afficherSelectionHabitat(){
 		data: dataPOST,
 		success: function(data){
 			document.getElementById('dselecthabitat').innerHTML = '<option value = "0">Choisir un habitat</option>'+data;
+		},
+	});
+}
+
+function majLog(){
+    var controler = "controle=gateway&action=getLogs";
+	var dataPOST = controler;
+	$.ajax({
+		type: "POST",
+		url: "../index.php",
+		data: dataPOST,
+		success: function(data){
+			alert("coucou");
 		},
 	});
 }
