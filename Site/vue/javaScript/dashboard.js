@@ -68,23 +68,32 @@ $('.btntteteindre').click(
 function ChangerEtatMoteur(clicked_id){
 	
 	var controler = "controle=dashboard&action=ModifierMoteur";
+	var controler2 = "controle=gateway&action=sendCommand";
+	var trame = '';
 	var piece = "piece="+ clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
 	var etat = "";
 	if (document.getElementById(clicked_id).checked)
 	{
 		etat = "etat=1";
-		
+		trame = 'trame=1A02B1a040001000065';
 	} else {
 		etat = "etat=0";
+		trame = 'trame=1A02B1a040000000065';
 	}
 	var dataPOST = controler+"&"+piece+"&"+etat;
-	alert(dataPOST);
+	var dataPOST2 = controler2+"&"+trame;
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
 		data: dataPOST,
 	});
+	$.ajax({
+		type: "POST",
+		url: "../index.php",
+		data: dataPOST2,
+	});
 }
+
 
 function ModifierEtatPiece(clicked_id){
 	var controler = "controle=dashboard&action=ModifierEtatPiece";
