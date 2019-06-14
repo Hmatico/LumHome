@@ -136,13 +136,13 @@ function ModifierIntensite(clicked_id){
 	var intensite = "intensite="+document.getElementById(clicked_id).value;
 	if(document.getElementById(clicked_id).value < 10)
 	{
-		intensite = 'intensite=00'.document.getElementById(clicked_id).value;
+		intensite = 'intensite=00'+document.getElementById(clicked_id).value;
 	}
 	else if(document.getElementById(clicked_id).value < 100)
 	{
-		intensite = 'intensite=0'.document.getElementById(clicked_id).value;
+		intensite = 'intensite=0'+document.getElementById(clicked_id).value;
 	}
-	trame = 'trame=1A02B1a03'.intensite.'65';
+	trame = 'trame=1A02B1a030'+intensite+'65';
 	var dataPOST = controler+"&"+piece+"&"+intensite;
 	var dataPOST2 = controler2+"&"+trame;
 	$.ajax({
@@ -153,6 +153,6 @@ function ModifierIntensite(clicked_id){
 		$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST2,
+		data: dataPOST2
 	});
 }
