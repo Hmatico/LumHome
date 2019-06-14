@@ -1,7 +1,7 @@
 afficherSelectionHabitat();
 majLog();
 
-setInterval("majLog()",30000);
+setInterval("majLog()",60000);
 
 function afficherSelectionHabitat(){
 	
@@ -13,7 +13,7 @@ function afficherSelectionHabitat(){
 		data: dataPOST,
 		success: function(data){
 			document.getElementById('dselecthabitat').innerHTML = '<option value = "0">Choisir un habitat</option>'+data;
-		},
+		}
 	});
 }
 
@@ -23,10 +23,7 @@ function majLog(){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
-		success: function(data){
-			alert("coucou");
-		},
+		data: dataPOST
 	});
 }
 
@@ -43,7 +40,7 @@ $(".dselecthabitat").change(
 			data: dataPOST,
 			success: function(data){
 				document.getElementById('drightcontainer').innerHTML = data;
-			},
+			}
 		});
 		
 		var controler = "controle=dashboard&action=afficherPieceScenario";
@@ -57,7 +54,7 @@ $(".dselecthabitat").change(
 			success: function(data){
 				if($piece="");
 				else document.getElementsByClassName("scenario")[0].innerHTML = data;
-			},
+			}
 		});
 	}
 );
@@ -72,7 +69,7 @@ $('.btntteteindre').click(
 		$.ajax({
 			type: "POST",
 			url: "../index.php",
-			data: dataPOST,
+			data: dataPOST
 		});
 		$nbPiece = document.getElementsByClassName('etatpieceallume').length;
 		for ($i = 0; $i < $nbPiece; $i++) 
@@ -101,12 +98,12 @@ function ChangerEtatMoteur(clicked_id){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST2,
+		data: dataPOST2
 	});
 }
 
@@ -127,7 +124,7 @@ function ModifierCouleur(clicked_id){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 }
 
@@ -139,6 +136,6 @@ function ModifierIntensite(clicked_id){
 	$.ajax({
 		type: "POST",
 		url: "../index.php",
-		data: dataPOST,
+		data: dataPOST
 	});
 }
