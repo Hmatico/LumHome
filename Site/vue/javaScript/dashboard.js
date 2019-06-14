@@ -88,10 +88,10 @@ function ChangerEtatMoteur(clicked_id){
 	if (document.getElementById(clicked_id).checked)
 	{
 		etat = "etat=1";
-		trame = 'trame=1A02B1a040001000065';
+		trame = 'trame=1A02B1a04000165';
 	} else {
 		etat = "etat=0";
-		trame = 'trame=1A02B1a040000000065';
+		trame = 'trame=1A02B1a04000065';
 	}
 	var dataPOST = controler+"&"+piece+"&"+etat;
 	var dataPOST2 = controler2+"&"+trame;
