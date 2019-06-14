@@ -133,17 +133,17 @@ function ModifierIntensite(clicked_id){
 	var controler2 = "controle=gateway&action=sendCommand";
 	var trame = '';
 	var piece = "piece="+clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
-	var intensite = "intensite="+document.getElementById(clicked_id).value;
+	var intensite = ""+document.getElementById(clicked_id).value;
 	if(document.getElementById(clicked_id).value < 10)
 	{
-		intensite = 'intensite=00'+document.getElementById(clicked_id).value;
+		intensite = '00'+document.getElementById(clicked_id).value;
 	}
 	else if(document.getElementById(clicked_id).value < 100)
 	{
-		intensite = 'intensite=0'+document.getElementById(clicked_id).value;
+		intensite = '0'+document.getElementById(clicked_id).value;
 	}
 	trame = 'trame=1A02B1a030'+intensite+'65';
-	var dataPOST = controler+"&"+piece+"&"+intensite;
+	var dataPOST = controler+"&"+piece+"&"+"intensite="+intensite;
 	var dataPOST2 = controler2+"&"+trame;
 	$.ajax({
 		type: "POST",
