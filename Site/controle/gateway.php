@@ -16,20 +16,20 @@ function getLogs(){
         list($t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec) = sscanf($data_tab[$i],"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
         if($t != null){
             if($moteur == ""){
-                if($n=="02" || $n=="04"){
+                if($n=="02"){
                     $moteur = $v;
                 }
             }
             if($lum == ""){
-                if($n=="01" || $n=="03"){
+                if($n=="01"){
                     $lum = $v;
                 }
             }
         }
     }
     require("modele/gateway.php");
-    sql_request("moteur",hexdec($moteur));
-    sql_request("ampoule",hexdec($lum));
+    sql_request($o."02","moteur",hexdec($moteur));
+    sql_request($o."01","ampoule",hexdec($lum));
 }
 
 
