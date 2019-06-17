@@ -1,7 +1,6 @@
 afficherSelectionHabitat();
 majLog();
-
-setInterval("majLog()",60000);
+setInterval("majLog()",30000);
 
 function afficherSelectionHabitat(){
 	
