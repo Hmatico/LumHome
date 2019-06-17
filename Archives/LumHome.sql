@@ -252,8 +252,8 @@ INSERT INTO `scenario` (`nom`, `dateDebut`, `dateFin`, `statut`, `scenario`, `ty
 
 -- REM ***** SCENARIO_CEMAC
 INSERT INTO `scenario_cemac` (`fk_scenario`, `fk_CeMAC`, `valeurIntensite`, `valeurCouleur`) VALUES
-('Cuisine Detente', 'A02B01', 70, '123456'),
-('Noel dans le salon', 'A02B00', 12, '753654');
+('Cuisine Detente', 'A02B02', 70, '123456'),
+('Noel dans le salon', 'A02B01', 12, '753654');
 
 -- REM ***** STATS
 INSERT INTO `stats` (`fk_habitat`,`dateStat`,`nbrHeuresInutiles`) VALUES
