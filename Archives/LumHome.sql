@@ -243,7 +243,7 @@ INSERT INTO `piece` (`idPiece`, `type`, `nom`, `fk_habitat`) VALUES
 -- REM ***** CEMAC
 INSERT INTO `cemac` (`numeroSerie`, `adresseMac`, `type`, `panne`, `fk_piece`) VALUES
 ('A02B01', '01:82:C2:70:01:7B', 'ampoule', 0, 1),
-('A02B00', '01:82:C2:70:01:7B', 'moteur', 0, 1);
+('A02B02', '01:82:C2:70:01:7B', 'moteur', 0, 1);
 
 -- REM ***** SCENARIO
 INSERT INTO `scenario` (`nom`, `dateDebut`, `dateFin`, `statut`, `scenario`, `type`, `fk_proprietaire`) VALUES
