@@ -39,4 +39,9 @@
         require("modele/dashboardBD.php");
         echo ChangerEtatPiece();
     }
+	
+	function RecupererInfos(){
+        require("modele/dashboardBD.php");
+		echo getInfos();
+    }
 ?>
