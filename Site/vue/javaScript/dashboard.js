@@ -1,7 +1,7 @@
 afficherSelectionHabitat();
 majLog();
 setInterval("majLog()",30000);
-
+setInterval("majData()",5000);
 function afficherSelectionHabitat(){
 	
 	var controler = "controle=dashboard&action=afficherSelectionHabitat";
@@ -24,6 +24,39 @@ function majLog(){
 		url: "../index.php",
 		data: dataPOST
 	});
+}
+
+function majData(){
+    var controler = "controle=dashboard&action=RecupererInfos";
+	var habitat = document.getElementById("dselecthabitat");
+	var habitatselect = "habitatselect="+habitat.options[habitat.selectedIndex].value;
+	var numeroSerie = "numeroSerie=\"A02B01\"";
+	var numeroSerie2 = "numeroSerie=\"A02B02\"";
+	var dataPOST = controler+"&"+habitatselect+"&"+numeroSerie;
+		$.ajax({
+			type: "POST",
+			url: "../index.php",
+			data: dataPOST,
+			success: function(data){
+				document.getElementById('intensite0001').innerHTML = data;
+			}
+		});
+	var dataPOST = controler+"&"+habitatselect+"&"+numeroSerie2;
+		$.ajax({
+			type: "POST",
+			url: "../index.php",
+			data: dataPOST,
+			success: function(data){
+				if(data == "0")
+				{
+				document.getElementById('moteurid_0001').checked = false;
+				}
+				if(data == "1")
+				{
+				document.getElementById('moteurid_0001').checked = true;
+				}
+			}
+		});
 }
 
 $(".dselecthabitat").change(

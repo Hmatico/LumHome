@@ -1,5 +1,19 @@
 <?php
 
+	function getInfos(){
+		$i = 0;
+		require("modele/connexionBD.php");
+		$req = 'SELECT cemac.intensite from cemac where numeroSerie='.$_POST['numeroSerie'];
+		$res = mysqli_query($link, $req)
+			or die (utf8_encode(""));
+		while($tab = mysqli_fetch_assoc($res))
+		{
+			$int = $tab['intensite'];
+
+		}
+		return $int;
+	}
+	
 	function GetEtatPiece(){
 		require("modele/connexionBD.php");
 		$i = 6;
