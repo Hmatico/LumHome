@@ -44,4 +44,9 @@
         require("modele/dashboardBD.php");
 		echo getInfos();
     }
+	
+	function getMoteurState(){
+        require("modele/dashboardBD.php");
+		echo getEtatMoteur();
+    }
 ?>

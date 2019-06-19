@@ -9,7 +9,6 @@
 		while($tab = mysqli_fetch_assoc($res))
 		{
 			$int = $tab['intensite'];
-
 		}
 		return $int;
 	}
@@ -108,6 +107,17 @@
 			}
 			return $piece;
 		}
+	}
+	
+	function getEtatMoteur() {
+		require("modele/connexionBD.php");
+		$etat = "";
+		$req= 'select cemac.intensite where cemac.numeroSerie = "A02B02"';
+		$res = mysqli_query($link, $req)	
+			or die (utf8_encode(""));
+		$tab = mysqli_fetch_assoc($res);
+		$etat = $tab['intensite'];
+		return $etat;
 	}
 	
 	function ChangerMoteur(){

@@ -1,7 +1,14 @@
 afficherSelectionHabitat();
-majLog();
-setInterval("majLog()",30000);
-setInterval("majData()",5000);
+
+update();
+
+setInterval("update()",15000);
+
+function update(){
+	majLog();
+	setTimeout("majData()",500);
+}
+
 function afficherSelectionHabitat(){
 	
 	var controler = "controle=dashboard&action=afficherSelectionHabitat";
@@ -47,11 +54,12 @@ function majData(){
 			url: "../index.php",
 			data: dataPOST,
 			success: function(data){
+				document.getElementById('moteurid_0001').disabled = false;
 				if(data == "0")
 				{
 				document.getElementById('moteurid_0001').checked = false;
 				}
-				if(data == "1")
+				else
 				{
 				document.getElementById('moteurid_0001').checked = true;
 				}
@@ -137,6 +145,7 @@ function ChangerEtatMoteur(clicked_id){
 		url: "../index.php",
 		data: dataPOST2
 	});
+	document.getElementById('moteurid_0001').disabled = true;
 }
 
 
