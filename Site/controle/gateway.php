@@ -30,6 +30,7 @@ function getLogs(){
     require("modele/gateway.php");
     sql_request($o."02","moteur",hexdec($moteur));
     sql_request($o."01","ampoule",hexdec($lum));
+	echo $o.'02,"moteur"'. hexdec($moteur) .' + '.$o.'01,"ampoule"'.hexdec($lum);
 }
 
 
