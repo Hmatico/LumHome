@@ -45,7 +45,7 @@ function majData(){
 			url: "../index.php",
 			data: dataPOST,
 			success: function(data){
-				document.getElementById('intensite0001').innerHTML = data;
+				document.getElementById('intensite0001').value = data;
 			}
 		});
 	var dataPOST = controler+"&"+habitatselect+"&"+numeroSerie2;
