@@ -121,14 +121,7 @@ $('.btntteteindre').click(
 			data: dataPOST
 		});
 		$nbPiece = document.getElementsByClassName('etatpieceeteint').length;
-		for ($i = 0; $i < $nbPiece; $i++) 
-		{
-			document.getElementsByClassName('etatpieceeteint')[$i].style.background = "red";
-		}
-		for ($i = 0; $i < $nbPiece; $i++) 
-		{
-			document.getElementsByClassName('etatpieceallume')[$i].style.background = "red";
-		}
+		document.getElementsByClassName('etatpieceallume')[0].style.background = "red";
 });
 
 function ChangerEtatMoteur(clicked_id){
@@ -210,16 +203,6 @@ function ModifierIntensite(clicked_id){
 		url: "../index.php",
 		data: dataPOST2
 	});
-	if(intensite == 0)
-	{
-		document.getElementsByClassName('etatpieceeteint')[0].style.background = "red";
-		document.getElementsByClassName('etatpieceallume')[0].style.background = "red";
-		document.getElementsByClassName('etatpieceeteint')[0].style.background = "red";
-	}
-	else 
-	{
-		document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
-		document.getElementsByClassName('etatpieceallume')[0].style.background = "green";
-		document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
-	}
+	if(intensite == 0) document.getElementsByClassName('etatpieceallume')[0].style.background = "red";
+	else document.getElementsByClassName('etatpieceallume')[0].style.background = "green";
 }
