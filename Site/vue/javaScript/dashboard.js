@@ -120,7 +120,11 @@ $('.btntteteindre').click(
 			url: "../index.php",
 			data: dataPOST
 		});
-		$nbPiece = document.getElementsByClassName('etatpieceallume').length;
+		$nbPiece = document.getElementsByClassName('etatpieceeteint').length;
+		for ($i = 0; $i < $nbPiece; $i++) 
+		{
+			document.getElementsByClassName('etatpieceeteint')[$i].style.background = "red";
+		}
 		for ($i = 0; $i < $nbPiece; $i++) 
 		{
 			document.getElementsByClassName('etatpieceallume')[$i].style.background = "red";
@@ -209,6 +213,13 @@ function ModifierIntensite(clicked_id){
 	if(intensite == 0)
 	{
 		document.getElementsByClassName('etatpieceeteint')[0].style.background = "red";
+		document.getElementsByClassName('etatpieceallume')[0].style.background = "red";
+		document.getElementsByClassName('etatpieceeteint')[0].style.background = "red";
 	}
-	else document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
+	else 
+	{
+		document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
+		document.getElementsByClassName('etatpieceallume')[0].style.background = "green";
+		document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
+	}
 }
