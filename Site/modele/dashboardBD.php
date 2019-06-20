@@ -16,6 +16,8 @@
 	function GetEtatPiece(){
 		require("modele/connexionBD.php");
 		$i = 6;
+		$j = 0;
+		$id = 0;
 		$piece = "";
 		$finligne=0;
 		$req = 'SELECT cemac.etat,piece.nom,piece.type,piece.idPiece from piece inner join cemac on piece.idPiece = cemac.fk_piece where piece.fk_habitat='.$_POST['habitatselect'] ;
@@ -23,17 +25,25 @@
 			or die (utf8_encode("")); 
 		while($tab = mysqli_fetch_assoc($res))
 		{
-			if($i%6==0)$piece = $piece.'<div class ="ligne">';
-			$piece = $piece.'<div class="detatpiece"><div onclick=\"ModifierEtatPiece(this.id)\" class=';
-			if($tab['etat']==0)$piece = $piece.'"etatpieceeteint"';
-			else $piece = $piece.'"etatpieceallume"';
-			$piece = $piece.'></div>'.$tab['nom'].'<a class = "detat" >'.$tab['type'].'</a></div>';
-			if($i%6==5)
+			if ($tab['idPiece'] == $j)
 			{
-				$piece = $piece.'</div>';
-				$finligne=1;
-			}		
-			else $finligne=0;
+				$id = $j;
+				if($i%6==0)$piece = $piece.'<div class ="ligne">';
+				$piece = $piece.'<div class="detatpiece"><div onclick=\"ModifierEtatPiece(this.id)\" class=';
+				if($tab['etat']==0)$piece = $piece.'"etatpieceeteint"';
+				else $piece = $piece.'"etatpieceallume"';
+				$piece = $piece.'></div>'.$tab['nom'].'<a class = "detat" >'.$tab['type'].'</a></div>';
+				if($i%6==5)
+				{
+					$piece = $piece.'</div>';
+					$finligne=1;
+				}		
+				else $finligne=0;
+			}
+			if($id == $j)
+			{
+			$j++;
+			}
 			$i++;
 		}
 		if($finligne = 1) $piece = $piece.'</div>';
