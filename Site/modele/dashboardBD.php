@@ -85,7 +85,7 @@
 				if($type=="ampoule")
 				{
 				$piece .= "<div class=\"Piece\"> <div class=\"Entete_piece\">".$nom." (".$type.")"." </div> <div class=\"contenu_piece\"> <div class=\"leftpiece\"><div class=\"div_colorpicker\"><input type=\"color\" onchange=\"ModifierCouleur(this.id)\" value=\"#".$couleur."\" class=\"colorpicker\" id = \"color000".$idpiece."\"></div>";
-				$piece .= "<div class=\"texte_couleur\">#".$couleur."</div><input onchange=\"ModifierIntensite(this.id)\" class=\"piecerange\" min=\"0\" max=\"100\" id = \"intensite000".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div class=\"texte_intensite\">".$intensite."%</div></div>";
+				$piece .= "<div class=\"texte_couleur\">#".$couleur."</div><input onchange=\"ModifierIntensite(this.id)\" class=\"piecerange\" min=\"0\" max=\"100\" id = \"intensite000".$idpiece."\" value=\"".$intensite."\" type=\"range\"/><div id = \"text_intensite000".$idpiece."\" class=\"texte_intensite\">".$intensite."%</div></div>";
 				$piece .= "<div class=\"rightpiece\"><img src=\"./resources/soleil.png\" class = \"soleil\"><br><a class=\"texteluminosite\"></a></div></div></div>"; // Rajouter Intensite quand la bdd sera clean
 				}
 				if($type=="moteur")

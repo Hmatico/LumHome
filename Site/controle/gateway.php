@@ -12,7 +12,8 @@ function getLogs(){
     $lum = "";
 
     $data_tab = str_split($data,33);
-    for($i=count($data_tab) - 1;$i>=count($data_tab) - 100;$i--){
+    (count($data_tab) - 100 > 0)?$limit = 100:$limit = count($data_tab);
+    for($i=count($data_tab) - 1;$i>=count($data_tab) - $limit;$i--){
         list($t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec) = sscanf($data_tab[$i],"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
         if($t != null){
             if($moteur == ""){
