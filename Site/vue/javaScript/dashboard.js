@@ -112,6 +112,14 @@ $('.btntteteindre').click(
 			url: "../index.php",
 			data: dataPOST
 		});
+        controler = "controle=gateway&action=sendCommand";
+        trame = 'trame=1A02B1a03000065';
+        dataPOST = controler+"&"+trame;
+        $.ajax({
+			type: "POST",
+			url: "../index.php",
+			data: dataPOST
+		});
 		$nbPiece = document.getElementsByClassName('etatpieceallume').length;
 		for ($i = 0; $i < $nbPiece; $i++) 
 		{
