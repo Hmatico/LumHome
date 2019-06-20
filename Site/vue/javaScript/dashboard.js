@@ -182,6 +182,7 @@ function ModifierIntensite(clicked_id){
 	var controler = "controle=dashboard&action=ModifierIntensite";
 	var controler2 = "controle=gateway&action=sendCommand";
 	var trame = '';
+	var $i = 0;
 	var piece = "piece="+clicked_id[clicked_id.length -4]+clicked_id[clicked_id.length -3]+clicked_id[clicked_id.length -2]+clicked_id[clicked_id.length -1];
 	var intensite = ""+document.getElementById(clicked_id).value;
 	if(document.getElementById(clicked_id).value < 10)
@@ -205,4 +206,9 @@ function ModifierIntensite(clicked_id){
 		url: "../index.php",
 		data: dataPOST2
 	});
+	if(intensite == 0)
+	{
+		document.getElementsByClassName('etatpieceeteint')[0].style.background = "red";
+	}
+	else document.getElementsByClassName('etatpieceeteint')[0].style.background = "green";
 }
